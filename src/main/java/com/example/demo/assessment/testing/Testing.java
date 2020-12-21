@@ -1,6 +1,6 @@
-package com.example.demo.testing;
+package com.example.demo.assessment.testing;
 
-import com.example.demo.basicInfo.BasicInfo;
+import com.example.demo.index.basicInfo.BasicInfo;
 
 import javax.persistence.*;
 import java.util.Date;

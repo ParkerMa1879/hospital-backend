@@ -1,4 +1,4 @@
-package com.example.demo.image;
+package com.example.demo.assessment.image;
 
 import java.util.ArrayList;
 import java.util.List;

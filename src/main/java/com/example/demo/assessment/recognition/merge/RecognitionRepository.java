@@ -1,6 +1,5 @@
-package com.example.demo.recognition;
+package com.example.demo.assessment.recognition.merge;
 
-import com.example.demo.recognition.Recognition;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface RecognitionRepository extends JpaRepository<Recognition, Long> {

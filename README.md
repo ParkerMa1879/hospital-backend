@@ -1,1 +1,1 @@
-# please use intellij IDE for developing
+# please use intellij IDEA for developing

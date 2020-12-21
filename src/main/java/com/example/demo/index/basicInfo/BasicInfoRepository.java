@@ -1,7 +1,4 @@
-package com.example.demo.basicInfo;
-
-import com.example.demo.basicInfo.BasicInfo;
+package com.example.demo.index.basicInfo;
 import org.springframework.data.jpa.repository.JpaRepository;
-
 public interface BasicInfoRepository extends JpaRepository<BasicInfo, Long> {
 }

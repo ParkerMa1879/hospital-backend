@@ -1,4 +1,4 @@
-package com.example.demo.recognition;
+package com.example.demo.assessment.recognition.merge;
 
 import java.util.ArrayList;
 import java.util.List;

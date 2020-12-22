@@ -1,4 +1,4 @@
-package com.example.demo.index.basicInfo;
+package com.example.demo.index;
 
 import javax.persistence.*;
 import java.util.Date;

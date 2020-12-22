@@ -1,6 +1,6 @@
 package com.example.demo.assessment.recognition.merge;
 
-import com.example.demo.index.basicInfo.BasicInfo;
+import com.example.demo.index.BasicInfo;
 
 import javax.persistence.*;
 import java.util.Date;

@@ -90,6 +90,55 @@ public class Field {
              "answer12",  "answer13",  "answer14",  "question3",  "question4",  "answer15"
     };
 
+    static String[] cdrFields = {
+            "id", "basicInfoId",  "sum_score",  "answer1",  "answer2",  "answer3",
+             "answer4",  "answer5",  "answer6"
+    };
+
+    static String[] hamdFields = {
+            "id", "basicInfoId",  "sum_score",  "answer1",  "answer2",  "answer3",
+             "answer4",  "answer5",  "answer6",  "answer7",  "answer8",
+            "answer9",  "answer10",  "answer11",  "answer12",  "answer13",
+             "answer14",  "answer15",  "answer16",  "answer17"
+    };
+
+    static String[] hamaFields = {
+            "id", "basicInfoId",  "sum_score",  "answer1",  "answer2",  "answer3",  "answer4",
+             "answer5",  "answer6",  "answer7",  "answer8",  "answer9",  "answer10",
+             "answer11",  "answer12",  "answer13",  "answer14"
+    };
+
+    static String[] dailylifeFields = {
+            "id", "basicInfoId",  "answer1",  "answer2",  "answer3",  "answer4",  "answer5",
+             "answer6",  "answer7",  "answer8",  "answer9",  "answer10",  "sum_score_1",
+             "answer11",  "answer12",  "answer13",  "answer14",  "answer15",  "answer16",
+             "answer17",  "answer18",  "sum_score_2"
+    };
+
+    static String[] executionFields = {
+            "id",  "basicInfoId",  "sum_score",  "answer1",  "answer2",  "answer3",
+             "answer4",  "question1",  "question2",  "question3",  "question4",
+             "question5",  "question6",  "question7",  "question8",  "question9",
+             "question10",  "question11",  "question12",  "question13",  "question14",
+             "question15",  "question16",  "question17",  "question18",  "question19",
+             "question20",  "question21",  "question22",  "question23"
+    };
+
+    static String[] visualReproductionFields = {
+            "id", "basicInfoId",  "sum_score_1",  "answer1",  "answer2",  "answer3",
+             "answer4",  "sum_score_2",  "answer5",  "answer6",  "answer7",
+             "answer8",  "sum_score_3",  "answer9",  "answer10",  "answer11",
+             "answer12",  "sum_score_4",  "answer13",  "answer14",  "answer15",
+             "answer16"
+    };
+
+    static String[] silhouetteQuizFields = {
+            "id",  "basicInfoId",  "sum_score",  "answer1",  "answer2",  "answer3",
+             "answer4",  "answer5",  "answer6",  "answer7",  "answer8",
+             "answer9",  "answer10",  "answer11",  "answer12",  "answer13",
+             "answer14",  "answer15"
+    };
+
     public static StringBuilder originalControllerCode(){
         StringBuilder str = new StringBuilder();
         str.append("public class BasicInfoController {\n");

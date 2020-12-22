@@ -31,8 +31,12 @@ public class CDR {
     @Column(name = "CDR自理")
     private String answer6;
 
+    public CDR(){
 
-    public CDR(String basicInfoId, String sum_score, String answer1, String answer2, String answer3, String answer4, String answer5, String answer6) {
+    }
+
+    public CDR(String basicInfoId, String sum_score, String answer1, String answer2, String answer3,
+               String answer4, String answer5, String answer6) {
         this.basicInfoId = basicInfoId;
         this.sum_score = sum_score;
         this.answer1 = answer1;

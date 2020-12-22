@@ -55,19 +55,13 @@ public class Generater {
     }
 
     public static  void main(String[] argv) throws Exception{
-//        Generater recoGenerater = new Generater();
-//        System.out.println(recoGenerater.getMappingCode(recoGenerater.recoFields));
 
-//        Generater testGenerator = new Generater();
-//        System.out.println(testGenerator.getConstructingCode(testGenerator.testFields));
-//        System.out.println(testGenerator.getMappingCode(testGenerator.testFields));
+//        Generater generator = new Generater();
+//        System.out.println(generator.getControllerCode(Field.originalControllerCode(), "SilhouetteQuiz", "silhouetteQuiz"));
 
-//        Generater infoGenerator = new Generater();
-//        System.out.println(infoGenerator.getControllerCode(Field.originalControllerCode(), "MOCA", "moca"));
-
-        Generater imageGenerator = new Generater();
-        System.out.println(imageGenerator.getConstructingCode(Field.mocaFields, "moca"));
-        System.out.println(imageGenerator.getMappingCode(Field.mocaFields, "moca"));
+        Generater generator = new Generater();
+        System.out.println(generator.getConstructingCode(Field.silhouetteQuizFields, "silhouetteQuiz"));
+        System.out.println(generator.getMappingCode(Field.silhouetteQuizFields, "silhouetteQuiz"));
 
     }
 

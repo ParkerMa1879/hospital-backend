@@ -2,6 +2,7 @@ package com.example.demo.assessment.recognition.Memory;
 
 import javax.persistence.*;
 
+@Entity
 @Table(name = "tb_memory")
 public class Momery {
     @Id

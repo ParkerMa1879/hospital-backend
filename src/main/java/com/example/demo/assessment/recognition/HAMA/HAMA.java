@@ -2,6 +2,7 @@ package com.example.demo.assessment.recognition.HAMA;
 
 import javax.persistence.*;
 
+@Entity
 @Table(name = "tb_hamilton_anxious")
 public class HAMA {
     @Id

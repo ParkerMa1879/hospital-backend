@@ -2,6 +2,7 @@ package com.example.demo.assessment.recognition.SilhouetteQuiz;
 
 import javax.persistence.*;
 
+@Entity
 @Table(name = "tb_silhouette_quiz")
 public class SilhouetteQuiz {
     @Id

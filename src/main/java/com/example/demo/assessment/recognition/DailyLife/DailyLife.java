@@ -2,6 +2,7 @@ package com.example.demo.assessment.recognition.DailyLife;
 
 import javax.persistence.*;
 
+@Entity
 @Table(name = "tb_daily_life")
 public class DailyLife {
     @Id

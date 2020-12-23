@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "Image")
+@Table(name = "tb_image")
 public class Image {
 
     @Id
@@ -15,10 +15,6 @@ public class Image {
 
     @Column(name = "录入时间")
     private Date entryTime;
-
-    @ManyToOne
-    @JoinColumn(name = "病人信息", referencedColumnName = "身份证")
-    private BasicInfo patientInformation;
 
     @Column(name = "MR号")
     private String mrNum;
@@ -47,12 +43,11 @@ public class Image {
     }
 
 
-    public Image(int imageNum, Date entryTime, BasicInfo patientInformation, String mrNum, String headVesselMriMra,
+    public Image(int imageNum, Date entryTime, String mrNum, String headVesselMriMra,
                  String headVesselMriMraFolder, String cranialSpectroscopy, String ctcta, String vascularUltrasound,
                  String tcd) {
         this.imageNum = imageNum;
         this.entryTime = entryTime;
-        this.patientInformation = patientInformation;
         this.mrNum = mrNum;
         this.headVesselMriMra = headVesselMriMra;
         this.headVesselMriMraFolder = headVesselMriMraFolder;
@@ -76,14 +71,6 @@ public class Image {
 
     public void setEntryTime(Date entryTime) {
         this.entryTime = entryTime;
-    }
-
-    public BasicInfo getPatientInformation() {
-        return patientInformation;
-    }
-
-    public void setPatientInformation(BasicInfo patientInformation) {
-        this.patientInformation = patientInformation;
     }
 
     public String getMrNum() {

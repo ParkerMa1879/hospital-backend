@@ -1,6 +1,7 @@
 package com.example.demo.assessment.recognition.MMSE;
 import javax.persistence.*;
 
+@Entity
 @Table(name = "tb_mmse")
 public class MMSE {
     @Id

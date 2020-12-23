@@ -2,6 +2,8 @@ package com.example.demo.assessment.recognition.NIHSS;
 
 import javax.persistence.*;
 
+@Entity
+@Table (name = "tb_nihss")
 public class NIHSS {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

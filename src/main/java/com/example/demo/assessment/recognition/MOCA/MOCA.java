@@ -1,6 +1,7 @@
 package com.example.demo.assessment.recognition.MOCA;
 import javax.persistence.*;
 
+@Entity
 @Table (name = "tb_moca")
 public class MOCA {
     @Id

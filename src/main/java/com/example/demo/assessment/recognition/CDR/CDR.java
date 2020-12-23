@@ -1,6 +1,7 @@
 package com.example.demo.assessment.recognition.CDR;
 import javax.persistence.*;
 
+@Entity
 @Table(name = "tb_cdr")
 public class CDR {
     @Id

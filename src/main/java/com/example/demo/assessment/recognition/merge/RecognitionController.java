@@ -58,7 +58,7 @@ public class RecognitionController {
     public ResponseEntity<Recognition> createRecognition(@RequestBody Recognition recognition) {
         try {
             Recognition _recognition = recognitionRepository
-                    .save(new Recognition(recognition.getRecognitionNum(),recognition.getPatientInformation(),recognition.getRecognitionDate(),
+                    .save(new Recognition(recognition.getRecognitionNum(),recognition.getRecognitionDate(),
                             recognition.getOrientation(),recognition.getTime(),recognition.getLocation(),recognition.getImmediateMemory(),
                             recognition.getComputingPower(),recognition.getMemory(),recognition.getNaming(),recognition.getRepeat(),
                             recognition.getRead(),recognition.getInstruction(),recognition.getExpression(),recognition.getDrawing(),
@@ -133,7 +133,6 @@ public class RecognitionController {
         if (recognitionData.isPresent()) {
             Recognition _recognition = recognitionData.get();
             _recognition.setRecognitionNum(recognition.getRecognitionNum());
-            _recognition.setPatientInformation(recognition.getPatientInformation());
             _recognition.setRecognitionDate(recognition.getRecognitionDate());
             _recognition.setOrientation(recognition.getOrientation());
             _recognition.setTime(recognition.getTime());

@@ -58,7 +58,7 @@ public class ImageController {
     public ResponseEntity<Image> createImage(@RequestBody Image image) {
         try {
             Image _image = imageRepository
-                    .save(new Image(image.getImageNum(),image.getEntryTime(),image.getPatientInformation(),image.getMrNum(),
+                    .save(new Image(image.getImageNum(),image.getEntryTime(),image.getMrNum(),
                             image.getHeadVesselMriMra(),image.getHeadVesselMriMraFolder(),image.getCranialSpectroscopy(),
                             image.getCtcta(),image.getVascularUltrasound(),image.getTcd()));
             return new ResponseEntity<>(_image, HttpStatus.CREATED);
@@ -75,7 +75,6 @@ public class ImageController {
             Image _image = imageData.get();
             _image.setImageNum(image.getImageNum());
             _image.setEntryTime(image.getEntryTime());
-            _image.setPatientInformation(image.getPatientInformation());
             _image.setMrNum(image.getMrNum());
             _image.setHeadVesselMriMra(image.getHeadVesselMriMra());
             _image.setHeadVesselMriMraFolder(image.getHeadVesselMriMraFolder());

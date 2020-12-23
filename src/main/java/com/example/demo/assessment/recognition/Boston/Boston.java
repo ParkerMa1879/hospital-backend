@@ -2,6 +2,8 @@ package com.example.demo.assessment.recognition.Boston;
 
 import javax.persistence.*;
 
+@Entity
+@Table(name = "tb_boston")
 public class Boston {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

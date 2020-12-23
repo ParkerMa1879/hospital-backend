@@ -6,15 +6,11 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "Recognition")
+@Table(name = "tb_recognition")
 public class Recognition {
     @Id
     @Column(name = "认知编号")
     private int RecognitionNum;
-
-    @ManyToOne
-    @JoinColumn(name = "病人信息", referencedColumnName = "身份证")
-    private BasicInfo patientInformation;
 
     @Column(name = "认知日期")
     private Date RecognitionDate;
@@ -753,7 +749,7 @@ public class Recognition {
     private String toast;
 
 
-    public Recognition(int recognitionNum, BasicInfo patientInformation, Date recognitionDate, int orientation, int time,
+    public Recognition(int recognitionNum, Date recognitionDate, int orientation, int time,
                        int location, int immediateMemory, int computingPower, int memory, int naming, int repeat,
                        int read, int instruction, int expression, int drawing, int moCA, int carryOut, int connect,
                        int cube, int drawClockOutline, int numebr, int pointer, int naming1, float instantMemory1,
@@ -793,7 +789,6 @@ public class Recognition {
                        int tinGait2d, int tinGait3, int tinGait4, int tinGait5, int tinGait6, int tinGait7, int tugTest,
                        int walker, String toast) {
         this.RecognitionNum = recognitionNum;
-        this.patientInformation = patientInformation;
         this.RecognitionDate = recognitionDate;
         this.orientation = orientation;
         this.time = time;
@@ -1051,14 +1046,6 @@ public class Recognition {
 
     public void setRecognitionNum(int recognitionNum) {
         RecognitionNum = recognitionNum;
-    }
-
-    public BasicInfo getPatientInformation() {
-        return patientInformation;
-    }
-
-    public void setPatientInformation(BasicInfo patientInformation) {
-        this.patientInformation = patientInformation;
     }
 
     public Date getRecognitionDate() {

@@ -2,6 +2,7 @@ package com.example.demo.assessment.recognition.VisualReproduction;
 
 import javax.persistence.*;
 
+@Entity
 @Table(name = "tb_visual_reproductio")
 public class VisualReproduction {
     @Id

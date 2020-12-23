@@ -58,7 +58,7 @@ public class TestingController {
     public ResponseEntity<Testing> createTesting(@RequestBody Testing testing) {
         try {
             Testing _testing = testingRepository
-                    .save(new Testing(testing.getAuxiliaryCheckNum(),testing.getPatientInformation(),
+                    .save(new Testing(testing.getAuxiliaryCheckNum(),
                             testing.getAuxiliaryExaminationDate(),testing.getHypertensionRandom(),
                             testing.getHeartRate(),testing.getRandomBloodSugar(),testing.getFastingBloodGlucose(),
                             testing.getTwoHourBloodGluoseAftermeal(),testing.getHba1c(),testing.getCho(),testing.getTg(),
@@ -83,7 +83,6 @@ public class TestingController {
         if (testingData.isPresent()) {
             Testing _testing = testingData.get();
             _testing.setAuxiliaryCheckNum(testing.getAuxiliaryCheckNum());
-            _testing.setPatientInformation(testing.getPatientInformation());
             _testing.setAuxiliaryExaminationDate(testing.getAuxiliaryExaminationDate());
             _testing.setHypertensionRandom(testing.getHypertensionRandom());
             _testing.setHeartRate(testing.getHeartRate());

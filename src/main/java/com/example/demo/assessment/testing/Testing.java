@@ -1,20 +1,14 @@
 package com.example.demo.assessment.testing;
 
-import com.example.demo.index.BasicInfo;
-
 import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "Testing")
+@Table(name = "tb_testing")
 public class Testing {
     @Id
     @Column(name = "辅助检查号")
     private long auxiliaryCheckNum;
-
-    @ManyToOne
-    @JoinColumn(name = "病人信息", referencedColumnName = "身份证")
-    private BasicInfo patientInformation;
 
     @Column(name = "辅助检查日期")
     private Date auxiliaryExaminationDate;
@@ -124,14 +118,13 @@ public class Testing {
     }
 
 
-    public Testing(long auxiliaryCheckNum, BasicInfo patientInformation, Date auxiliaryExaminationDate, Date hypertensionRandom,
+    public Testing(long auxiliaryCheckNum, Date auxiliaryExaminationDate, Date hypertensionRandom,
                    float heartRate, float randomBloodSugar, float fastingBloodGlucose, float twoHourBloodGluoseAftermeal,
                    float hba1c, float cho, float tg, float ldl, float hdl, float apolipoproteinA, float apolipoproteinB,
                    float bun, float cr, float egfr, float crp, float hcyHomocysteine, float prothrombinTime, float internationalNormalizedRatio,
                    float activatedPartialThrombinTime, float thrombinTime, float fibrinogen, float dDimer, float adp, float arachidonicAcid,
                    float hb, float apoe, float sloco1b1, float aβ, float ttau, float ptau, float srage, float bace1) {
         this.auxiliaryCheckNum = auxiliaryCheckNum;
-        this.patientInformation = patientInformation;
         this.auxiliaryExaminationDate = auxiliaryExaminationDate;
         this.hypertensionRandom = hypertensionRandom;
         this.heartRate = heartRate;
@@ -174,14 +167,6 @@ public class Testing {
 
     public void setAuxiliaryCheckNum(long auxiliaryCheckNum) {
         this.auxiliaryCheckNum = auxiliaryCheckNum;
-    }
-
-    public BasicInfo getPatientInformation() {
-        return patientInformation;
-    }
-
-    public void setPatientInformation(BasicInfo patientInformation) {
-        this.patientInformation = patientInformation;
     }
 
     public Date getAuxiliaryExaminationDate() {

@@ -1,6 +1,7 @@
 package com.example.demo.assessment.recognition.Execution;
 import javax.persistence.*;
 
+@Entity
 @Table (name = "tb_execution")
 public class Execution {
     @Id

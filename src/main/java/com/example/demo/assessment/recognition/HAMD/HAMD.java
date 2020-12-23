@@ -2,6 +2,7 @@ package com.example.demo.assessment.recognition.HAMD;
 
 import javax.persistence.*;
 
+@Entity
 @Table(name = "tb_hamilton_depressed")
 public class HAMD {
     @Id

@@ -2,6 +2,7 @@ package com.example.demo.assessment.recognition.Gait;
 
 import javax.persistence.*;
 
+@Entity
 @Table(name = "tb_gait")
 public class Gait {
     @Id

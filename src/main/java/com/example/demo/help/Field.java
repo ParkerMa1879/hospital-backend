@@ -60,7 +60,7 @@ public class Field {
     };
 
     static String[] infoFields = {
-            "name",  "age",  "identification",  "gender",  "date",  "namePinyin",  "mrRaw",
+            "id", "name",  "age",  "identification",  "gender",  "date",  "namePinyin",  "mrRaw",
             "mrSort",  "mrDate",  "remarkForFollowupVisit",  "csvdNum",  "primDiag",  "followupYear",
             "dropOut",  "hospitalNum",  "bedNum",  "clinicNum",  "birthDate",  "ethnic",  "eduLevel",
             "eduYear",  "profession",  "work",  "address",  "contact",  "specimenRemark",  "blood",
@@ -137,6 +137,36 @@ public class Field {
              "answer4",  "answer5",  "answer6",  "answer7",  "answer8",
              "answer9",  "answer10",  "answer11",  "answer12",  "answer13",
              "answer14",  "answer15"
+    };
+
+    static String[] bostonFields = {
+            "id",   "basicInfoId",  "sum_score",  "answer1",  "answer2",  "answer3",
+             "answer4",  "answer5"
+    };
+
+    static String[] memoryFields = {
+            "id",  "basicInfoId",  "sum_score_1",  "answer1",  "answer2",  "answer3",
+             "question1",  "question2",  "question3",  "question4",  "question5",
+             "question6",  "question7",  "question8",  "question9",  "question10",
+             "question11",  "question12",  "question13",  "question14",  "question15",
+             "question16",  "question17",  "sum_score_2",  "answer4",  "answer5",
+             "question18",  "question19",  "question20"
+    };
+
+    static String[] gaitFields = {
+            "id",   "basicInfoId",  "sum_score_1",  "answer1",  "answer2",  "answer3",  "answer4",
+             "answer5",  "sum_score_2",  "answer6",  "answer7",  "answer8",  "answer9",
+             "answer10",  "answer11",  "answer12",  "answer13",  "answer14",  "answer15",
+             "sum_score_3",  "answer16",  "answer17",  "answer18",  "answer19",  "answer20",
+             "answer21",  "answer22",  "answer23",  "answer24",  "answer25",  "question1",
+             "question2"
+    };
+
+    static String[] nihssFields = {
+            "id",   "basicInfoId",  "sum_score",  "answer1",  "answer2",  "answer3",  "answer4",
+             "answer5",  "answer6",  "answer7",  "question1",  "answer8",  "question2",
+             "answer9",  "question3",  "answer10",  "question4",  "answer11",  "answer12",
+             "answer13",  "answer14",  "question5",  "answer15"
     };
 
     public static StringBuilder originalControllerCode(){

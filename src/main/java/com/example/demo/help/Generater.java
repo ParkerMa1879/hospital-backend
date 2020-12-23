@@ -57,11 +57,11 @@ public class Generater {
     public static  void main(String[] argv) throws Exception{
 
 //        Generater generator = new Generater();
-//        System.out.println(generator.getControllerCode(Field.originalControllerCode(), "SilhouetteQuiz", "silhouetteQuiz"));
+//        System.out.println(generator.getControllerCode(Field.originalControllerCode(), "NIHSS", "nihss"));
 
         Generater generator = new Generater();
-        System.out.println(generator.getConstructingCode(Field.silhouetteQuizFields, "silhouetteQuiz"));
-        System.out.println(generator.getMappingCode(Field.silhouetteQuizFields, "silhouetteQuiz"));
+        System.out.println(generator.getConstructingCode(Field.infoFields, "basicInfo"));
+        System.out.println(generator.getMappingCode(Field.infoFields, "basicInfo"));
 
     }
 

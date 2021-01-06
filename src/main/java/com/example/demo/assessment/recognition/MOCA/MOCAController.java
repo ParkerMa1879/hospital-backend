@@ -75,7 +75,6 @@ public class MOCAController {
             String sum_score = Integer.toString(CalculationUtils.getSumScore(moca, 1, 15));
 
             MOCA _moca = mocaData.get();
-            _moca.setId(moca.getId());
             _moca.setBasicInfoId(moca.getBasicInfoId());
             _moca.setSum_score(sum_score);
             _moca.setSum_score_1(sum_score_1);

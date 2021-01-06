@@ -66,7 +66,6 @@ public class HAMDController {
         if (hamdData.isPresent()) {
             String sum_score = Integer.toString(CalculationUtils.getSumScore(hamd, 1, 17));
             HAMD _hamd = hamdData.get();
-            _hamd.setId(hamd.getId());
             _hamd.setBasicInfoId(hamd.getBasicInfoId());
             _hamd.setSum_score(sum_score);
             _hamd.setAnswer1(hamd.getAnswer1());

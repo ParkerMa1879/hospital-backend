@@ -70,7 +70,6 @@ public class SilhouetteQuizController {
             String sum_score = Integer.toString(CalculationUtils.getSumScore(silhouetteQuiz, 1, 15));
             SilhouetteQuiz _silhouetteQuiz = silhouetteQuizData.get();
 
-            _silhouetteQuiz.setId(silhouetteQuiz.getId());
             _silhouetteQuiz.setBasicInfoId(silhouetteQuiz.getBasicInfoId());
             _silhouetteQuiz.setSum_score(sum_score);
             _silhouetteQuiz.setAnswer1(silhouetteQuiz.getAnswer1());

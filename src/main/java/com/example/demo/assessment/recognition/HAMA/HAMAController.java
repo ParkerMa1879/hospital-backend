@@ -66,7 +66,6 @@ public class HAMAController {
         if (hamaData.isPresent()) {
             String sum_score = Integer.toString(CalculationUtils.getSumScore(hama, 1, 14));
             HAMA _hama = hamaData.get();
-            _hama.setId(hama.getId());
             _hama.setBasicInfoId(hama.getBasicInfoId());
             _hama.setSum_score(sum_score);
             _hama.setAnswer1(hama.getAnswer1());

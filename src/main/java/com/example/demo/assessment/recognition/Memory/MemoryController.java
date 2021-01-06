@@ -75,7 +75,6 @@ public class MemoryController {
 
             Memory _memory = memoryData.get();
 
-            _memory.setId(memory.getId());
             _memory.setBasicInfoId(memory.getBasicInfoId());
             _memory.setSum_score_1(sum_score_1);
             _memory.setAnswer1(memory.getAnswer1());

@@ -347,6 +347,9 @@ public class BasicInfo {
         this. familyHistory  = familyHistory;
         this. familyHistoryDiscription  =familyHistoryDiscription;
     }
+    public long getId() {
+        return id;
+    }
 
     public String getName() {
         return name;

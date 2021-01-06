@@ -68,7 +68,6 @@ public class MSEEController {
             String sum_score_1 = Integer.toString(CalculationUtils.getSumScore(mmse, 1, 2));
             String sum_score = Integer.toString(CalculationUtils.getSumScore(mmse, 1, 11));
 
-            _mmse.setId(mmse.getId());
             _mmse.setBasicInfoId(mmse.getBasicInfoId());
             _mmse.setAnswer1(mmse.getAnswer1());
             _mmse.setAnswer2(mmse.getAnswer2());

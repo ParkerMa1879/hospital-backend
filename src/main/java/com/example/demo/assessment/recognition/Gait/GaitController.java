@@ -76,7 +76,6 @@ public class GaitController {
 
             Gait _gait = gaitData.get();
 
-            _gait.setId(gait.getId());
             _gait.setBasicInfoId(gait.getBasicInfoId());
             _gait.setSum_score_1(sum_score_1);
             _gait.setAnswer1(gait.getAnswer1());

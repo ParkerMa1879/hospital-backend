@@ -117,10 +117,6 @@ public class MOCA {
         return id;
     }
 
-    public void setId(String id) {
-        this.id = id;
-    }
-
     public String getBasicInfoId() {
         return basicInfoId;
     }

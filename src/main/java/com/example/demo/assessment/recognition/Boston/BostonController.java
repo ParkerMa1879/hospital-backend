@@ -65,7 +65,6 @@ public class BostonController {
 
             Boston _boston = bostonData.get();
 
-            _boston.setId(boston.getId());
             _boston.setBasicInfoId(boston.getBasicInfoId());
             _boston.setSum_score(sum_score);
             _boston.setAnswer1(boston.getAnswer1());

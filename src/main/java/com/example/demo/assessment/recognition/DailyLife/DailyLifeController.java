@@ -71,7 +71,6 @@ public class DailyLifeController {
             String sum_score_2 = Integer.toString(CalculationUtils.getSumScore(dailylife, 11, 18));
             DailyLife _dailylife = dailylifeData.get();
 
-            _dailylife.setId(dailylife.getId());
             _dailylife.setBasicInfoId(dailylife.getBasicInfoId());
             _dailylife.setAnswer1(dailylife.getAnswer1());
             _dailylife.setAnswer2(dailylife.getAnswer2());

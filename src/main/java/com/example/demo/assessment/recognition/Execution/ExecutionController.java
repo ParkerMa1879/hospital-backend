@@ -74,7 +74,6 @@ public class ExecutionController {
 
             Execution _execution = executionData.get();
 
-            _execution.setId(execution.getId());
             _execution.setBasicInfoId(execution.getBasicInfoId());
             _execution.setSum_score(sum_score);
             _execution.setAnswer1(execution.getAnswer1());

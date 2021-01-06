@@ -81,7 +81,6 @@ public class VisualReproductionController {
 
             VisualReproduction _visualReproduction = visualReproductionData.get();
 
-            _visualReproduction.setId(visualReproduction.getId());
             _visualReproduction.setBasicInfoId(visualReproduction.getBasicInfoId());
             _visualReproduction.setSum_score_1(sum_score_1);
             _visualReproduction.setAnswer1(visualReproduction.getAnswer1());

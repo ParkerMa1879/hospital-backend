@@ -70,7 +70,6 @@ public class NIHSSController {
 
             NIHSS _nihss = nihssData.get();
 
-            _nihss.setId(nihss.getId());
             _nihss.setBasicInfoId(nihss.getBasicInfoId());
             _nihss.setSum_score(sum_score);
             _nihss.setAnswer1(nihss.getAnswer1());

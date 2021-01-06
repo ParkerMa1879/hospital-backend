@@ -35,8 +35,7 @@ public class BasicInfoController {
     public ResponseEntity<List<BasicInfo>> getAllBasicInfos(@RequestParam(required = false) String name) {
         try {
             List<BasicInfo> basicInfos = new ArrayList<>();
-
-            basicInfos.addAll(basicInfoRepository.findAll());
+            basicInfoRepository.findAll().forEach(basicInfos::add);
 
             if (basicInfos.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -59,33 +58,29 @@ public class BasicInfoController {
     public ResponseEntity<BasicInfo> createBasicInfo(@RequestBody BasicInfo basicInfo) {
         try {
             BasicInfo _basicInfo = basicInfoRepository
-                    .save(new BasicInfo(basicInfo.getName(),basicInfo.getAge(),
-                            basicInfo.getIdentification(),basicInfo.getGender(),basicInfo.getDate(),
-                            basicInfo.getNamePinyin(),basicInfo.getMrRaw(),basicInfo.getMrSort(),basicInfo.getMrDate(),
-                            basicInfo.getRemarkForFollowupVisit(),basicInfo.getCsvdNum(),basicInfo.getPrimDiag(),
+                    .save(new BasicInfo(basicInfo.getName(),basicInfo.getAge(),basicInfo.getIdentification(),basicInfo.getGender(),
+                            basicInfo.getDate(),basicInfo.getNamePinyin(),basicInfo.getMrRaw(),basicInfo.getMrSort(),
+                            basicInfo.getMrDate(),basicInfo.getRemarkForFollowupVisit(),basicInfo.getPrimDiag(),
                             basicInfo.getFollowupYear(),basicInfo.getDropOut(),basicInfo.getHospitalNum(),
-                            basicInfo.getBedNum(),basicInfo.getClinicNum(),basicInfo.getBirthDate(),
-                            basicInfo.getEthnic(),basicInfo.getEduLevel(),basicInfo.getEduYear(),
-                            basicInfo.getProfession(),basicInfo.getWork(),basicInfo.getAddress(),
-                            basicInfo.getContact(),basicInfo.getSpecimenRemark(),basicInfo.getBlood(),
-                            basicInfo.getBloodBox(),basicInfo.getBloodSampleNum(),basicInfo.getCerebrospinalFluidNum(),
-                            basicInfo.getUrineNum(),basicInfo.getMedicalHistory(),basicInfo.getMemoryDeclineCourse(),
-                            basicInfo.getIncreasedMemoryImpairment(),basicInfo.getMaritalStatus(),
-                            basicInfo.getHeight(),basicInfo.getWeight(),basicInfo.getCerebrovascularDisease(),
-                            basicInfo.getCerebrovascularDiseaseYear(),basicInfo.getStableCerebrovascularDisease(),
-                            basicInfo.getCerebrovascularDiseaseMedication(),basicInfo.getCnsDiseaseDescription(),
-                            basicInfo.getHypertension(),basicInfo.getHypertensionYear(),
-                            basicInfo.getHighestHypertension(),basicInfo.getAverageHypertension(),
-                            basicInfo.getStableHypertension(),basicInfo.getHypertensionMedication(),
-                            basicInfo.getDiabetes(),basicInfo.getDiabetesYear(),basicInfo.getStableDiabetes(),
-                            basicInfo.getDiabetesMedication(),basicInfo.getCoronaryDisease(),
+                            basicInfo.getBedNum(),basicInfo.getClinicNum(),basicInfo.getBirthDate(), basicInfo.geteThnic(),
+                            basicInfo.getEduLevel(),basicInfo.getEduYear(),basicInfo.getProfession(),
+                            basicInfo.getWork(),basicInfo.getAddress(),basicInfo.getContact(),basicInfo.getSpecimenRemark(),
+                            basicInfo.getBlood(),basicInfo.getBloodbox(),basicInfo.getBloodSampleNum(),
+                            basicInfo.getCerebrospinalFluidNum(),basicInfo.getUrineNum(),basicInfo.getMedicalHistory(),
+                            basicInfo.getMemoryDeclineCourse(),basicInfo.getIncreasedMemoryImpairment(),
+                            basicInfo.getMaritalStatus(),basicInfo.getHeight(),basicInfo.getWeight(),
+                            basicInfo.getCerebrovascularDisease(),basicInfo.getCerebrovascularDiseaseYear(),
+                            basicInfo.getStableCerebrovascularDisease(),basicInfo.getCerebrovascularDiseaseMedication(),
+                            basicInfo.getCnsDiseaseDescription(),basicInfo.getHypertension(),basicInfo.getHypertensionYear(),
+                            basicInfo.getHighestHypertension(),basicInfo.getAverageHypertension(),basicInfo.getStableHypertension(),
+                            basicInfo.getHypertensionMedication(),basicInfo.getDiabetes(),basicInfo.getDiabetesYear(),
+                            basicInfo.getStableDiabetes(),basicInfo.getDiabetesMedication(),basicInfo.getCoronaryDisease(),
                             basicInfo.getCoronaryDiseaseYear(),basicInfo.getStableCoronaryDisease(),
-                            basicInfo.getAtrialFibrillation(),basicInfo.getAtrialFibrillationYear(),
-                            basicInfo.getAtrialFibrillationControl(),basicInfo.getHyperlipidemia(),
-                            basicInfo.getHyperlipidemiaYear(),basicInfo.getStableHyperlipidemia(),
-                            basicInfo.getHyperlipidemiaMedication(),basicInfo.getMedicalRemark(),
-                            basicInfo.getOtherMedicine(),basicInfo.getSmoke(),basicInfo.getSmokeYear(),
-                            basicInfo.getSmokeNumPerDay(),basicInfo.getQuitSmoking(),
+                            basicInfo.geTatrialFibrillation(),basicInfo.getAtrialFibrillationYear(),
+                            basicInfo.getAtrialFibrillationControl(),basicInfo.getHyperlipidemia(),basicInfo.getHyperlipidemiaYear(),
+                            basicInfo.getStableHyperlipidemia(),basicInfo.getHyperlipidemiaMedication(),
+                            basicInfo.getMedicalRemark(),basicInfo.getOtherMedicine(),basicInfo.getSmoke(),
+                            basicInfo.getSmokeYear(),basicInfo.getSmokeNumPerDay(),basicInfo.getQuitSmoking(),
                             basicInfo.getQuitSmokingYear(),basicInfo.getDrink(),basicInfo.getHistoryOfAlcoholism(),
                             basicInfo.getAlcoholGPerDay(),basicInfo.getQuitDrinking(),basicInfo.getQuitDrinkingYear(),
                             basicInfo.getFamilyHistory(),basicInfo.getFamilyHistoryDiscription()));
@@ -101,8 +96,6 @@ public class BasicInfoController {
 
         if (basicInfoData.isPresent()) {
             BasicInfo _basicInfo = basicInfoData.get();
-
-            _basicInfo.setId(basicInfo.getId());
             _basicInfo.setName(basicInfo.getName());
             _basicInfo.setAge(basicInfo.getAge());
             _basicInfo.setIdentification(basicInfo.getIdentification());
@@ -113,7 +106,6 @@ public class BasicInfoController {
             _basicInfo.setMrSort(basicInfo.getMrSort());
             _basicInfo.setMrDate(basicInfo.getMrDate());
             _basicInfo.setRemarkForFollowupVisit(basicInfo.getRemarkForFollowupVisit());
-            _basicInfo.setCsvdNum(basicInfo.getCsvdNum());
             _basicInfo.setPrimDiag(basicInfo.getPrimDiag());
             _basicInfo.setFollowupYear(basicInfo.getFollowupYear());
             _basicInfo.setDropOut(basicInfo.getDropOut());
@@ -121,7 +113,7 @@ public class BasicInfoController {
             _basicInfo.setBedNum(basicInfo.getBedNum());
             _basicInfo.setClinicNum(basicInfo.getClinicNum());
             _basicInfo.setBirthDate(basicInfo.getBirthDate());
-            _basicInfo.setEthnic(basicInfo.getEthnic());
+            _basicInfo.seteThnic(basicInfo.geteThnic());
             _basicInfo.setEduLevel(basicInfo.getEduLevel());
             _basicInfo.setEduYear(basicInfo.getEduYear());
             _basicInfo.setProfession(basicInfo.getProfession());
@@ -130,7 +122,7 @@ public class BasicInfoController {
             _basicInfo.setContact(basicInfo.getContact());
             _basicInfo.setSpecimenRemark(basicInfo.getSpecimenRemark());
             _basicInfo.setBlood(basicInfo.getBlood());
-            _basicInfo.setBloodBox(basicInfo.getBloodBox());
+            _basicInfo.setBloodBox(basicInfo.getBloodbox());
             _basicInfo.setBloodSampleNum(basicInfo.getBloodSampleNum());
             _basicInfo.setCerebrospinalFluidNum(basicInfo.getCerebrospinalFluidNum());
             _basicInfo.setUrineNum(basicInfo.getUrineNum());
@@ -158,7 +150,7 @@ public class BasicInfoController {
             _basicInfo.setCoronaryDisease(basicInfo.getCoronaryDisease());
             _basicInfo.setCoronaryDiseaseYear(basicInfo.getCoronaryDiseaseYear());
             _basicInfo.setStableCoronaryDisease(basicInfo.getStableCoronaryDisease());
-            _basicInfo.setAtrialFibrillation(basicInfo.getAtrialFibrillation());
+            _basicInfo.setTrialFibrillation(basicInfo.geTatrialFibrillation());
             _basicInfo.setAtrialFibrillationYear(basicInfo.getAtrialFibrillationYear());
             _basicInfo.setAtrialFibrillationControl(basicInfo.getAtrialFibrillationControl());
             _basicInfo.setHyperlipidemia(basicInfo.getHyperlipidemia());
@@ -179,8 +171,6 @@ public class BasicInfoController {
             _basicInfo.setQuitDrinkingYear(basicInfo.getQuitDrinkingYear());
             _basicInfo.setFamilyHistory(basicInfo.getFamilyHistory());
             _basicInfo.setFamilyHistoryDiscription(basicInfo.getFamilyHistoryDiscription());
-
-
             return new ResponseEntity<>(basicInfoRepository.save(_basicInfo), HttpStatus.OK);
         } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
@@ -200,7 +190,6 @@ public class BasicInfoController {
     @DeleteMapping("/basicInfos")
     public ResponseEntity<HttpStatus> deleteAllBasicInfos() {
         try {
-
             basicInfoRepository.deleteAll();
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         } catch (Exception e) {

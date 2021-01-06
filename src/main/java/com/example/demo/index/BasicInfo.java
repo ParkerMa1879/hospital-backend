@@ -8,7 +8,7 @@ import java.util.Date;
 public class BasicInfo {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String id;
+    private long id;
 
     @Column(name = "姓名")
     private String name;
@@ -252,122 +252,110 @@ public class BasicInfo {
     public BasicInfo() {
     }
 
-    public BasicInfo(String name, int age, long identification, String gender, Date date, String namePinyin,
-                     int mrRaw, int mrSort, int mrDate, String remarkForFollowupVisit, int csvdNum, String primDiag,
-                     int followupYear, int dropOut, long hospitalNum, long bedNum, long clinicNum, Date birthDate,
-                     String ethnic, String eduLevel, int eduYear, String profession, String work, String address,
-                     long contact, String specimenRemark, String blood, int bloodBox, int bloodSampleNum,
-                     int cerebrospinalFluidNum, int urineNum, String medicalHistory, int memoryDeclineCourse,
-                     int increasedMemoryImpairment, String maritalStatus, int height, int weight,
-                     String cerebrovascularDisease, int cerebrovascularDiseaseYear, String stableCerebrovascularDisease,
-                     String cerebrovascularDiseaseMedication, String cnsDiseaseDescription, String hypertension,
-                     String hypertensionYear, String highestHypertension, String averageHypertension,
-                     String stableHypertension, String hypertensionMedication, String diabetes, int diabetesYear,
-                     String stableDiabetes, String diabetesMedication, String coronaryDisease, int coronaryDiseaseYear,
-                     String stableCoronaryDisease, String atrialFibrillation, int atrialFibrillationYear,
-                     String atrialFibrillationControl, String hyperlipidemia, int hyperlipidemiaYear,
-                     String stableHyperlipidemia, String hyperlipidemiaMedication, String medicalRemark,
-                     String otherMedicine, String smoke, int smokeYear, int smokeNumPerDay, String quitSmoking,
-                     int quitSmokingYear, String drink, int historyOfAlcoholism, int alcoholGPerDay,
-                     String quitDrinking, int quitDrinkingYear, String familyHistory, String familyHistoryDiscription) {
+
+
+    public BasicInfo(String name, int age, long identification, String gender, Date date, String namePinyin, int mrRaw,
+                     int mrSort, int mrDate, String remarkForFollowupVisit, String primDiag, int followupYear,
+                     int dropOut,long hospitalNum,long bedNum,long clinicNum, Date birthDate, String ethnic,
+                     String eduLevel, int eduYear, String profession,String work, String address, long contact,
+                     String specimenRemark, String blood, int bloodBox, int bloodSampleNum, int cerebrospinalFluidNum,
+                     int urineNum, String medicalHistory, int memoryDeclineCourse, int increasedMemoryImpairment,
+                     String maritalStatus, int height, int weight, String cerebrovascularDisease, int cerebrovascularDiseaseYear,
+                     String stableCerebrovascularDisease, String cerebrovascularDiseaseMedication, String cnsDiseaseDescription,
+                     String hypertension, String hypertensionYear, String highestHypertension, String averageHypertension,
+                     String stableHypertension, String hypertensionMedication, String diabetes, int diabetesYear, String stableDiabetes,
+                     String diabetesMedication, String coronaryDisease, int coronaryDiseaseYear, String stableCoronaryDisease,
+                     String atrialFibrillation, int atrialFibrillationYear, String atrialFibrillationControl, String hyperlipidemia,
+                     int hyperlipidemiaYear, String stableHyperlipidemia, String hyperlipidemiaMedication, String medicalRemark,
+                     String otherMedicine, String smoke, int smokeYear, int smokeNumPerDay, String quitSmoking, int quitSmokingYear,
+                     String Drink, int historyOfAlcoholism, int alcoholGPerDay, String quitDrinking, int quitDrinkingYear,
+                     String familyHistory, String familyHistoryDiscription
+    ) {
         this.name = name;
         this.age = age;
         this.identification = identification;
         this.gender = gender;
-        this.date = date;
-        this.namePinyin = namePinyin;
-        this.mrRaw = mrRaw;
-        this.mrSort = mrSort;
-        this.mrDate = mrDate;
-        this.remarkForFollowupVisit = remarkForFollowupVisit;
-        this.csvdNum = csvdNum;
-        this.primDiag = primDiag;
-        this.followupYear = followupYear;
-        this.dropOut = dropOut;
-        this.hospitalNum = hospitalNum;
-        this.bedNum = bedNum;
-        this.clinicNum = clinicNum;
-        this.birthDate = birthDate;
-        this.ethnic = ethnic;
-        this.eduLevel = eduLevel;
-        this.eduYear = eduYear;
-        this.profession = profession;
-        this.work = work;
-        this.address = address;
-        this.contact = contact;
-        this.specimenRemark = specimenRemark;
-        this.blood = blood;
-        this.bloodBox = bloodBox;
-        this.bloodSampleNum = bloodSampleNum;
-        this.cerebrospinalFluidNum = cerebrospinalFluidNum;
-        this.urineNum = urineNum;
-        this.medicalHistory = medicalHistory;
-        this.memoryDeclineCourse = memoryDeclineCourse;
-        this.increasedMemoryImpairment = increasedMemoryImpairment;
-        this.maritalStatus = maritalStatus;
-        this.height = height;
-        this.weight = weight;
-        this.cerebrovascularDisease = cerebrovascularDisease;
-        this.cerebrovascularDiseaseYear = cerebrovascularDiseaseYear;
-        this.stableCerebrovascularDisease = stableCerebrovascularDisease;
-        this.cerebrovascularDiseaseMedication = cerebrovascularDiseaseMedication;
-        this.cnsDiseaseDescription = cnsDiseaseDescription;
-        this.hypertension = hypertension;
-        this.hypertensionYear = hypertensionYear;
-        this.highestHypertension = highestHypertension;
-        this.averageHypertension = averageHypertension;
-        this.stableHypertension = stableHypertension;
-        this.hypertensionMedication = hypertensionMedication;
-        this.diabetes = diabetes;
-        this.diabetesYear = diabetesYear;
-        this.stableDiabetes = stableDiabetes;
-        this.diabetesMedication = diabetesMedication;
-        this.coronaryDisease = coronaryDisease;
-        this.coronaryDiseaseYear = coronaryDiseaseYear;
-        this.stableCoronaryDisease = stableCoronaryDisease;
-        this.atrialFibrillation = atrialFibrillation;
-        this.atrialFibrillationYear = atrialFibrillationYear;
-        this.atrialFibrillationControl = atrialFibrillationControl;
-        this.hyperlipidemia = hyperlipidemia;
-        this.hyperlipidemiaYear = hyperlipidemiaYear;
-        this.stableHyperlipidemia = stableHyperlipidemia;
-        this.hyperlipidemiaMedication = hyperlipidemiaMedication;
-        this.medicalRemark = medicalRemark;
-        this.otherMedicine = otherMedicine;
-        this.smoke = smoke;
-        this.smokeYear = smokeYear;
-        this.smokeNumPerDay = smokeNumPerDay;
-        this.quitSmoking = quitSmoking;
-        this.quitSmokingYear = quitSmokingYear;
-        Drink = drink;
-        this.historyOfAlcoholism = historyOfAlcoholism;
-        this.alcoholGPerDay = alcoholGPerDay;
-        this.quitDrinking = quitDrinking;
-        this.quitDrinkingYear = quitDrinkingYear;
-        this.familyHistory = familyHistory;
-        this.familyHistoryDiscription = familyHistoryDiscription;
-    }
-
-    public String getId() {
-        return id;
-    }
-
-    public void setId(String id) {
-        this.id = id;
+        this. date = date;
+        this. namePinyin = namePinyin;
+        this. mrRaw = mrRaw;
+        this. mrSort = mrSort;
+        this. mrDate = mrDate;
+        this. remarkForFollowupVisit = remarkForFollowupVisit;
+        this. primDiag = primDiag;
+        this. followupYear = followupYear;
+        this. dropOut = dropOut;
+        this. hospitalNum = hospitalNum;
+        this. bedNum = bedNum;
+        this. clinicNum = clinicNum;
+        this. birthDate = birthDate;
+        this. ethnic = ethnic;
+        this. eduLevel = eduLevel;
+        this. eduYear = eduYear;
+        this. profession = profession;
+        this. work = work;
+        this. address = address;
+        this. contact = contact;
+        this. specimenRemark = specimenRemark;
+        this. blood = blood;
+        this. bloodBox = bloodBox;
+        this. bloodSampleNum = bloodSampleNum;
+        this. cerebrospinalFluidNum = cerebrospinalFluidNum;
+        this. urineNum = urineNum;
+        this. medicalHistory = medicalHistory;
+        this. memoryDeclineCourse = memoryDeclineCourse;
+        this. increasedMemoryImpairment = increasedMemoryImpairment;
+        this. maritalStatus = maritalStatus;
+        this. height = height;
+        this. weight = weight;
+        this. cerebrovascularDisease = cerebrovascularDisease;
+        this. cerebrovascularDiseaseYear = cerebrovascularDiseaseYear;
+        this. stableCerebrovascularDisease = stableCerebrovascularDisease;
+        this. cerebrovascularDiseaseMedication = cerebrovascularDiseaseMedication;
+        this. cnsDiseaseDescription = cnsDiseaseDescription;
+        this. hypertension = hypertension;
+        this. hypertensionYear = hypertensionYear;
+        this. highestHypertension = highestHypertension;
+        this. averageHypertension = averageHypertension;
+        this. stableHypertension = stableHypertension;
+        this. hypertensionMedication = hypertensionMedication;
+        this. diabetes = diabetes;
+        this. diabetesYear = diabetesYear;
+        this. stableDiabetes = stableDiabetes;
+        this. diabetesMedication = diabetesMedication;
+        this. coronaryDisease = coronaryDisease;
+        this. coronaryDiseaseYear = coronaryDiseaseYear;
+        this. stableCoronaryDisease = stableCoronaryDisease;
+        this. atrialFibrillation = atrialFibrillation;
+        this. atrialFibrillationYear = atrialFibrillationYear;
+        this. atrialFibrillationControl = atrialFibrillationControl;
+        this. hyperlipidemia = hyperlipidemia;
+        this. hyperlipidemiaYear = hyperlipidemiaYear;
+        this. stableHyperlipidemia = stableHyperlipidemia;
+        this. hyperlipidemiaMedication = hyperlipidemiaMedication;
+        this. medicalRemark = medicalRemark;
+        this. otherMedicine = otherMedicine;
+        this. smoke = smoke;
+        this. smokeYear = smokeYear;
+        this. smokeNumPerDay = smokeNumPerDay;
+        this. quitSmoking = quitSmoking;
+        this. quitSmokingYear = quitSmokingYear;
+        this. Drink = Drink;
+        this. historyOfAlcoholism = historyOfAlcoholism;
+        this. alcoholGPerDay = alcoholGPerDay;
+        this. quitDrinking = quitDrinking;
+        this. quitDrinkingYear = quitDrinkingYear;
+        this. familyHistory  = familyHistory;
+        this. familyHistoryDiscription  =familyHistoryDiscription;
     }
 
     public String getName() {
         return name;
     }
-
-    public void setName(String name) {
-        this.name = name;
-    }
+    public void setName(String name) { this.name = name; }
 
     public int getAge() {
         return age;
     }
-
     public void setAge(int age) {
         this.age = age;
     }
@@ -375,31 +363,21 @@ public class BasicInfo {
     public long getIdentification() {
         return identification;
     }
-
     public void setIdentification(long identification) {
         this.identification = identification;
     }
 
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
+    public String getGender() { return gender; }
+    public void setGender(String gender) { this.gender = gender; }
 
     public Date getDate() {
         return date;
     }
-
-    public void setDate(Date date) {
-        this.date = date;
-    }
+    public void setDate(Date date) { this.date = date; }
 
     public String getNamePinyin() {
         return namePinyin;
     }
-
     public void setNamePinyin(String namePinyin) {
         this.namePinyin = namePinyin;
     }
@@ -407,7 +385,6 @@ public class BasicInfo {
     public int getMrRaw() {
         return mrRaw;
     }
-
     public void setMrRaw(int mrRaw) {
         this.mrRaw = mrRaw;
     }
@@ -415,635 +392,215 @@ public class BasicInfo {
     public int getMrSort() {
         return mrSort;
     }
-
     public void setMrSort(int mrSort) {
         this.mrSort = mrSort;
     }
 
-    public int getMrDate() {
-        return mrDate;
-    }
-
-    public void setMrDate(int mrDate) {
-        this.mrDate = mrDate;
-    }
+    public int getMrDate() { return mrDate; }
+    public void setMrDate(int mrDate) { this.mrDate = mrDate; }
 
     public String getRemarkForFollowupVisit() {
         return remarkForFollowupVisit;
     }
+    public void setRemarkForFollowupVisit(String remarkForFollowupVisit) { this.remarkForFollowupVisit = remarkForFollowupVisit; }
 
-    public void setRemarkForFollowupVisit(String remarkForFollowupVisit) {
-        this.remarkForFollowupVisit = remarkForFollowupVisit;
-    }
+    public String getPrimDiag() { return primDiag; }
+    public void setPrimDiag(String primDiag) { this.primDiag = primDiag; }
 
-    public int getCsvdNum() {
-        return csvdNum;
-    }
+    public int getFollowupYear() { return followupYear; }
+    public void setFollowupYear(int followupYear) { this.followupYear = followupYear; }
 
-    public void setCsvdNum(int csvdNum) {
-        this.csvdNum = csvdNum;
-    }
+    public int getDropOut() { return dropOut; }
+    public void setDropOut(int dropOut) { this.dropOut = dropOut; }
 
-    public String getPrimDiag() {
-        return primDiag;
-    }
+    public long getHospitalNum() { return hospitalNum; }
+    public void setHospitalNum(long hospitalNum) { this.hospitalNum = hospitalNum; }
 
-    public void setPrimDiag(String primDiag) {
-        this.primDiag = primDiag;
-    }
+    public long getBedNum() { return bedNum; }
+    public void setBedNum(long bedNum) { this.bedNum = bedNum; }
 
-    public int getFollowupYear() {
-        return followupYear;
-    }
+    public long getClinicNum() { return clinicNum; }
+    public void setClinicNum(long clinicNum) { this.clinicNum = clinicNum; }
 
-    public void setFollowupYear(int followupYear) {
-        this.followupYear = followupYear;
-    }
+    public Date getBirthDate() { return birthDate; }
+    public void setBirthDate(Date birthDate) { this.birthDate = birthDate; }
 
-    public int getDropOut() {
-        return dropOut;
-    }
+    public String geteThnic() { return ethnic; }
+    public void seteThnic(String ethnic) { this.ethnic = ethnic; }
 
-    public void setDropOut(int dropOut) {
-        this.dropOut = dropOut;
-    }
+    public String getEduLevel() { return eduLevel; }
+    public void setEduLevel(String eduLevel) { this.eduLevel = eduLevel; }
 
-    public long getHospitalNum() {
-        return hospitalNum;
-    }
+    public int getEduYear() { return eduYear; }
+    public void setEduYear(int eduYear) { this.eduYear = eduYear; }
 
-    public void setHospitalNum(long hospitalNum) {
-        this.hospitalNum = hospitalNum;
-    }
+    public String getProfession() { return profession; }
+    public void setProfession(String profession) { this.profession = profession; }
 
-    public long getBedNum() {
-        return bedNum;
-    }
+    public String getWork() { return work; }
+    public void setWork(String work) { this.work = work; }
 
-    public void setBedNum(long bedNum) {
-        this.bedNum = bedNum;
-    }
+    public String getAddress() { return address; }
+    public void setAddress(String address) { this.address = address; }
 
-    public long getClinicNum() {
-        return clinicNum;
-    }
+    public long getContact() { return contact; }
+    public void setContact(long contact) { this.contact = contact; }
 
-    public void setClinicNum(long clinicNum) {
-        this.clinicNum = clinicNum;
-    }
+    public String getSpecimenRemark() { return specimenRemark; }
+    public void setSpecimenRemark(String specimenRemark) { this.specimenRemark = specimenRemark; }
 
-    public Date getBirthDate() {
-        return birthDate;
-    }
+    public String getBlood() { return blood; }
+    public void setBlood(String blood) { this.blood = blood; }
 
-    public void setBirthDate(Date birthDate) {
-        this.birthDate = birthDate;
-    }
+    public int getBloodbox() { return bloodBox; }
+    public void setBloodBox(int bloodBox) { this.bloodBox = bloodBox; }
 
-    public String getEthnic() {
-        return ethnic;
-    }
 
-    public void setEthnic(String ethnic) {
-        this.ethnic = ethnic;
-    }
+    public int getBloodSampleNum() { return bloodSampleNum; }
+    public void setBloodSampleNum(int bloodSampleNum) { this.bloodSampleNum = bloodSampleNum; }
 
-    public String getEduLevel() {
-        return eduLevel;
-    }
+    public int getCerebrospinalFluidNum() { return cerebrospinalFluidNum; }
+    public void setCerebrospinalFluidNum(int cerebrospinalFluidNum) { this.cerebrospinalFluidNum = cerebrospinalFluidNum; }
 
-    public void setEduLevel(String eduLevel) {
-        this.eduLevel = eduLevel;
-    }
+    public int getUrineNum() { return urineNum; }
+    public void setUrineNum(int urineNum) { this.urineNum = urineNum; }
 
-    public int getEduYear() {
-        return eduYear;
-    }
+    public String getMedicalHistory() { return medicalHistory; }
+    public void setMedicalHistory(String medicalHistory) { this.medicalHistory = medicalHistory; }
 
-    public void setEduYear(int eduYear) {
-        this.eduYear = eduYear;
-    }
+    public int getMemoryDeclineCourse() { return memoryDeclineCourse; }
+    public void setMemoryDeclineCourse(int memoryDeclineCourse) { this.memoryDeclineCourse = memoryDeclineCourse; }
 
-    public String getProfession() {
-        return profession;
-    }
+    public int getIncreasedMemoryImpairment() { return increasedMemoryImpairment; }
+    public void setIncreasedMemoryImpairment(int increasedMemoryImpairment) { this.increasedMemoryImpairment = increasedMemoryImpairment; }
 
-    public void setProfession(String profession) {
-        this.profession = profession;
-    }
+    public String getMaritalStatus() { return maritalStatus; }
+    public void setMaritalStatus(String maritalStatus) { this.maritalStatus = maritalStatus; }
 
-    public String getWork() {
-        return work;
-    }
+    public int getHeight() { return height; }
+    public void setHeight(int height) { this.height = height; }
 
-    public void setWork(String work) {
-        this.work = work;
-    }
+    public int getWeight() { return weight; }
+    public void setWeight(int weight) { this.weight = weight; }
 
-    public String getAddress() {
-        return address;
-    }
+    public String getCerebrovascularDisease() { return cerebrovascularDisease; }
+    public void setCerebrovascularDisease(String cerebrovascularDisease) { this.cerebrovascularDisease = cerebrovascularDisease; }
 
-    public void setAddress(String address) {
-        this.address = address;
-    }
 
-    public long getContact() {
-        return contact;
-    }
+    public int getCerebrovascularDiseaseYear() { return cerebrovascularDiseaseYear; }
+    public void setCerebrovascularDiseaseYear(int cerebrovascularDiseaseYear) { this.cerebrovascularDiseaseYear = cerebrovascularDiseaseYear; }
 
-    public void setContact(long contact) {
-        this.contact = contact;
-    }
+    public String getStableCerebrovascularDisease() { return stableCerebrovascularDisease; }
+    public void setStableCerebrovascularDisease(String stableCerebrovascularDisease) { this.stableCerebrovascularDisease = stableCerebrovascularDisease; }
 
-    public String getSpecimenRemark() {
-        return specimenRemark;
-    }
+    public String getCerebrovascularDiseaseMedication() { return cerebrovascularDiseaseMedication; }
+    public void setCerebrovascularDiseaseMedication(String cerebrovascularDiseaseMedication) { this.cerebrovascularDiseaseMedication = cerebrovascularDiseaseMedication; }
 
-    public void setSpecimenRemark(String specimenRemark) {
-        this.specimenRemark = specimenRemark;
-    }
+    public String getCnsDiseaseDescription() { return cnsDiseaseDescription; }
+    public void setCnsDiseaseDescription(String cnsDiseaseDescription) { this.cnsDiseaseDescription = cnsDiseaseDescription; }
 
-    public String getBlood() {
-        return blood;
-    }
+    public String getHypertension() { return hypertension; }
+    public void setHypertension(String hypertension) { this.hypertension = hypertension; }
 
-    public void setBlood(String blood) {
-        this.blood = blood;
-    }
+    public String getHypertensionYear() { return hypertensionYear; }
+    public void setHypertensionYear(String hypertensionYear) { this.hypertensionYear = hypertensionYear; }
 
-    public int getBloodBox() {
-        return bloodBox;
-    }
+    public String getHighestHypertension() { return highestHypertension; }
+    public void setHighestHypertension(String highestHypertension) { this.highestHypertension = highestHypertension; }
 
-    public void setBloodBox(int bloodBox) {
-        this.bloodBox = bloodBox;
-    }
+    public String getAverageHypertension() { return averageHypertension; }
+    public void setAverageHypertension(String averageHypertension) { this.averageHypertension = averageHypertension; }
 
-    public int getBloodSampleNum() {
-        return bloodSampleNum;
-    }
+    public String getStableHypertension() { return stableHypertension; }
+    public void setStableHypertension(String stableHypertension) { this.stableHypertension = stableHypertension; }
 
-    public void setBloodSampleNum(int bloodSampleNum) {
-        this.bloodSampleNum = bloodSampleNum;
-    }
+    public String getHypertensionMedication() { return hypertensionMedication; }
+    public void setHypertensionMedication(String hypertensionMedication) { this.hypertensionMedication = hypertensionMedication; }
 
-    public int getCerebrospinalFluidNum() {
-        return cerebrospinalFluidNum;
-    }
+    public String getDiabetes() { return diabetes; }
+    public void setDiabetes(String diabetes) { this.diabetes = diabetes; }
 
-    public void setCerebrospinalFluidNum(int cerebrospinalFluidNum) {
-        this.cerebrospinalFluidNum = cerebrospinalFluidNum;
-    }
 
-    public int getUrineNum() {
-        return urineNum;
-    }
+    public int getDiabetesYear() { return diabetesYear; }
+    public void setDiabetesYear(int diabetesYear) { this.diabetesYear = diabetesYear; }
 
-    public void setUrineNum(int urineNum) {
-        this.urineNum = urineNum;
-    }
+    public String getStableDiabetes() { return stableDiabetes; }
+    public void setStableDiabetes(String stableDiabetes) { this.stableDiabetes = stableDiabetes; }
 
-    public String getMedicalHistory() {
-        return medicalHistory;
-    }
+    public String getDiabetesMedication() { return diabetesMedication; }
+    public void setDiabetesMedication(String diabetesMedication) { this.diabetesMedication = diabetesMedication; }
 
-    public void setMedicalHistory(String medicalHistory) {
-        this.medicalHistory = medicalHistory;
-    }
+    public String getCoronaryDisease() { return coronaryDisease; }
+    public void setCoronaryDisease(String coronaryDisease) { this.coronaryDisease = coronaryDisease; }
 
-    public int getMemoryDeclineCourse() {
-        return memoryDeclineCourse;
-    }
+    public int getCoronaryDiseaseYear() { return coronaryDiseaseYear; }
+    public void setCoronaryDiseaseYear(int coronaryDiseaseYear) { this.coronaryDiseaseYear = coronaryDiseaseYear; }
 
-    public void setMemoryDeclineCourse(int memoryDeclineCourse) {
-        this.memoryDeclineCourse = memoryDeclineCourse;
-    }
+    public String getStableCoronaryDisease() { return stableCoronaryDisease; }
+    public void setStableCoronaryDisease(String stableCoronaryDisease) { this.stableCoronaryDisease = stableCoronaryDisease; }
 
-    public int getIncreasedMemoryImpairment() {
-        return increasedMemoryImpairment;
-    }
+    public String geTatrialFibrillation() { return atrialFibrillation; }
+    public void setTrialFibrillation(String atrialFibrillation) { this.atrialFibrillation = atrialFibrillation; }
 
-    public void setIncreasedMemoryImpairment(int increasedMemoryImpairment) {
-        this.increasedMemoryImpairment = increasedMemoryImpairment;
-    }
+    public int getAtrialFibrillationYear() { return atrialFibrillationYear; }
+    public void setAtrialFibrillationYear(int atrialFibrillationYear) { this.atrialFibrillationYear = atrialFibrillationYear; }
 
-    public String getMaritalStatus() {
-        return maritalStatus;
-    }
+    public String getAtrialFibrillationControl() { return atrialFibrillationControl; }
+    public void setAtrialFibrillationControl(String atrialFibrillationControl) { this.atrialFibrillationControl = atrialFibrillationControl; }
 
-    public void setMaritalStatus(String maritalStatus) {
-        this.maritalStatus = maritalStatus;
-    }
+    public String getHyperlipidemia() { return hyperlipidemia; }
+    public void setHyperlipidemia(String hyperlipidemia) { this.hyperlipidemia = hyperlipidemia; }
 
-    public int getHeight() {
-        return height;
-    }
+    public int getHyperlipidemiaYear() { return hyperlipidemiaYear; }
+    public void setHyperlipidemiaYear(int hyperlipidemiaYear) { this.hyperlipidemiaYear = hyperlipidemiaYear; }
 
-    public void setHeight(int height) {
-        this.height = height;
-    }
+    public String getStableHyperlipidemia() { return stableHyperlipidemia; }
+    public void setStableHyperlipidemia(String stableHyperlipidemia) { this.stableHyperlipidemia = stableHyperlipidemia; }
 
-    public int getWeight() {
-        return weight;
-    }
+    public String getHyperlipidemiaMedication() { return hyperlipidemiaMedication; }
+    public void setHyperlipidemiaMedication(String hyperlipidemiaMedication) { this.hyperlipidemiaMedication = hyperlipidemiaMedication; }
 
-    public void setWeight(int weight) {
-        this.weight = weight;
-    }
+    public String getMedicalRemark() { return medicalRemark; }
+    public void setMedicalRemark(String medicalRemark) { this.medicalRemark = medicalRemark; }
 
-    public String getCerebrovascularDisease() {
-        return cerebrovascularDisease;
-    }
+    public String getOtherMedicine() { return otherMedicine; }
+    public void setOtherMedicine(String otherMedicine) { this.otherMedicine = otherMedicine; }
 
-    public void setCerebrovascularDisease(String cerebrovascularDisease) {
-        this.cerebrovascularDisease = cerebrovascularDisease;
-    }
+    public String getSmoke() { return smoke; }
+    public void setSmoke(String smoke) { this.smoke = smoke; }
 
-    public int getCerebrovascularDiseaseYear() {
-        return cerebrovascularDiseaseYear;
-    }
+    public int getSmokeYear() { return smokeYear; }
+    public void setSmokeYear(int smokeYear) { this.smokeYear = smokeYear; }
 
-    public void setCerebrovascularDiseaseYear(int cerebrovascularDiseaseYear) {
-        this.cerebrovascularDiseaseYear = cerebrovascularDiseaseYear;
-    }
+    public int getSmokeNumPerDay() { return smokeNumPerDay; }
+    public void setSmokeNumPerDay(int smokeNumPerDay) { this.smokeNumPerDay = smokeNumPerDay; }
 
-    public String getStableCerebrovascularDisease() {
-        return stableCerebrovascularDisease;
-    }
+    public String getQuitSmoking() { return quitSmoking; }
+    public void setQuitSmoking(String quitSmoking) { this.quitSmoking = quitSmoking; }
 
-    public void setStableCerebrovascularDisease(String stableCerebrovascularDisease) {
-        this.stableCerebrovascularDisease = stableCerebrovascularDisease;
-    }
+    public int getQuitSmokingYear() { return quitSmokingYear; }
+    public void setQuitSmokingYear(int quitSmokingYear) { this.quitSmokingYear = quitSmokingYear; }
 
-    public String getCerebrovascularDiseaseMedication() {
-        return cerebrovascularDiseaseMedication;
-    }
+    public String getDrink() { return Drink; }
+    public void setDrink(String Drink) { this.Drink = Drink; }
 
-    public void setCerebrovascularDiseaseMedication(String cerebrovascularDiseaseMedication) {
-        this.cerebrovascularDiseaseMedication = cerebrovascularDiseaseMedication;
-    }
+    public int getHistoryOfAlcoholism() { return historyOfAlcoholism; }
+    public void setHistoryOfAlcoholism(int historyOfAlcoholism) { this.historyOfAlcoholism = historyOfAlcoholism; }
 
-    public String getCnsDiseaseDescription() {
-        return cnsDiseaseDescription;
-    }
+    public int getAlcoholGPerDay() { return alcoholGPerDay; }
+    public void setAlcoholGPerDay(int alcoholGPerDay) { this.alcoholGPerDay = alcoholGPerDay; }
 
-    public void setCnsDiseaseDescription(String cnsDiseaseDescription) {
-        this.cnsDiseaseDescription = cnsDiseaseDescription;
-    }
+    public String getQuitDrinking() { return quitDrinking; }
+    public void setQuitDrinking(String quitDrinking) { this.quitDrinking = quitDrinking; }
 
-    public String getHypertension() {
-        return hypertension;
-    }
+    public int getQuitDrinkingYear() { return quitDrinkingYear; }
+    public void setQuitDrinkingYear(int quitDrinkingYear) { this.quitDrinkingYear = quitDrinkingYear; }
 
-    public void setHypertension(String hypertension) {
-        this.hypertension = hypertension;
-    }
+    public String getFamilyHistory() { return familyHistory; }
+    public void setFamilyHistory(String familyHistory) { this.familyHistory = familyHistory; }
 
-    public String getHypertensionYear() {
-        return hypertensionYear;
-    }
+    public String getFamilyHistoryDiscription() { return familyHistoryDiscription; }
+    public void setFamilyHistoryDiscription(String familyHistoryDiscription) { this.familyHistoryDiscription = familyHistoryDiscription; }
 
-    public void setHypertensionYear(String hypertensionYear) {
-        this.hypertensionYear = hypertensionYear;
-    }
 
-    public String getHighestHypertension() {
-        return highestHypertension;
-    }
-
-    public void setHighestHypertension(String highestHypertension) {
-        this.highestHypertension = highestHypertension;
-    }
-
-    public String getAverageHypertension() {
-        return averageHypertension;
-    }
-
-    public void setAverageHypertension(String averageHypertension) {
-        this.averageHypertension = averageHypertension;
-    }
-
-    public String getStableHypertension() {
-        return stableHypertension;
-    }
-
-    public void setStableHypertension(String stableHypertension) {
-        this.stableHypertension = stableHypertension;
-    }
-
-    public String getHypertensionMedication() {
-        return hypertensionMedication;
-    }
-
-    public void setHypertensionMedication(String hypertensionMedication) {
-        this.hypertensionMedication = hypertensionMedication;
-    }
-
-    public String getDiabetes() {
-        return diabetes;
-    }
-
-    public void setDiabetes(String diabetes) {
-        this.diabetes = diabetes;
-    }
-
-    public int getDiabetesYear() {
-        return diabetesYear;
-    }
-
-    public void setDiabetesYear(int diabetesYear) {
-        this.diabetesYear = diabetesYear;
-    }
-
-    public String getStableDiabetes() {
-        return stableDiabetes;
-    }
-
-    public void setStableDiabetes(String stableDiabetes) {
-        this.stableDiabetes = stableDiabetes;
-    }
-
-    public String getDiabetesMedication() {
-        return diabetesMedication;
-    }
-
-    public void setDiabetesMedication(String diabetesMedication) {
-        this.diabetesMedication = diabetesMedication;
-    }
-
-    public String getCoronaryDisease() {
-        return coronaryDisease;
-    }
-
-    public void setCoronaryDisease(String coronaryDisease) {
-        this.coronaryDisease = coronaryDisease;
-    }
-
-    public int getCoronaryDiseaseYear() {
-        return coronaryDiseaseYear;
-    }
-
-    public void setCoronaryDiseaseYear(int coronaryDiseaseYear) {
-        this.coronaryDiseaseYear = coronaryDiseaseYear;
-    }
-
-    public String getStableCoronaryDisease() {
-        return stableCoronaryDisease;
-    }
-
-    public void setStableCoronaryDisease(String stableCoronaryDisease) {
-        this.stableCoronaryDisease = stableCoronaryDisease;
-    }
-
-    public String getAtrialFibrillation() {
-        return atrialFibrillation;
-    }
-
-    public void setAtrialFibrillation(String atrialFibrillation) {
-        this.atrialFibrillation = atrialFibrillation;
-    }
-
-    public int getAtrialFibrillationYear() {
-        return atrialFibrillationYear;
-    }
-
-    public void setAtrialFibrillationYear(int atrialFibrillationYear) {
-        this.atrialFibrillationYear = atrialFibrillationYear;
-    }
-
-    public String getAtrialFibrillationControl() {
-        return atrialFibrillationControl;
-    }
-
-    public void setAtrialFibrillationControl(String atrialFibrillationControl) {
-        this.atrialFibrillationControl = atrialFibrillationControl;
-    }
-
-    public String getHyperlipidemia() {
-        return hyperlipidemia;
-    }
-
-    public void setHyperlipidemia(String hyperlipidemia) {
-        this.hyperlipidemia = hyperlipidemia;
-    }
-
-    public int getHyperlipidemiaYear() {
-        return hyperlipidemiaYear;
-    }
-
-    public void setHyperlipidemiaYear(int hyperlipidemiaYear) {
-        this.hyperlipidemiaYear = hyperlipidemiaYear;
-    }
-
-    public String getStableHyperlipidemia() {
-        return stableHyperlipidemia;
-    }
-
-    public void setStableHyperlipidemia(String stableHyperlipidemia) {
-        this.stableHyperlipidemia = stableHyperlipidemia;
-    }
-
-    public String getHyperlipidemiaMedication() {
-        return hyperlipidemiaMedication;
-    }
-
-    public void setHyperlipidemiaMedication(String hyperlipidemiaMedication) {
-        this.hyperlipidemiaMedication = hyperlipidemiaMedication;
-    }
-
-    public String getMedicalRemark() {
-        return medicalRemark;
-    }
-
-    public void setMedicalRemark(String medicalRemark) {
-        this.medicalRemark = medicalRemark;
-    }
-
-    public String getOtherMedicine() {
-        return otherMedicine;
-    }
-
-    public void setOtherMedicine(String otherMedicine) {
-        this.otherMedicine = otherMedicine;
-    }
-
-    public String getSmoke() {
-        return smoke;
-    }
-
-    public void setSmoke(String smoke) {
-        this.smoke = smoke;
-    }
-
-    public int getSmokeYear() {
-        return smokeYear;
-    }
-
-    public void setSmokeYear(int smokeYear) {
-        this.smokeYear = smokeYear;
-    }
-
-    public int getSmokeNumPerDay() {
-        return smokeNumPerDay;
-    }
-
-    public void setSmokeNumPerDay(int smokeNumPerDay) {
-        this.smokeNumPerDay = smokeNumPerDay;
-    }
-
-    public String getQuitSmoking() {
-        return quitSmoking;
-    }
-
-    public void setQuitSmoking(String quitSmoking) {
-        this.quitSmoking = quitSmoking;
-    }
-
-    public int getQuitSmokingYear() {
-        return quitSmokingYear;
-    }
-
-    public void setQuitSmokingYear(int quitSmokingYear) {
-        this.quitSmokingYear = quitSmokingYear;
-    }
-
-    public String getDrink() {
-        return Drink;
-    }
-
-    public void setDrink(String drink) {
-        Drink = drink;
-    }
-
-    public int getHistoryOfAlcoholism() {
-        return historyOfAlcoholism;
-    }
-
-    public void setHistoryOfAlcoholism(int historyOfAlcoholism) {
-        this.historyOfAlcoholism = historyOfAlcoholism;
-    }
-
-    public int getAlcoholGPerDay() {
-        return alcoholGPerDay;
-    }
-
-    public void setAlcoholGPerDay(int alcoholGPerDay) {
-        this.alcoholGPerDay = alcoholGPerDay;
-    }
-
-    public String getQuitDrinking() {
-        return quitDrinking;
-    }
-
-    public void setQuitDrinking(String quitDrinking) {
-        this.quitDrinking = quitDrinking;
-    }
-
-    public int getQuitDrinkingYear() {
-        return quitDrinkingYear;
-    }
-
-    public void setQuitDrinkingYear(int quitDrinkingYear) {
-        this.quitDrinkingYear = quitDrinkingYear;
-    }
-
-    public String getFamilyHistory() {
-        return familyHistory;
-    }
-
-    public void setFamilyHistory(String familyHistory) {
-        this.familyHistory = familyHistory;
-    }
-
-    public String getFamilyHistoryDiscription() {
-        return familyHistoryDiscription;
-    }
-
-    public void setFamilyHistoryDiscription(String familyHistoryDiscription) {
-        this.familyHistoryDiscription = familyHistoryDiscription;
-    }
-
-    @Override
-    public String toString() {
-        return "BasicInfo{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
-                ", age=" + age +
-                ", identification=" + identification +
-                ", gender='" + gender + '\'' +
-                ", date=" + date +
-                ", namePinyin='" + namePinyin + '\'' +
-                ", mrRaw=" + mrRaw +
-                ", mrSort=" + mrSort +
-                ", mrDate=" + mrDate +
-                ", remarkForFollowupVisit='" + remarkForFollowupVisit + '\'' +
-                ", csvdNum=" + csvdNum +
-                ", primDiag='" + primDiag + '\'' +
-                ", followupYear=" + followupYear +
-                ", dropOut=" + dropOut +
-                ", hospitalNum=" + hospitalNum +
-                ", bedNum=" + bedNum +
-                ", clinicNum=" + clinicNum +
-                ", birthDate=" + birthDate +
-                ", ethnic='" + ethnic + '\'' +
-                ", eduLevel='" + eduLevel + '\'' +
-                ", eduYear=" + eduYear +
-                ", profession='" + profession + '\'' +
-                ", work='" + work + '\'' +
-                ", address='" + address + '\'' +
-                ", contact=" + contact +
-                ", specimenRemark='" + specimenRemark + '\'' +
-                ", blood='" + blood + '\'' +
-                ", bloodBox=" + bloodBox +
-                ", bloodSampleNum=" + bloodSampleNum +
-                ", cerebrospinalFluidNum=" + cerebrospinalFluidNum +
-                ", urineNum=" + urineNum +
-                ", medicalHistory='" + medicalHistory + '\'' +
-                ", memoryDeclineCourse=" + memoryDeclineCourse +
-                ", increasedMemoryImpairment=" + increasedMemoryImpairment +
-                ", maritalStatus='" + maritalStatus + '\'' +
-                ", height=" + height +
-                ", weight=" + weight +
-                ", cerebrovascularDisease='" + cerebrovascularDisease + '\'' +
-                ", cerebrovascularDiseaseYear=" + cerebrovascularDiseaseYear +
-                ", stableCerebrovascularDisease='" + stableCerebrovascularDisease + '\'' +
-                ", cerebrovascularDiseaseMedication='" + cerebrovascularDiseaseMedication + '\'' +
-                ", cnsDiseaseDescription='" + cnsDiseaseDescription + '\'' +
-                ", hypertension='" + hypertension + '\'' +
-                ", hypertensionYear='" + hypertensionYear + '\'' +
-                ", highestHypertension='" + highestHypertension + '\'' +
-                ", averageHypertension='" + averageHypertension + '\'' +
-                ", stableHypertension='" + stableHypertension + '\'' +
-                ", hypertensionMedication='" + hypertensionMedication + '\'' +
-                ", diabetes='" + diabetes + '\'' +
-                ", diabetesYear=" + diabetesYear +
-                ", stableDiabetes='" + stableDiabetes + '\'' +
-                ", diabetesMedication='" + diabetesMedication + '\'' +
-                ", coronaryDisease='" + coronaryDisease + '\'' +
-                ", coronaryDiseaseYear=" + coronaryDiseaseYear +
-                ", stableCoronaryDisease='" + stableCoronaryDisease + '\'' +
-                ", atrialFibrillation='" + atrialFibrillation + '\'' +
-                ", atrialFibrillationYear=" + atrialFibrillationYear +
-                ", atrialFibrillationControl='" + atrialFibrillationControl + '\'' +
-                ", hyperlipidemia='" + hyperlipidemia + '\'' +
-                ", hyperlipidemiaYear=" + hyperlipidemiaYear +
-                ", stableHyperlipidemia='" + stableHyperlipidemia + '\'' +
-                ", hyperlipidemiaMedication='" + hyperlipidemiaMedication + '\'' +
-                ", medicalRemark='" + medicalRemark + '\'' +
-                ", otherMedicine='" + otherMedicine + '\'' +
-                ", smoke='" + smoke + '\'' +
-                ", smokeYear=" + smokeYear +
-                ", smokeNumPerDay=" + smokeNumPerDay +
-                ", quitSmoking='" + quitSmoking + '\'' +
-                ", quitSmokingYear=" + quitSmokingYear +
-                ", Drink='" + Drink + '\'' +
-                ", historyOfAlcoholism=" + historyOfAlcoholism +
-                ", alcoholGPerDay=" + alcoholGPerDay +
-                ", quitDrinking='" + quitDrinking + '\'' +
-                ", quitDrinkingYear=" + quitDrinkingYear +
-                ", familyHistory='" + familyHistory + '\'' +
-                ", familyHistoryDiscription='" + familyHistoryDiscription + '\'' +
-                '}';
-    }
 }

@@ -65,7 +65,6 @@ public class CDRController {
             String sum_score = Integer.toString(CalculationUtils.getSumScore(cdr, 1, 6));
 
             CDR _cdr = cdrData.get();
-            _cdr.setId(cdr.getId());
             _cdr.setBasicInfoId(cdr.getBasicInfoId());
             _cdr.setSum_score(sum_score);
             _cdr.setAnswer1(cdr.getAnswer1());

@@ -1,7 +1,5 @@
 package com.example.demo.assessment.image;
 
-import com.example.demo.index.BasicInfo;
-
 import javax.persistence.*;
 import java.util.Date;
 

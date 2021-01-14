@@ -3,14 +3,14 @@ package com.example.demo.assessment.recognition.Gait;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "tb_gait")
+@Table(name = "gaits")
 public class Gait {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String id;
+    private long id;
 
-    @Column(name = "basicInfo_Id")
-    private String basicInfoId;
+    @Column(name = "basicInfoId")
+    private long basicInfoId;
 
     @Column(name = "步态异常量表")
     private String sum_score_1;
@@ -104,7 +104,7 @@ public class Gait {
 
     public Gait(){}
 
-    public Gait(String basicInfoId, String sum_score_1, String answer1, String answer2, String answer3, String answer4,
+    public Gait(long basicInfoId, String sum_score_1, String answer1, String answer2, String answer3, String answer4,
                 String answer5, String sum_score_2, String answer6, String answer7, String answer8, String answer9,
                 String answer10, String answer11, String answer12, String answer13, String answer14, String answer15,
                 String sum_score_3, String answer16, String answer17, String answer18, String answer19, String answer20,
@@ -143,15 +143,15 @@ public class Gait {
         this.question2 = question2;
     }
 
-    public String getId() {
+    public long getId() {
         return id;
     }
 
-    public String getBasicInfoId() {
+    public long getBasicInfoId() {
         return basicInfoId;
     }
 
-    public void setBasicInfoId(String basicInfoId) {
+    public void setBasicInfoId(long basicInfoId) {
         this.basicInfoId = basicInfoId;
     }
 

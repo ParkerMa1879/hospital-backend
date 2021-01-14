@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @CrossOrigin(origins = "http://localhost:8081")
@@ -59,7 +58,7 @@ public class ImageController {
     public ResponseEntity<Image> createImage(@RequestBody Image image) {
         try {
             Image _image = imageRepository
-                    .save(new Image(image.getImageNum(),image.getEntryTime(),image.getMrNum(),
+                    .save(new Image(image.getBasicInfoId(),image.getImageNum(),image.getEntryTime(),image.getMrNum(),
                             image.getHeadVesselMriMra(),image.getHeadVesselMriMraFolder(),image.getCranialSpectroscopy(),
                             image.getCtcta(),image.getVascularUltrasound(),image.getTcd()));
             return new ResponseEntity<>(_image, HttpStatus.CREATED);
@@ -74,6 +73,7 @@ public class ImageController {
 
         if (imageData.isPresent()) {
             Image _image = imageData.get();
+            _image.setBasicInfoId(image.getBasicInfoId());
             _image.setImageNum(image.getImageNum());
             _image.setEntryTime(image.getEntryTime());
             _image.setMrNum(image.getMrNum());

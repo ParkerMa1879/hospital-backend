@@ -3,14 +3,14 @@ package com.example.demo.assessment.recognition.HAMA;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "tb_hamilton_anxious")
+@Table(name = "hamas")
 public class HAMA {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String id;
+    private long id;
 
-    @Column(name = "basicInfo_Id")
-    private String basicInfoId;
+    @Column(name = "basicInfoId")
+    private long basicInfoId;
 
     @Column(name = "HAMA总")
     private String sum_score;
@@ -60,7 +60,7 @@ public class HAMA {
     public HAMA(){}
 
 
-    public HAMA(String basicInfoId, String sum_score, String answer1, String answer2, String answer3, String answer4,
+    public HAMA(long basicInfoId, String sum_score, String answer1, String answer2, String answer3, String answer4,
                 String answer5, String answer6, String answer7, String answer8, String answer9, String answer10,
                 String answer11, String answer12, String answer13, String answer14) {
         this.basicInfoId = basicInfoId;
@@ -81,15 +81,15 @@ public class HAMA {
         this.answer14 = answer14;
     }
 
-    public String getId() {
+    public long getId() {
         return id;
     }
 
-    public String getBasicInfoId() {
+    public long getBasicInfoId() {
         return basicInfoId;
     }
 
-    public void setBasicInfoId(String basicInfoId) {
+    public void setBasicInfoId(long basicInfoId) {
         this.basicInfoId = basicInfoId;
     }
 

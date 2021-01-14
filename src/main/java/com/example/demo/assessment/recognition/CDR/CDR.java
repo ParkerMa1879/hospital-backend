@@ -2,14 +2,14 @@ package com.example.demo.assessment.recognition.CDR;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "tb_cdr")
+@Table(name = "cdrs")
 public class CDR {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String id;
+    private long id;
 
-    @Column(name = "basicInfo_Id")
-    private String basicInfoId;
+    @Column(name = "basicInfoId")
+    private long basicInfoId;
 
     @Column(name = "CDR")
     private String sum_score;
@@ -36,7 +36,7 @@ public class CDR {
 
     }
 
-    public CDR(String basicInfoId, String sum_score, String answer1, String answer2, String answer3,
+    public CDR(long basicInfoId, String sum_score, String answer1, String answer2, String answer3,
                String answer4, String answer5, String answer6) {
         this.basicInfoId = basicInfoId;
         this.sum_score = sum_score;
@@ -48,15 +48,15 @@ public class CDR {
         this.answer6 = answer6;
     }
 
-    public String getId() {
+    public long getId() {
         return id;
     }
 
-    public String getBasicInfoId() {
+    public long getBasicInfoId() {
         return basicInfoId;
     }
 
-    public void setBasicInfoId(String basicInfoId) {
+    public void setBasicInfoId(long basicInfoId) {
         this.basicInfoId = basicInfoId;
     }
 

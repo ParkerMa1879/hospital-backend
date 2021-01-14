@@ -2,14 +2,14 @@ package com.example.demo.assessment.recognition.Execution;
 import javax.persistence.*;
 
 @Entity
-@Table (name = "tb_execution")
+@Table (name = "executions")
 public class Execution {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String id;
+    private long id;
 
-    @Column(name = "basicInfo_Id")
-    private String basicInfoId;
+    @Column(name = "basicInfoId")
+    private long basicInfoId;
 
     @Column(name = "类别流畅性")
     private String sum_score;
@@ -98,7 +98,7 @@ public class Execution {
     public Execution(){
     }
 
-    public Execution(String basicInfoId, String sum_score, String answer1, String answer2, String answer3,
+    public Execution(long basicInfoId, String sum_score, String answer1, String answer2, String answer3,
                      String answer4, String question1, String question2, String question3, String question4,
                      String question5, String question6, String question7, String question8, String question9,
                      String question10, String question11, String question12, String question13, String question14,
@@ -135,15 +135,15 @@ public class Execution {
         this.question23 = question23;
     }
 
-    public String getId() {
+    public long getId() {
         return id;
     }
 
-    public String getBasicInfoId() {
+    public long getBasicInfoId() {
         return basicInfoId;
     }
 
-    public void setBasicInfoId(String basicInfoId) {
+    public void setBasicInfoId(long basicInfoId) {
         this.basicInfoId = basicInfoId;
     }
 

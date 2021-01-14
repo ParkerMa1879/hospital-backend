@@ -26,9 +26,9 @@ public class BasicInfoController {
     @Autowired
     BasicInfoRepository basicInfoRepository;
 
-    @RequestMapping("/welcome-1")
+    @RequestMapping("/welcome-basicInfo")
     public String welcomepage() {
-        return "Welcome to Demo";
+        return "Welcome to basicInfo";
     }
 
     @GetMapping("/basicInfos")

@@ -10,8 +10,6 @@ import java.util.regex.Pattern;
 
 public class CalculationUtils {
 
-
-//	多数表格计算总分，直接相加杰克
 	public static int getSumScore(Object object, int start, int end){
 		int sum = 0;
 		List<String> fields;

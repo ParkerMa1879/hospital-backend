@@ -2,14 +2,14 @@ package com.example.demo.assessment.recognition.MOCA;
 import javax.persistence.*;
 
 @Entity
-@Table (name = "tb_moca")
+@Table (name = "mocas")
 public class MOCA {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String id;
+    private long id;
 
-    @Column(name = "basicInfo_Id")
-    private String basicInfoId;
+    @Column(name = "basicInfoId")
+    private long basicInfoId;
 
     @Column(name = "MoCA")
     private String sum_score;
@@ -83,7 +83,7 @@ public class MOCA {
     public MOCA(){
     }
 
-    public MOCA(String basicInfoId, String sum_score, String sum_score_1, String answer1, String answer2, String answer3,
+    public MOCA(long basicInfoId, String sum_score, String sum_score_1, String answer1, String answer2, String answer3,
                 String answer4, String answer5, String answer6, String question1, String question2, String sum_score_2,
                 String answer7, String answer8, String answer9, String answer10, String sum_score_3, String answer11,
                 String answer12, String answer13, String answer14, String question3, String question4, String answer15) {
@@ -113,15 +113,15 @@ public class MOCA {
         this.answer15 = answer15;
     }
 
-    public String getId() {
+    public long getId() {
         return id;
     }
 
-    public String getBasicInfoId() {
+    public long getBasicInfoId() {
         return basicInfoId;
     }
 
-    public void setBasicInfoId(String basicInfoId) {
+    public void setBasicInfoId(long basicInfoId) {
         this.basicInfoId = basicInfoId;
     }
 
@@ -307,36 +307,5 @@ public class MOCA {
 
     public void setAnswer15(String answer15) {
         this.answer15 = answer15;
-    }
-
-    @Override
-    public String toString() {
-        return "MOCA{" +
-                "id='" + id + '\'' +
-                ", basicInfoId='" + basicInfoId + '\'' +
-                ", sum_score='" + sum_score + '\'' +
-                ", sum_score_1='" + sum_score_1 + '\'' +
-                ", answer1='" + answer1 + '\'' +
-                ", answer2='" + answer2 + '\'' +
-                ", answer3='" + answer3 + '\'' +
-                ", answer4='" + answer4 + '\'' +
-                ", answer5='" + answer5 + '\'' +
-                ", answer6='" + answer6 + '\'' +
-                ", question1='" + question1 + '\'' +
-                ", question2='" + question2 + '\'' +
-                ", sum_score_2='" + sum_score_2 + '\'' +
-                ", answer7='" + answer7 + '\'' +
-                ", answer8='" + answer8 + '\'' +
-                ", answer9='" + answer9 + '\'' +
-                ", answer10='" + answer10 + '\'' +
-                ", sum_score_3='" + sum_score_3 + '\'' +
-                ", answer11='" + answer11 + '\'' +
-                ", answer12='" + answer12 + '\'' +
-                ", answer13='" + answer13 + '\'' +
-                ", answer14='" + answer14 + '\'' +
-                ", question3='" + question3 + '\'' +
-                ", question4='" + question4 + '\'' +
-                ", answer15='" + answer15 + '\'' +
-                '}';
     }
 }

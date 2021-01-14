@@ -3,14 +3,14 @@ package com.example.demo.assessment.recognition.Memory;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "tb_memory")
+@Table(name = "memorys")
 public class Memory {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String id;
+    private long id;
 
-    @Column(name = "basicInfo_Id")
-    private String basicInfoId;
+    @Column(name = "basicInfoId")
+    private long basicInfoId;
 
     @Column(name = "听觉词语学习即刻")
     private String sum_score_1;
@@ -95,7 +95,7 @@ public class Memory {
 
     public Memory(){}
 
-    public Memory(String basicInfoId, String sum_score_1, String answer1, String answer2, String answer3,
+    public Memory(long basicInfoId, String sum_score_1, String answer1, String answer2, String answer3,
                   String question1, String question2, String question3, String question4, String question5,
                   String question6, String question7, String question8, String question9, String question10,
                   String question11, String question12, String question13, String question14, String question15,
@@ -131,15 +131,15 @@ public class Memory {
         this.question20 = question20;
     }
 
-    public String getId() {
+    public long getId() {
         return id;
     }
 
-    public String getBasicInfoId() {
+    public long getBasicInfoId() {
         return basicInfoId;
     }
 
-    public void setBasicInfoId(String basicInfoId) {
+    public void setBasicInfoId(long basicInfoId) {
         this.basicInfoId = basicInfoId;
     }
 

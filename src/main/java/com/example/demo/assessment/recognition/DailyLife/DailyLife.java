@@ -3,14 +3,14 @@ package com.example.demo.assessment.recognition.DailyLife;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "tb_daily_life")
+@Table(name = "dailyLifes")
 public class DailyLife {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String id;
+    private long id;
 
-    @Column(name = "basicInfo_Id")
-    private String basicInfoId;
+    @Column(name = "basicInfoId")
+    private long basicInfoId;
 
     @Column(name = "ADL1")
     private String answer1;
@@ -72,7 +72,7 @@ public class DailyLife {
     @Column(name = "IADLA总")
     private String sum_score_2;
 
-    public DailyLife(String basicInfoId, String answer1, String answer2, String answer3, String answer4, String answer5,
+    public DailyLife(long basicInfoId, String answer1, String answer2, String answer3, String answer4, String answer5,
                      String answer6, String answer7, String answer8, String answer9, String answer10, String sum_score_1,
                      String answer11, String answer12, String answer13, String answer14, String answer15, String answer16,
                      String answer17, String answer18, String sum_score_2) {
@@ -103,15 +103,15 @@ public class DailyLife {
 
     }
 
-    public String getId() {
+    public long getId() {
         return id;
     }
 
-    public String getBasicInfoId() {
+    public long getBasicInfoId() {
         return basicInfoId;
     }
 
-    public void setBasicInfoId(String basicInfoId) {
+    public void setBasicInfoId(long basicInfoId) {
         this.basicInfoId = basicInfoId;
     }
 

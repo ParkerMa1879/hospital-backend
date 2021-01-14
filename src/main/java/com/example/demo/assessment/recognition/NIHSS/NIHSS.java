@@ -3,14 +3,14 @@ package com.example.demo.assessment.recognition.NIHSS;
 import javax.persistence.*;
 
 @Entity
-@Table (name = "tb_nihss")
+@Table (name = "nihsses")
 public class NIHSS {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String id;
+    private long id;
 
-    @Column(name = "basicInfo_Id")
-    private String basicInfoId;
+    @Column(name = "basicInfoId")
+    private long basicInfoId;
 
     @Column(name = "NIHSS评分")
     private String sum_score;
@@ -77,7 +77,7 @@ public class NIHSS {
 
     public NIHSS(){}
 
-    public NIHSS(String basicInfoId, String sum_score, String answer1, String answer2, String answer3, String answer4,
+    public NIHSS(long basicInfoId, String sum_score, String answer1, String answer2, String answer3, String answer4,
                  String answer5, String answer6, String answer7, String question1, String answer8, String question2,
                  String answer9, String question3, String answer10, String question4, String answer11, String answer12,
                  String answer13, String answer14, String question5, String answer15) {
@@ -105,15 +105,15 @@ public class NIHSS {
         this.answer15 = answer15;
     }
 
-    public String getId() {
+    public long getId() {
         return id;
     }
 
-    public String getBasicInfoId() {
+    public long getBasicInfoId() {
         return basicInfoId;
     }
 
-    public void setBasicInfoId(String basicInfoId) {
+    public void setBasicInfoId(long basicInfoId) {
         this.basicInfoId = basicInfoId;
     }
 

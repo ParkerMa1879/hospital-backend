@@ -4,12 +4,17 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "tb_image")
+@Table(name = "images")
 public class Image {
-
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+
+    @Column(name = "basicInfoId")
+    private long basicInfoId;
+
     @Column(name = "影像号")
-    private int imageNum;
+    private long imageNum;
 
     @Column(name = "录入时间")
     private Date entryTime;
@@ -41,9 +46,10 @@ public class Image {
     }
 
 
-    public Image(int imageNum, Date entryTime, String mrNum, String headVesselMriMra,
+    public Image(long basicInfoId, long imageNum, Date entryTime, String mrNum, String headVesselMriMra,
                  String headVesselMriMraFolder, String cranialSpectroscopy, String ctcta, String vascularUltrasound,
                  String tcd) {
+        this.basicInfoId = basicInfoId;
         this.imageNum = imageNum;
         this.entryTime = entryTime;
         this.mrNum = mrNum;
@@ -55,11 +61,23 @@ public class Image {
         this.tcd = tcd;
     }
 
-    public int getImageNum() {
+    public long getId() {
+        return id;
+    }
+
+    public long getBasicInfoId() {
+        return basicInfoId;
+    }
+
+    public void setBasicInfoId(long basicInfoId) {
+        this.basicInfoId = basicInfoId;
+    }
+
+    public long getImageNum() {
         return imageNum;
     }
 
-    public void setImageNum(int imageNum) {
+    public void setImageNum(long imageNum) {
         this.imageNum = imageNum;
     }
 

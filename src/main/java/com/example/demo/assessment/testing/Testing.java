@@ -4,9 +4,15 @@ import javax.persistence.*;
 import java.util.Date;
 
 @Entity
-@Table(name = "tb_testing")
+@Table(name = "testings")
 public class Testing {
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private long id;
+
+    @Column(name = "basicInfoId")
+    private long basicInfoId;
+
     @Column(name = "辅助检查号")
     private long auxiliaryCheckNum;
 
@@ -117,13 +123,14 @@ public class Testing {
 
     }
 
-
-    public Testing(long auxiliaryCheckNum, Date auxiliaryExaminationDate, Date hypertensionRandom,
+    public Testing(long basicInfoId, long auxiliaryCheckNum, Date auxiliaryExaminationDate, Date hypertensionRandom,
                    float heartRate, float randomBloodSugar, float fastingBloodGlucose, float twoHourBloodGluoseAftermeal,
                    float hba1c, float cho, float tg, float ldl, float hdl, float apolipoproteinA, float apolipoproteinB,
-                   float bun, float cr, float egfr, float crp, float hcyHomocysteine, float prothrombinTime, float internationalNormalizedRatio,
-                   float activatedPartialThrombinTime, float thrombinTime, float fibrinogen, float dDimer, float adp, float arachidonicAcid,
-                   float hb, float apoe, float sloco1b1, float aβ, float ttau, float ptau, float srage, float bace1) {
+                   float bun, float cr, float egfr, float crp, float hcyHomocysteine, float prothrombinTime,
+                   float internationalNormalizedRatio, float activatedPartialThrombinTime, float thrombinTime,
+                   float fibrinogen, float dDimer, float adp, float arachidonicAcid, float hb, float apoe,
+                   float sloco1b1, float aβ, float ttau, float ptau, float srage, float bace1) {
+        this.basicInfoId = basicInfoId;
         this.auxiliaryCheckNum = auxiliaryCheckNum;
         this.auxiliaryExaminationDate = auxiliaryExaminationDate;
         this.hypertensionRandom = hypertensionRandom;
@@ -159,6 +166,18 @@ public class Testing {
         this.ptau = ptau;
         this.srage = srage;
         this.bace1 = bace1;
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public long getBasicInfoId() {
+        return basicInfoId;
+    }
+
+    public void setBasicInfoId(long basicInfoId) {
+        this.basicInfoId = basicInfoId;
     }
 
     public long getAuxiliaryCheckNum() {

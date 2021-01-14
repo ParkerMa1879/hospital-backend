@@ -25,6 +25,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class MOCAController {
     @Autowired
     MOCARepository mocaRepository;
+
+    @RequestMapping("/welcome-moca")
+    public String welcomepage() {
+        return "Welcome to Moca";
+    }
+
     @GetMapping("/mocas")
     public ResponseEntity<List<MOCA>> getAllMOCAs(@RequestParam(required = false) String name) {
         try {
@@ -51,7 +57,6 @@ public class MOCAController {
             String sum_score_2 = Integer.toString(CalculationUtils.getSumScore(moca, 7, 10));
             String sum_score_3 = Integer.toString(CalculationUtils.getSumScore(moca, 11, 12));
             String sum_score = Integer.toString(CalculationUtils.getSumScore(moca, 1, 15));
-
 
             MOCA _moca = mocaRepository
                     .save(new MOCA(moca.getBasicInfoId(),sum_score,sum_score_1,moca.getAnswer1(),

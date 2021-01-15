@@ -5,4 +5,5 @@ import java.util.List;
 
 public interface CDRRepository extends JpaRepository<CDR, Long> {
     public List<CDR> findAllByOrderByIdDesc();
+    public List<CDR> findByBasicInfoId(long basicInfoId);
 }

@@ -16,6 +16,7 @@ public class Testing {
     @Column(name = "辅助检查号")
     private long auxiliaryCheckNum;
 
+    private Date date;
     @Column(name = "辅助检查日期")
     private Date auxiliaryExaminationDate;
 

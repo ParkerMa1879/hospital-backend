@@ -1,6 +1,7 @@
 package com.example.demo.assessment.recognition.DailyLife;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "dailyLifes")
@@ -11,6 +12,10 @@ public class DailyLife {
 
     @Column(name = "basicInfoId")
     private long basicInfoId;
+
+    @Temporal(TemporalType.DATE)
+    @Column (name = "测试日期")
+    private Date date;
 
     @Column(name = "ADL1")
     private String answer1;
@@ -72,11 +77,12 @@ public class DailyLife {
     @Column(name = "IADLA总")
     private String sum_score_2;
 
-    public DailyLife(long basicInfoId, String answer1, String answer2, String answer3, String answer4, String answer5,
+    public DailyLife(long basicInfoId, Date date, String answer1, String answer2, String answer3, String answer4, String answer5,
                      String answer6, String answer7, String answer8, String answer9, String answer10, String sum_score_1,
                      String answer11, String answer12, String answer13, String answer14, String answer15, String answer16,
                      String answer17, String answer18, String sum_score_2) {
         this.basicInfoId = basicInfoId;
+        this.date = date;
         this.answer1 = answer1;
         this.answer2 = answer2;
         this.answer3 = answer3;
@@ -114,6 +120,10 @@ public class DailyLife {
     public void setBasicInfoId(long basicInfoId) {
         this.basicInfoId = basicInfoId;
     }
+
+    public Date getDate() {return date; }
+
+    public void setDate(Date date){this.date = date;}
 
     public String getAnswer1() {
         return answer1;

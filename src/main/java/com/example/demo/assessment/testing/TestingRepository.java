@@ -5,4 +5,5 @@ import java.util.List;
 
 public interface TestingRepository extends JpaRepository<Testing, Long> {
     public List<Testing> findAllByOrderByIdDesc();
+    public List<Testing> findByBasicInfoId(long basicInfoId);
 }

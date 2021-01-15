@@ -51,7 +51,7 @@ public class MemoryController {
             String sum_score_2 = Integer.toString(CalculationUtils.getSumScore(memory, 4, 5));
 
             Memory _memory = memoryRepository
-                    .save(new Memory(memory.getBasicInfoId(),sum_score_1,
+                    .save(new Memory(memory.getBasicInfoId(), memory.getDate(), sum_score_1,
                             memory.getAnswer1(),memory.getAnswer2(),memory.getAnswer3(),memory.getQuestion1(),
                             memory.getQuestion2(),memory.getQuestion3(),memory.getQuestion4(),memory.getQuestion5(),
                             memory.getQuestion6(),memory.getQuestion7(),memory.getQuestion8(),memory.getQuestion9(),
@@ -76,6 +76,7 @@ public class MemoryController {
             Memory _memory = memoryData.get();
 
             _memory.setBasicInfoId(memory.getBasicInfoId());
+            _memory.setDate(memory.getDate());
             _memory.setSum_score_1(sum_score_1);
             _memory.setAnswer1(memory.getAnswer1());
             _memory.setAnswer2(memory.getAnswer2());

@@ -1,6 +1,7 @@
 package com.example.demo.assessment.recognition.HAMA;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "hamas")
@@ -11,6 +12,10 @@ public class HAMA {
 
     @Column(name = "basicInfoId")
     private long basicInfoId;
+
+    @Temporal(TemporalType.DATE)
+    @Column (name = "测试日期")
+    private Date date;
 
     @Column(name = "HAMA总")
     private String sum_score;
@@ -60,10 +65,11 @@ public class HAMA {
     public HAMA(){}
 
 
-    public HAMA(long basicInfoId, String sum_score, String answer1, String answer2, String answer3, String answer4,
+    public HAMA(long basicInfoId, Date date, String sum_score, String answer1, String answer2, String answer3, String answer4,
                 String answer5, String answer6, String answer7, String answer8, String answer9, String answer10,
                 String answer11, String answer12, String answer13, String answer14) {
         this.basicInfoId = basicInfoId;
+        this.date = date;
         this.sum_score = sum_score;
         this.answer1 = answer1;
         this.answer2 = answer2;
@@ -92,6 +98,10 @@ public class HAMA {
     public void setBasicInfoId(long basicInfoId) {
         this.basicInfoId = basicInfoId;
     }
+
+    public Date getDate() {return date; }
+
+    public void setDate(Date date){this.date = date;}
 
     public String getSum_score() {
         return sum_score;

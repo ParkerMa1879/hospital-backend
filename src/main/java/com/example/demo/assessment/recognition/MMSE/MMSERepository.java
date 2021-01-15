@@ -5,4 +5,5 @@ import java.util.List;
 
 public interface MMSERepository extends JpaRepository<MMSE, Long> {
     public List<MMSE> findAllByOrderByIdDesc();
+    public List<MMSE> findByBasicInfoId(long basicInfoId);
 }

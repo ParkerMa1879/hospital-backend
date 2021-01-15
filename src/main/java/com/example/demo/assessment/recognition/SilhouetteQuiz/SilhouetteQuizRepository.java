@@ -5,4 +5,5 @@ import java.util.List;
 
 public interface SilhouetteQuizRepository extends JpaRepository<SilhouetteQuiz, Long> {
     public List<SilhouetteQuiz> findAllByOrderByIdDesc();
+    public List<SilhouetteQuiz> findByBasicInfoId(long basicInfoId);
 }

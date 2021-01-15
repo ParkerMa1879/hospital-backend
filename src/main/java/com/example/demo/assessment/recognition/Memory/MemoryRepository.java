@@ -5,4 +5,5 @@ import java.util.List;
 
 public interface MemoryRepository  extends JpaRepository<Memory, Long> {
     public List<Memory> findAllByOrderByIdDesc();
+    public List<Memory> findByBasicInfoId(long basicInfoId);
 }

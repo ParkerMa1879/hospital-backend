@@ -1,5 +1,6 @@
 package com.example.demo.assessment.recognition.MOCA;
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table (name = "mocas")
@@ -10,6 +11,10 @@ public class MOCA {
 
     @Column(name = "basicInfoId")
     private long basicInfoId;
+
+    @Temporal(TemporalType.DATE)
+    @Column (name = "测试日期")
+    private Date date;
 
     @Column(name = "MoCA")
     private String sum_score;
@@ -83,11 +88,12 @@ public class MOCA {
     public MOCA(){
     }
 
-    public MOCA(long basicInfoId, String sum_score, String sum_score_1, String answer1, String answer2, String answer3,
+    public MOCA(long basicInfoId, Date date, String sum_score, String sum_score_1, String answer1, String answer2, String answer3,
                 String answer4, String answer5, String answer6, String question1, String question2, String sum_score_2,
                 String answer7, String answer8, String answer9, String answer10, String sum_score_3, String answer11,
                 String answer12, String answer13, String answer14, String question3, String question4, String answer15) {
         this.basicInfoId = basicInfoId;
+        this.date = date;
         this.sum_score = sum_score;
         this.sum_score_1 = sum_score_1;
         this.answer1 = answer1;
@@ -124,6 +130,10 @@ public class MOCA {
     public void setBasicInfoId(long basicInfoId) {
         this.basicInfoId = basicInfoId;
     }
+
+    public Date getDate() {return date; }
+
+    public void setDate(Date date){this.date = date;}
 
     public String getSum_score() {
         return sum_score;

@@ -51,7 +51,7 @@ public class MSEEController {
             String sum_score = Integer.toString(CalculationUtils.getSumScore(mmse, 1, 11));
 
             MMSE _mmse = mmseRepository
-                    .save(new MMSE(mmse.getBasicInfoId(),sum_score, sum_score_1,mmse.getAnswer1(),mmse.getAnswer2(),mmse.getAnswer3(),
+                    .save(new MMSE(mmse.getBasicInfoId(), mmse.getDate(), sum_score, sum_score_1,mmse.getAnswer1(),mmse.getAnswer2(),mmse.getAnswer3(),
                             mmse.getAnswer4(),mmse.getAnswer5(),mmse.getAnswer6(),mmse.getAnswer7(),mmse.getAnswer8(),
                             mmse.getAnswer9(),mmse.getAnswer10(),mmse.getAnswer11()));
             return new ResponseEntity<>(_mmse, HttpStatus.CREATED);
@@ -69,6 +69,7 @@ public class MSEEController {
             String sum_score = Integer.toString(CalculationUtils.getSumScore(mmse, 1, 11));
 
             _mmse.setBasicInfoId(mmse.getBasicInfoId());
+            _mmse.setDate(mmse.getDate());
             _mmse.setAnswer1(mmse.getAnswer1());
             _mmse.setAnswer2(mmse.getAnswer2());
             _mmse.setAnswer3(mmse.getAnswer3());

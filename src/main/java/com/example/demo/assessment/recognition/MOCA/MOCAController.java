@@ -59,7 +59,7 @@ public class MOCAController {
             String sum_score = Integer.toString(CalculationUtils.getSumScore(moca, 1, 15));
 
             MOCA _moca = mocaRepository
-                    .save(new MOCA(moca.getBasicInfoId(),sum_score,sum_score_1,moca.getAnswer1(),
+                    .save(new MOCA(moca.getBasicInfoId(),moca.getDate(), sum_score,sum_score_1,moca.getAnswer1(),
                             moca.getAnswer2(),moca.getAnswer3(),moca.getAnswer4(),moca.getAnswer5(),moca.getAnswer6(),
                             moca.getQuestion1(),moca.getQuestion2(),sum_score_2,moca.getAnswer7(),moca.getAnswer8(),
                             moca.getAnswer9(),moca.getAnswer10(),sum_score_3,moca.getAnswer11(),moca.getAnswer12(),
@@ -81,6 +81,7 @@ public class MOCAController {
 
             MOCA _moca = mocaData.get();
             _moca.setBasicInfoId(moca.getBasicInfoId());
+            _moca.setDate(moca.getDate());
             _moca.setSum_score(sum_score);
             _moca.setSum_score_1(sum_score_1);
             _moca.setAnswer1(moca.getAnswer1());

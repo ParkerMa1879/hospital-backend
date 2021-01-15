@@ -1,5 +1,6 @@
 package com.example.demo.assessment.recognition.MMSE;
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "mmses")
@@ -10,6 +11,10 @@ public class MMSE {
 
     @Column(name = "basicInfoId")
     private long basicInfoId;
+
+    @Temporal(TemporalType.DATE)
+    @Column (name = "测试日期")
+    private Date date;
 
     @Column(name = "总分")
     private String sum_socre;
@@ -54,10 +59,11 @@ public class MMSE {
 
     }
 
-    public MMSE(long basicInfoId, String sum_socre, String sum_socre_1, String answer1, String answer2, String answer3,
+    public MMSE(long basicInfoId, Date date, String sum_socre, String sum_socre_1, String answer1, String answer2, String answer3,
                 String answer4, String answer5, String answer6, String answer7, String answer8, String answer9,
                 String answer10, String answer11) {
         this.basicInfoId = basicInfoId;
+        this.date = date;
         this.sum_socre = sum_socre;
         this.sum_socre_1 = sum_socre_1;
         this.answer1 = answer1;
@@ -84,6 +90,10 @@ public class MMSE {
     public void setBasicInfoId(long basicInfoId) {
         this.basicInfoId = basicInfoId;
     }
+
+    public Date getDate() {return date; }
+
+    public void setDate(Date date){this.date = date;}
 
     public String getSum_socre() {
         return sum_socre;

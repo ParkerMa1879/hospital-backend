@@ -26,10 +26,9 @@ public class BostonController {
     @Autowired
     BostonRepository bostonRepository;
     @GetMapping("/bostons")
-    public ResponseEntity<List<Boston>> getAllBostons(@RequestParam(required = false) String name) {
+    public ResponseEntity<List<Boston>> getAllBostons(@RequestParam(required = false) long basicInfoId) {
         try {
-            List<Boston> bostons = new ArrayList<>();
-            bostons.addAll(bostonRepository.findAll());
+            List<Boston> bostons = new ArrayList<>(bostonRepository.findAll());
             if (bostons.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }
@@ -49,7 +48,7 @@ public class BostonController {
         try {
             String sum_score = Integer.toString(CalculationUtils.getSumScore(boston, 1, 5));
             Boston _boston = bostonRepository
-                    .save(new Boston(boston.getBasicInfoId(),sum_score,boston.getAnswer1(),
+                    .save(new Boston(boston.getBasicInfoId(),boston.getDate(), sum_score,boston.getAnswer1(),
                             boston.getAnswer2(),boston.getAnswer3(),boston.getAnswer4(),boston.getAnswer5()));
             return new ResponseEntity<>(_boston, HttpStatus.CREATED);
         } catch (Exception e) {
@@ -66,6 +65,7 @@ public class BostonController {
             Boston _boston = bostonData.get();
 
             _boston.setBasicInfoId(boston.getBasicInfoId());
+            _boston.setDate(boston.getDate());
             _boston.setSum_score(sum_score);
             _boston.setAnswer1(boston.getAnswer1());
             _boston.setAnswer2(boston.getAnswer2());

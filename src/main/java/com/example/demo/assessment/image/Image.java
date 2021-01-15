@@ -16,6 +16,7 @@ public class Image {
     @Column(name = "影像号")
     private long imageNum;
 
+    @Temporal(TemporalType.DATE)
     @Column(name = "录入时间")
     private Date entryTime;
 

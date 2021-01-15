@@ -50,7 +50,7 @@ public class ExecutionController {
             String sum_score = Integer.toString(CalculationUtils.getSumScore(execution, 1, 4));
 
             Execution _execution = executionRepository
-                    .save(new Execution(execution.getBasicInfoId(),sum_score,
+                    .save(new Execution(execution.getBasicInfoId(),execution.getDate(), sum_score,
                             execution.getAnswer1(),execution.getAnswer2(),execution.getAnswer3(),execution.getAnswer4(),
                             execution.getQuestion1(),execution.getQuestion2(),execution.getQuestion3(),
                             execution.getQuestion4(),execution.getQuestion5(),execution.getQuestion6(),
@@ -75,6 +75,7 @@ public class ExecutionController {
             Execution _execution = executionData.get();
 
             _execution.setBasicInfoId(execution.getBasicInfoId());
+            _execution.setDate(execution.getDate());
             _execution.setSum_score(sum_score);
             _execution.setAnswer1(execution.getAnswer1());
             _execution.setAnswer2(execution.getAnswer2());

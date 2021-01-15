@@ -26,7 +26,7 @@ public class DailyLifeController {
     @Autowired
     DailyLifeRepository dailylifeRepository;
     @GetMapping("/dailylifes")
-    public ResponseEntity<List<DailyLife>> getAllDailyLifes(@RequestParam(required = false) String name) {
+    public ResponseEntity<List<DailyLife>> getAllDailyLifes(@RequestParam(required = false) long basicInfoId) {
         try {
             List<DailyLife> dailylifes = new ArrayList<>();
             dailylifes.addAll(dailylifeRepository.findAll());
@@ -50,7 +50,7 @@ public class DailyLifeController {
             String sum_score_1 = Integer.toString(CalculationUtils.getSumScore(dailylife, 1, 10));
             String sum_score_2 = Integer.toString(CalculationUtils.getSumScore(dailylife, 11, 18));
             DailyLife _dailylife = dailylifeRepository
-                    .save(new DailyLife(dailylife.getBasicInfoId(),dailylife.getAnswer1(),
+                    .save(new DailyLife(dailylife.getBasicInfoId(),dailylife.getDate(),dailylife.getAnswer1(),
                             dailylife.getAnswer2(),dailylife.getAnswer3(),dailylife.getAnswer4(),dailylife.getAnswer5(),
                             dailylife.getAnswer6(),dailylife.getAnswer7(),dailylife.getAnswer8(),dailylife.getAnswer9(),
                             dailylife.getAnswer10(),sum_score_1,dailylife.getAnswer11(),
@@ -72,6 +72,7 @@ public class DailyLifeController {
             DailyLife _dailylife = dailylifeData.get();
 
             _dailylife.setBasicInfoId(dailylife.getBasicInfoId());
+            _dailylife.setDate(_dailylife.getDate());
             _dailylife.setAnswer1(dailylife.getAnswer1());
             _dailylife.setAnswer2(dailylife.getAnswer2());
             _dailylife.setAnswer3(dailylife.getAnswer3());

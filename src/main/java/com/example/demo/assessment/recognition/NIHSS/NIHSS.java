@@ -1,6 +1,7 @@
 package com.example.demo.assessment.recognition.NIHSS;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table (name = "nihsses")
@@ -11,6 +12,10 @@ public class NIHSS {
 
     @Column(name = "basicInfoId")
     private long basicInfoId;
+
+    @Temporal(TemporalType.DATE)
+    @Column (name = "测试日期")
+    private Date date;
 
     @Column(name = "NIHSS评分")
     private String sum_score;
@@ -77,11 +82,12 @@ public class NIHSS {
 
     public NIHSS(){}
 
-    public NIHSS(long basicInfoId, String sum_score, String answer1, String answer2, String answer3, String answer4,
+    public NIHSS(long basicInfoId, Date date, String sum_score, String answer1, String answer2, String answer3, String answer4,
                  String answer5, String answer6, String answer7, String question1, String answer8, String question2,
                  String answer9, String question3, String answer10, String question4, String answer11, String answer12,
                  String answer13, String answer14, String question5, String answer15) {
         this.basicInfoId = basicInfoId;
+        this.date = date;
         this.sum_score = sum_score;
         this.answer1 = answer1;
         this.answer2 = answer2;
@@ -116,6 +122,10 @@ public class NIHSS {
     public void setBasicInfoId(long basicInfoId) {
         this.basicInfoId = basicInfoId;
     }
+
+    public Date getDate() {return date; }
+
+    public void setDate(Date date){this.date = date;}
 
     public String getSum_score() {
         return sum_score;

@@ -54,7 +54,7 @@ public class VisualReproductionController {
             String sum_score_4 = Integer.toString(CalculationUtils.getSumScore(visualReproduction, 13, 16));
 
             VisualReproduction _visualReproduction = visualReproductionRepository
-                    .save(new VisualReproduction(visualReproduction.getBasicInfoId(),
+                    .save(new VisualReproduction(visualReproduction.getBasicInfoId(), visualReproduction.getDate(),
                             sum_score_1,visualReproduction.getAnswer1(),
                             visualReproduction.getAnswer2(),visualReproduction.getAnswer3(),visualReproduction.getAnswer4(),
                             sum_score_2,visualReproduction.getAnswer5(),
@@ -82,6 +82,7 @@ public class VisualReproductionController {
             VisualReproduction _visualReproduction = visualReproductionData.get();
 
             _visualReproduction.setBasicInfoId(visualReproduction.getBasicInfoId());
+            _visualReproduction.setDate(visualReproduction.getDate());
             _visualReproduction.setSum_score_1(sum_score_1);
             _visualReproduction.setAnswer1(visualReproduction.getAnswer1());
             _visualReproduction.setAnswer2(visualReproduction.getAnswer2());

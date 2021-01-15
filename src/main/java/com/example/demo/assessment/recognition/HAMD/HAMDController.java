@@ -49,7 +49,7 @@ public class HAMDController {
         try {
             String sum_score = Integer.toString(CalculationUtils.getSumScore(hamd, 1, 17));
             HAMD _hamd = hamdRepository
-                    .save(new HAMD(hamd.getBasicInfoId(),sum_score,hamd.getAnswer1(),
+                    .save(new HAMD(hamd.getBasicInfoId(),hamd.getDate(), sum_score,hamd.getAnswer1(),
                             hamd.getAnswer2(),hamd.getAnswer3(),hamd.getAnswer4(),hamd.getAnswer5(),hamd.getAnswer6(),
                             hamd.getAnswer7(),hamd.getAnswer8(),hamd.getAnswer9(),hamd.getAnswer10(),hamd.getAnswer11(),
                             hamd.getAnswer12(),hamd.getAnswer13(),hamd.getAnswer14(),hamd.getAnswer15(),hamd.getAnswer16(),
@@ -67,6 +67,7 @@ public class HAMDController {
             String sum_score = Integer.toString(CalculationUtils.getSumScore(hamd, 1, 17));
             HAMD _hamd = hamdData.get();
             _hamd.setBasicInfoId(hamd.getBasicInfoId());
+            _hamd.setDate(hamd.getDate());
             _hamd.setSum_score(sum_score);
             _hamd.setAnswer1(hamd.getAnswer1());
             _hamd.setAnswer2(hamd.getAnswer2());

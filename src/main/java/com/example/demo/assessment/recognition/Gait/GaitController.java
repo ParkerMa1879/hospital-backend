@@ -52,7 +52,7 @@ public class GaitController {
             String sum_score_3 = Integer.toString(CalculationUtils.getSumScore(gait, 16, 25));
 
             Gait _gait = gaitRepository
-                    .save(new Gait(gait.getBasicInfoId(),sum_score_1,gait.getAnswer1(),
+                    .save(new Gait(gait.getBasicInfoId(),gait.getDate(), sum_score_1,gait.getAnswer1(),
                             gait.getAnswer2(),gait.getAnswer3(),gait.getAnswer4(),gait.getAnswer5(),
                             sum_score_2,gait.getAnswer6(),gait.getAnswer7(),gait.getAnswer8(),
                             gait.getAnswer9(),gait.getAnswer10(),gait.getAnswer11(),gait.getAnswer12(),
@@ -77,6 +77,7 @@ public class GaitController {
             Gait _gait = gaitData.get();
 
             _gait.setBasicInfoId(gait.getBasicInfoId());
+            _gait.setDate(gait.getDate());
             _gait.setSum_score_1(sum_score_1);
             _gait.setAnswer1(gait.getAnswer1());
             _gait.setAnswer2(gait.getAnswer2());

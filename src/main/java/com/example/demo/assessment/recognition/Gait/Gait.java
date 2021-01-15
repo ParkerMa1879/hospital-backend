@@ -1,6 +1,7 @@
 package com.example.demo.assessment.recognition.Gait;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "gaits")
@@ -11,6 +12,10 @@ public class Gait {
 
     @Column(name = "basicInfoId")
     private long basicInfoId;
+
+    @Temporal(TemporalType.DATE)
+    @Column (name = "测试日期")
+    private Date date;
 
     @Column(name = "步态异常量表")
     private String sum_score_1;
@@ -104,13 +109,14 @@ public class Gait {
 
     public Gait(){}
 
-    public Gait(long basicInfoId, String sum_score_1, String answer1, String answer2, String answer3, String answer4,
+    public Gait(long basicInfoId, Date date, String sum_score_1, String answer1, String answer2, String answer3, String answer4,
                 String answer5, String sum_score_2, String answer6, String answer7, String answer8, String answer9,
                 String answer10, String answer11, String answer12, String answer13, String answer14, String answer15,
                 String sum_score_3, String answer16, String answer17, String answer18, String answer19, String answer20,
                 String answer21, String answer22, String answer23, String answer24, String answer25, String question1,
                 String question2) {
         this.basicInfoId = basicInfoId;
+        this.date = date;
         this.sum_score_1 = sum_score_1;
         this.answer1 = answer1;
         this.answer2 = answer2;
@@ -154,6 +160,10 @@ public class Gait {
     public void setBasicInfoId(long basicInfoId) {
         this.basicInfoId = basicInfoId;
     }
+
+    public Date getDate() {return date; }
+
+    public void setDate(Date date){this.date = date;}
 
     public String getSum_score_1() {
         return sum_score_1;

@@ -1,6 +1,7 @@
 package com.example.demo.assessment.recognition.HAMD;
 
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "hamds")
@@ -11,6 +12,10 @@ public class HAMD {
 
     @Column(name = "basicInfoId")
     private long basicInfoId;
+
+    @Temporal(TemporalType.DATE)
+    @Column (name = "测试日期")
+    private Date date;
 
     @Column(name = "HAMD总")
     private String sum_score;
@@ -67,11 +72,12 @@ public class HAMD {
     private String answer17;
 
 
-    public HAMD(long basicInfoId, String sum_score, String answer1, String answer2, String answer3,
+    public HAMD(long basicInfoId, Date date, String sum_score, String answer1, String answer2, String answer3,
                 String answer4, String answer5, String answer6, String answer7, String answer8, String
                         answer9, String answer10, String answer11, String answer12, String answer13,
                 String answer14, String answer15, String answer16, String answer17) {
         this.basicInfoId = basicInfoId;
+        this.date = date;
         this.sum_score = sum_score;
         this.answer1 = answer1;
         this.answer2 = answer2;
@@ -105,6 +111,10 @@ public class HAMD {
     public void setBasicInfoId(long basicInfoId) {
         this.basicInfoId = basicInfoId;
     }
+
+    public Date getDate() {return date; }
+
+    public void setDate(Date date){this.date = date;}
 
     public String getSum_score() {
         return sum_score;

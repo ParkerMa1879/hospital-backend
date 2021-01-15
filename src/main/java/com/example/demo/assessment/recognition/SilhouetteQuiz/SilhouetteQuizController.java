@@ -50,7 +50,7 @@ public class SilhouetteQuizController {
             String sum_score = Integer.toString(CalculationUtils.getSumScore(silhouetteQuiz, 1, 15));
 
             SilhouetteQuiz _silhouetteQuiz = silhouetteQuizRepository
-                    .save(new SilhouetteQuiz(silhouetteQuiz.getBasicInfoId(),
+                    .save(new SilhouetteQuiz(silhouetteQuiz.getBasicInfoId(), silhouetteQuiz.getDate(),
                             sum_score,silhouetteQuiz.getAnswer1(),silhouetteQuiz.getAnswer2(),
                             silhouetteQuiz.getAnswer3(),silhouetteQuiz.getAnswer4(),silhouetteQuiz.getAnswer5(),
                             silhouetteQuiz.getAnswer6(),silhouetteQuiz.getAnswer7(),silhouetteQuiz.getAnswer8(),
@@ -71,6 +71,7 @@ public class SilhouetteQuizController {
             SilhouetteQuiz _silhouetteQuiz = silhouetteQuizData.get();
 
             _silhouetteQuiz.setBasicInfoId(silhouetteQuiz.getBasicInfoId());
+            _silhouetteQuiz.setDate(silhouetteQuiz.getDate());
             _silhouetteQuiz.setSum_score(sum_score);
             _silhouetteQuiz.setAnswer1(silhouetteQuiz.getAnswer1());
             _silhouetteQuiz.setAnswer2(silhouetteQuiz.getAnswer2());

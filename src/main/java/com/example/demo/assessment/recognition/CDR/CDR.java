@@ -1,5 +1,6 @@
 package com.example.demo.assessment.recognition.CDR;
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table(name = "cdrs")
@@ -10,6 +11,10 @@ public class CDR {
 
     @Column(name = "basicInfoId")
     private long basicInfoId;
+
+    @Temporal(TemporalType.DATE)
+    @Column (name = "测试日期")
+    private Date date;
 
     @Column(name = "CDR")
     private String sum_score;
@@ -36,9 +41,10 @@ public class CDR {
 
     }
 
-    public CDR(long basicInfoId, String sum_score, String answer1, String answer2, String answer3,
+    public CDR(long basicInfoId, Date date, String sum_score, String answer1, String answer2, String answer3,
                String answer4, String answer5, String answer6) {
         this.basicInfoId = basicInfoId;
+        this.date = date;
         this.sum_score = sum_score;
         this.answer1 = answer1;
         this.answer2 = answer2;
@@ -59,6 +65,10 @@ public class CDR {
     public void setBasicInfoId(long basicInfoId) {
         this.basicInfoId = basicInfoId;
     }
+
+    public Date getDate() {return date; }
+
+    public void setDate(Date date){this.date = date;}
 
     public String getSum_score() {
         return sum_score;

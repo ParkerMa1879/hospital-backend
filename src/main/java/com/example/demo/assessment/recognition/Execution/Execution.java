@@ -1,5 +1,6 @@
 package com.example.demo.assessment.recognition.Execution;
 import javax.persistence.*;
+import java.util.Date;
 
 @Entity
 @Table (name = "executions")
@@ -10,6 +11,10 @@ public class Execution {
 
     @Column(name = "basicInfoId")
     private long basicInfoId;
+
+    @Temporal(TemporalType.DATE)
+    @Column (name = "测试日期")
+    private Date date;
 
     @Column(name = "类别流畅性")
     private String sum_score;
@@ -98,13 +103,14 @@ public class Execution {
     public Execution(){
     }
 
-    public Execution(long basicInfoId, String sum_score, String answer1, String answer2, String answer3,
+    public Execution(long basicInfoId, Date date, String sum_score, String answer1, String answer2, String answer3,
                      String answer4, String question1, String question2, String question3, String question4,
                      String question5, String question6, String question7, String question8, String question9,
                      String question10, String question11, String question12, String question13, String question14,
                      String question15, String question16, String question17, String question18, String question19,
                      String question20, String question21, String question22, String question23) {
         this.basicInfoId = basicInfoId;
+        this.date = date;
         this.sum_score = sum_score;
         this.answer1 = answer1;
         this.answer2 = answer2;
@@ -146,6 +152,10 @@ public class Execution {
     public void setBasicInfoId(long basicInfoId) {
         this.basicInfoId = basicInfoId;
     }
+
+    public Date getDate() {return date; }
+
+    public void setDate(Date date){this.date = date;}
 
     public String getSum_score() {
         return sum_score;

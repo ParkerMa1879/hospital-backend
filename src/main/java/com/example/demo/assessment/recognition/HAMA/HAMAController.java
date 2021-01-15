@@ -49,7 +49,7 @@ public class HAMAController {
         try {
             String sum_score = Integer.toString(CalculationUtils.getSumScore(hama, 1, 14));
             HAMA _hama = hamaRepository
-                    .save(new HAMA(hama.getBasicInfoId(),sum_score,
+                    .save(new HAMA(hama.getBasicInfoId(), hama.getDate(), sum_score,
                             hama.getAnswer1(),hama.getAnswer2(),hama.getAnswer3(),hama.getAnswer4(),
                             hama.getAnswer5(),hama.getAnswer6(),hama.getAnswer7(),hama.getAnswer8(),
                             hama.getAnswer9(),hama.getAnswer10(),hama.getAnswer11(),hama.getAnswer12(),
@@ -67,6 +67,7 @@ public class HAMAController {
             String sum_score = Integer.toString(CalculationUtils.getSumScore(hama, 1, 14));
             HAMA _hama = hamaData.get();
             _hama.setBasicInfoId(hama.getBasicInfoId());
+            _hama.setDate(hama.getDate());
             _hama.setSum_score(sum_score);
             _hama.setAnswer1(hama.getAnswer1());
             _hama.setAnswer2(hama.getAnswer2());

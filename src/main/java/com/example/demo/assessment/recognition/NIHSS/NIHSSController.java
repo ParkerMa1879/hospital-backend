@@ -50,7 +50,7 @@ public class NIHSSController {
             String sum_score = Integer.toString(CalculationUtils.getSumScore(nihss, 1, 15));
 
             NIHSS _nihss = nihssRepository
-                    .save(new NIHSS(nihss.getBasicInfoId(),sum_score,
+                    .save(new NIHSS(nihss.getBasicInfoId(), nihss.getDate(), sum_score,
                             nihss.getAnswer1(),nihss.getAnswer2(),nihss.getAnswer3(),nihss.getAnswer4(),
                             nihss.getAnswer5(),nihss.getAnswer6(),nihss.getAnswer7(),nihss.getQuestion1(),
                             nihss.getAnswer8(),nihss.getQuestion2(),nihss.getAnswer9(),nihss.getQuestion3(),
@@ -71,6 +71,7 @@ public class NIHSSController {
             NIHSS _nihss = nihssData.get();
 
             _nihss.setBasicInfoId(nihss.getBasicInfoId());
+            _nihss.setDate(nihss.getDate());
             _nihss.setSum_score(sum_score);
             _nihss.setAnswer1(nihss.getAnswer1());
             _nihss.setAnswer2(nihss.getAnswer2());

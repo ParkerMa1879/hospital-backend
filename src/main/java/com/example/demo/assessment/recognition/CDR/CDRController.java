@@ -26,7 +26,7 @@ public class CDRController {
     @Autowired
     CDRRepository cdrRepository;
     @GetMapping("/cdrs")
-    public ResponseEntity<List<CDR>> getAllCDRs(@RequestParam(required = false) String name) {
+    public ResponseEntity<List<CDR>> getAllCDRs(@RequestParam(required = false) long basicInfoId) {
         try {
             List<CDR> cdrs = new ArrayList<>();
             cdrs.addAll(cdrRepository.findAll());
@@ -49,7 +49,7 @@ public class CDRController {
         try {
             String sum_score = Integer.toString(CalculationUtils.getSumScore(cdr, 1, 6));
             CDR _cdr = cdrRepository
-                    .save(new CDR(cdr.getBasicInfoId(),sum_score,cdr.getAnswer1(),
+                    .save(new CDR(cdr.getBasicInfoId(),cdr.getDate(),sum_score,cdr.getAnswer1(),
                             cdr.getAnswer2(),cdr.getAnswer3(),cdr.getAnswer4(),cdr.getAnswer5(),
                             cdr.getAnswer6()));
             return new ResponseEntity<>(_cdr, HttpStatus.CREATED);
@@ -66,6 +66,7 @@ public class CDRController {
 
             CDR _cdr = cdrData.get();
             _cdr.setBasicInfoId(cdr.getBasicInfoId());
+            _cdr.setDate(cdr.getDate());
             _cdr.setSum_score(sum_score);
             _cdr.setAnswer1(cdr.getAnswer1());
             _cdr.setAnswer2(cdr.getAnswer2());

@@ -5,4 +5,5 @@ import java.util.List;
 
 public interface ImageRepository extends JpaRepository<Image, Long>{
     public List<Image> findAllByOrderByIdDesc();
+    public List<Image> findByBasicInfoId(long basicInfoId);
 }

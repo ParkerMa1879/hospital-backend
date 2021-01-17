@@ -116,4 +116,18 @@ public class NIHSSController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @GetMapping("/nihsss/basicInfoId")
+    public ResponseEntity<List<NIHSS>> findByBasicInfoId(@RequestParam() long basicInfoId) {
+        try {
+            List<NIHSS> nihsss = nihssRepository.findByBasicInfoId(basicInfoId);
+            if (nihsss.isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+            return new ResponseEntity<>(nihsss, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
 }

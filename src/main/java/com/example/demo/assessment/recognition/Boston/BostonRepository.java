@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface BostonRepository extends JpaRepository<Boston, Long> {
-    public List<Boston> findAllByOrderByIdDesc();
-    public List<Boston> findByBasicInfoId(long basicInfoId);
+    List<Boston> findAllByOrderByIdDesc();
+    List<Boston> findByBasicInfoId(long basicInfoId);
 }

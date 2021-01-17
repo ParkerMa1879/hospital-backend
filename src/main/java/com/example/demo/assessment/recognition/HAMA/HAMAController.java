@@ -106,5 +106,18 @@ public class HAMAController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @GetMapping("/hamas/basicInfoId")
+    public ResponseEntity<List<HAMA>> findByBasicInfoId(@RequestParam() long basicInfoId) {
+        try {
+            List<HAMA> hamas = hamaRepository.findByBasicInfoId(basicInfoId);
+            if (hamas.isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+            return new ResponseEntity<>(hamas, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }
 

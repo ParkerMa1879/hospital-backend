@@ -3,7 +3,6 @@ package com.example.demo.assessment.recognition.Boston;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
 import com.example.demo.utils.CalculationUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -91,6 +90,19 @@ public class BostonController {
         try {
             bostonRepository.deleteAll();
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/bostons/basicInfoId")
+    public ResponseEntity<List<Boston>> findByBasicInfoId(@RequestParam() long basicInfoId) {
+        try {
+            List<Boston> bostons = bostonRepository.findByBasicInfoId(basicInfoId);
+            if (bostons.isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+            return new ResponseEntity<>(bostons, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }

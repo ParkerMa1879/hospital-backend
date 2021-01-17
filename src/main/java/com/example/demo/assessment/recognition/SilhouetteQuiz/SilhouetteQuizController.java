@@ -111,5 +111,18 @@ public class SilhouetteQuizController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @GetMapping("/silhouetteQuizs/basicInfoId")
+    public ResponseEntity<List<SilhouetteQuiz>> findByBasicInfoId(@RequestParam() long basicInfoId) {
+        try {
+            List<SilhouetteQuiz> silhouetteQuizs = silhouetteQuizRepository.findByBasicInfoId(basicInfoId);
+            if (silhouetteQuizs.isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+            return new ResponseEntity<>(silhouetteQuizs, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }
 

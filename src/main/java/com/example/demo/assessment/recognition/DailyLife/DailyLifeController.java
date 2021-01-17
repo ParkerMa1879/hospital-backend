@@ -116,4 +116,17 @@ public class DailyLifeController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @GetMapping("/dailyLifes/basicInfoId")
+    public ResponseEntity<List<DailyLife>> findByBasicInfoId(@RequestParam() long basicInfoId) {
+        try {
+            List<DailyLife> dailyLifes = dailylifeRepository.findByBasicInfoId(basicInfoId);
+            if (dailyLifes.isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+            return new ResponseEntity<>(dailyLifes, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }

@@ -126,5 +126,19 @@ public class VisualReproductionController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @GetMapping("/visualReproductions/basicInfoId")
+    public ResponseEntity<List<VisualReproduction>> findByBasicInfoId(@RequestParam() long basicInfoId) {
+        try {
+            List<VisualReproduction> visualReproductions = visualReproductionRepository.findByBasicInfoId(basicInfoId);
+            if (visualReproductions.isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+            return new ResponseEntity<>(visualReproductions, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
 }
 

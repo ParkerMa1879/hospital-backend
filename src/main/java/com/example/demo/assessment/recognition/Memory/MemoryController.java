@@ -127,5 +127,18 @@ public class MemoryController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @GetMapping("/memorys/basicInfoId")
+    public ResponseEntity<List<Memory>> findByBasicInfoId(@RequestParam() long basicInfoId) {
+        try {
+            List<Memory> memorys = memoryRepository.findByBasicInfoId(basicInfoId);
+            if (memorys.isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+            return new ResponseEntity<>(memorys, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }
 

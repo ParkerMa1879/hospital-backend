@@ -128,4 +128,17 @@ public class MOCAController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @GetMapping("/mocas/basicInfoId")
+    public ResponseEntity<List<MOCA>> findByBasicInfoId(@RequestParam() long basicInfoId) {
+        try {
+            List<MOCA> mocas = mocaRepository.findByBasicInfoId(basicInfoId);
+            if (mocas.isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+            return new ResponseEntity<>(mocas, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }

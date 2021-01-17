@@ -1,5 +1,13 @@
 package com.example.demo.help;
 
+import com.example.demo.assessment.recognition.Boston.Boston;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import java.util.List;
+
 public class Field {
     static String[] recoFields = {
             "recognitionNum",  "patientInformation",  "recognitionDate",  "orientation",  "time",
@@ -234,6 +242,24 @@ public class Field {
         str.append("    }\n");
         str.append("}\n");
 
+        return str;
+    }
+
+    public static StringBuilder originalFindByCode(){
+        StringBuilder str = new StringBuilder();
+        str.append("@GetMapping(\"/bostons/basicInfoId\")\n");
+        str.append("public ResponseEntity<List<Boston>> findByBasicInfoId(@RequestParam() long basicInfoId) {\n");
+        str.append("    try {\n"
+);
+        str.append("        List<Boston> bostons = bostonRepository.findByBasicInfoId(basicInfoId);\n");
+        str.append("        if (bostons.isEmpty()) {\n");
+        str.append("            return new ResponseEntity<>(HttpStatus.NO_CONTENT);\n");
+        str.append("        }\n");
+        str.append("        return new ResponseEntity<>(bostons, HttpStatus.OK);\n");
+        str.append("    } catch (Exception e) {\n");
+        str.append("        return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);\n");
+        str.append("    }\n");
+        str.append("}\n");
         return str;
     }
 }

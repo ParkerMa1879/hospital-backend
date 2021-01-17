@@ -128,5 +128,18 @@ public class ExecutionController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @GetMapping("/executions/basicInfoId")
+    public ResponseEntity<List<Execution>> findByBasicInfoId(@RequestParam() long basicInfoId) {
+        try {
+            List<Execution> executions = executionRepository.findByBasicInfoId(basicInfoId);
+            if (executions.isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+            return new ResponseEntity<>(executions, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }
 

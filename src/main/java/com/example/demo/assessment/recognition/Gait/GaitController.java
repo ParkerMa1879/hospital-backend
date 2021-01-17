@@ -131,4 +131,17 @@ public class GaitController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @GetMapping("/gaits/basicInfoId")
+    public ResponseEntity<List<Gait>> findByBasicInfoId(@RequestParam() long basicInfoId) {
+        try {
+            List<Gait> gaits = gaitRepository.findByBasicInfoId(basicInfoId);
+            if (gaits.isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+            return new ResponseEntity<>(gaits, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }

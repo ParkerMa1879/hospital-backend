@@ -108,4 +108,17 @@ public class HAMDController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @GetMapping("/hamds/basicInfoId")
+    public ResponseEntity<List<HAMD>> findByBasicInfoId(@RequestParam() long basicInfoId) {
+        try {
+            List<HAMD> hamds = hamdRepository.findByBasicInfoId(basicInfoId);
+            if (hamds.isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+            return new ResponseEntity<>(hamds, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }

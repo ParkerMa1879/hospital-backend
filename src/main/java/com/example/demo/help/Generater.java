@@ -54,14 +54,20 @@ public class Generater {
         return builder;
     }
 
+    public static StringBuilder getFindByCode(StringBuilder builder, String className, String entityName)
+    {
+        replaceAll(builder, "Boston", className);
+        replaceAll(builder, "boston", entityName);
+        return builder;
+    }
+
     public static  void main(String[] argv) throws Exception{
 
-//        Generater generator = new Generater();
-//        System.out.println(generator.getControllerCode(Field.originalControllerCode(), "NIHSS", "nihss"));
+        System.out.println(getFindByCode(Field.originalFindByCode(), "VisualReproduction", "visualReproduction"));
 
-        Generater generator = new Generater();
-        System.out.println(generator.getConstructingCode(Field.infoFields, "basicInfo"));
-        System.out.println(generator.getMappingCode(Field.infoFields, "basicInfo"));
+//        Generater generator = new Generater();
+//        System.out.println(generator.getConstructingCode(Field.infoFields, "basicInfo"));
+//        System.out.println(generator.getMappingCode(Field.infoFields, "basicInfo"));
 
     }
 

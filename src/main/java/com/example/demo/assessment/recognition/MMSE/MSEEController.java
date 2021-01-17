@@ -105,4 +105,17 @@ public class MSEEController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @GetMapping("/mmses/basicInfoId")
+    public ResponseEntity<List<MMSE>> findByBasicInfoId(@RequestParam() long basicInfoId) {
+        try {
+            List<MMSE> mmses = mmseRepository.findByBasicInfoId(basicInfoId);
+            if (mmses.isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+            return new ResponseEntity<>(mmses, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }

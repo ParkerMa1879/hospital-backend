@@ -26,7 +26,7 @@ public class CDRController {
     @Autowired
     CDRRepository cdrRepository;
     @GetMapping("/cdrs")
-    public ResponseEntity<List<CDR>> getAllCDRs(@RequestParam(required = false) long basicInfoId) {
+    public ResponseEntity<List<CDR>> getAllCDRs() {
         try {
             List<CDR> cdrs = new ArrayList<>();
             cdrs.addAll(cdrRepository.findAll());
@@ -92,6 +92,19 @@ public class CDRController {
         try {
             cdrRepository.deleteAll();
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/cdrs/basicInfoId")
+    public ResponseEntity<List<CDR>> findByBasicInfoId(@RequestParam() long basicInfoId) {
+        try {
+            List<CDR> cdrs = cdrRepository.findByBasicInfoId(basicInfoId);
+            if (cdrs.isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+            return new ResponseEntity<>(cdrs, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }

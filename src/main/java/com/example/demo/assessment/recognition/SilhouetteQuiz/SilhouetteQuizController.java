@@ -26,10 +26,13 @@ public class SilhouetteQuizController {
     @Autowired
     SilhouetteQuizRepository silhouetteQuizRepository;
     @GetMapping("/silhouetteQuizs")
-    public ResponseEntity<List<SilhouetteQuiz>> getAllSilhouetteQuizs(@RequestParam(required = false) String name) {
+    public ResponseEntity<List<SilhouetteQuiz>> getAllSilhouetteQuizs(@RequestParam(required = false) boolean reverse) {
         try {
             List<SilhouetteQuiz> silhouetteQuizs = new ArrayList<>();
-            silhouetteQuizs.addAll(silhouetteQuizRepository.findAll());
+            if (reverse)
+                silhouetteQuizs.addAll(silhouetteQuizRepository.findAllByOrderByIdDesc());
+            else
+                silhouetteQuizs.addAll(silhouetteQuizRepository.findAll());
             if (silhouetteQuizs.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }

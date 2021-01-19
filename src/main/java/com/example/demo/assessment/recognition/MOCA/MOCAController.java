@@ -32,10 +32,13 @@ public class MOCAController {
     }
 
     @GetMapping("/mocas")
-    public ResponseEntity<List<MOCA>> getAllMOCAs(@RequestParam(required = false) String name) {
+    public ResponseEntity<List<MOCA>> getAllMOCAs(@RequestParam(required = false) boolean reverse) {
         try {
             List<MOCA> mocas = new ArrayList<>();
-            mocas.addAll(mocaRepository.findAll());
+            if (reverse)
+                mocas.addAll(mocaRepository.findAllByOrderByIdDesc());
+            else
+                mocas.addAll(mocaRepository.findAll());
             if (mocas.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }

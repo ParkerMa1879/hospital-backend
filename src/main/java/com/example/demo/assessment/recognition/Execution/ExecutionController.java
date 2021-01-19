@@ -26,10 +26,13 @@ public class ExecutionController {
     @Autowired
     ExecutionRepository executionRepository;
     @GetMapping("/executions")
-    public ResponseEntity<List<Execution>> getAllExecutions(@RequestParam(required = false) String name) {
+    public ResponseEntity<List<Execution>> getAllExecutions(@RequestParam(required = false) boolean reverse) {
         try {
             List<Execution> executions = new ArrayList<>();
-            executions.addAll(executionRepository.findAll());
+            if (reverse)
+                executions.addAll(executionRepository.findAllByOrderByIdDesc());
+            else
+                executions.addAll(executionRepository.findAll());
             if (executions.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }

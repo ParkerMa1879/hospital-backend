@@ -26,10 +26,13 @@ public class NIHSSController {
     @Autowired
     NIHSSRepository nihssRepository;
     @GetMapping("/nihsss")
-    public ResponseEntity<List<NIHSS>> getAllNIHSSs(@RequestParam(required = false) String name) {
+    public ResponseEntity<List<NIHSS>> getAllNIHSSs(@RequestParam(required = false) boolean reverse) {
         try {
             List<NIHSS> nihsss = new ArrayList<>();
-            nihsss.addAll(nihssRepository.findAll());
+            if (reverse)
+                nihsss.addAll(nihssRepository.findAllByOrderByIdDesc());
+            else
+                nihsss.addAll(nihssRepository.findAll());
             if (nihsss.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }

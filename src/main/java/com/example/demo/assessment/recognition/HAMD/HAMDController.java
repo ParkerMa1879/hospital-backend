@@ -26,10 +26,13 @@ public class HAMDController {
     @Autowired
     HAMDRepository hamdRepository;
     @GetMapping("/hamds")
-    public ResponseEntity<List<HAMD>> getAllHAMDs(@RequestParam(required = false) String name) {
+    public ResponseEntity<List<HAMD>> getAllHAMDs(@RequestParam(required = false) boolean reverse) {
         try {
             List<HAMD> hamds = new ArrayList<>();
-            hamds.addAll(hamdRepository.findAll());
+            if (reverse)
+                hamds.addAll(hamdRepository.findAllByOrderByIdDesc());
+            else
+                hamds.addAll(hamdRepository.findAll());
             if (hamds.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }

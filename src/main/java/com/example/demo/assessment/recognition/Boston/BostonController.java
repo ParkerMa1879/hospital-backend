@@ -25,9 +25,13 @@ public class BostonController {
     @Autowired
     BostonRepository bostonRepository;
     @GetMapping("/bostons")
-    public ResponseEntity<List<Boston>> getAllBostons(@RequestParam(required = false) long basicInfoId) {
+    public ResponseEntity<List<Boston>> getAllBostons(@RequestParam(required = false) boolean reverse) {
         try {
-            List<Boston> bostons = new ArrayList<>(bostonRepository.findAll());
+            List<Boston> bostons = new ArrayList<Boston>();
+            if (reverse)
+                bostons.addAll(bostonRepository.findAllByOrderByIdDesc());
+            else
+                bostons.addAll(bostonRepository.findAll());
             if (bostons.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }
@@ -62,7 +66,6 @@ public class BostonController {
             String sum_score = Integer.toString(CalculationUtils.getSumScore(boston, 1, 5));
 
             Boston _boston = bostonData.get();
-
             _boston.setBasicInfoId(boston.getBasicInfoId());
             _boston.setDate(boston.getDate());
             _boston.setSum_score(sum_score);

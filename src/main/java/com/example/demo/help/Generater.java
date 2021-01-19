@@ -63,11 +63,11 @@ public class Generater {
 
     public static  void main(String[] argv) throws Exception{
 
-        System.out.println(getFindByCode(Field.originalFindByCode(), "VisualReproduction", "visualReproduction"));
+        System.out.println(getFindByCode(Field.originalFindByCode(), "Other", "other"));
 
 //        Generater generator = new Generater();
-//        System.out.println(generator.getConstructingCode(Field.infoFields, "basicInfo"));
-//        System.out.println(generator.getMappingCode(Field.infoFields, "basicInfo"));
+//        System.out.println(generator.getConstructingCode(Field.otherFields, "other"));
+//        System.out.println(generator.getMappingCode(Field.otherFields, "other"));
 
     }
 

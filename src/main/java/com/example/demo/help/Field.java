@@ -177,6 +177,11 @@ public class Field {
              "answer13",  "answer14",  "question5",  "answer15"
     };
 
+    static String[] otherFields = {
+            "basicInfoId",  "date",  "question1",  "question2",  "question3",  "question4",
+            "question5",  "question6",  "question7"
+    };
+
     public static StringBuilder originalControllerCode(){
         StringBuilder str = new StringBuilder();
         str.append("public class BasicInfoController {\n");

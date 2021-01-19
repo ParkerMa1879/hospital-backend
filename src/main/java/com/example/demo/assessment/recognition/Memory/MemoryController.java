@@ -26,10 +26,13 @@ public class MemoryController {
     @Autowired
     MemoryRepository memoryRepository;
     @GetMapping("/memorys")
-    public ResponseEntity<List<Memory>> getAllMemorys(@RequestParam(required = false) String name) {
+    public ResponseEntity<List<Memory>> getAllMemorys(@RequestParam(required = false) boolean reverse) {
         try {
             List<Memory> memorys = new ArrayList<>();
-            memorys.addAll(memoryRepository.findAll());
+            if (reverse)
+                memorys.addAll(memoryRepository.findAllByOrderByIdDesc());
+            else
+                memorys.addAll(memoryRepository.findAll());
             if (memorys.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }

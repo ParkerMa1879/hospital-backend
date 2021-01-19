@@ -27,10 +27,13 @@ public class VisualReproductionController {
     @Autowired
     VisualReproductionRepository visualReproductionRepository;
     @GetMapping("/visualReproductions")
-    public ResponseEntity<List<VisualReproduction>> getAllVisualReproductions(@RequestParam(required = false) String name) {
+    public ResponseEntity<List<VisualReproduction>> getAllVisualReproductions(@RequestParam(required = false) boolean reverse) {
         try {
             List<VisualReproduction> visualReproductions = new ArrayList<>();
-            visualReproductions.addAll(visualReproductionRepository.findAll());
+            if (reverse)
+                visualReproductions.addAll(visualReproductionRepository.findAllByOrderByIdDesc());
+            else
+                visualReproductions.addAll(visualReproductionRepository.findAll());
             if (visualReproductions.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }

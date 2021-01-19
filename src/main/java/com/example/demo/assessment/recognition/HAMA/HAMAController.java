@@ -26,10 +26,13 @@ public class HAMAController {
     @Autowired
     HAMARepository hamaRepository;
     @GetMapping("/hamas")
-    public ResponseEntity<List<HAMA>> getAllHAMAs(@RequestParam(required = false) String name) {
+    public ResponseEntity<List<HAMA>> getAllHAMAs(@RequestParam(required = false) boolean reverse) {
         try {
             List<HAMA> hamas = new ArrayList<>();
-            hamas.addAll(hamaRepository.findAll());
+            if (reverse)
+                hamas.addAll(hamaRepository.findAllByOrderByIdDesc());
+            else
+                hamas.addAll(hamaRepository.findAll());
             if (hamas.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }

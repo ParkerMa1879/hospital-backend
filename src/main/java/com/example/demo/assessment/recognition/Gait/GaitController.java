@@ -26,10 +26,13 @@ public class GaitController {
     @Autowired
     GaitRepository gaitRepository;
     @GetMapping("/gaits")
-    public ResponseEntity<List<Gait>> getAllGaits(@RequestParam(required = false) String name) {
+    public ResponseEntity<List<Gait>> getAllGaits(@RequestParam(required = false) boolean reverse) {
         try {
             List<Gait> gaits = new ArrayList<>();
-            gaits.addAll(gaitRepository.findAll());
+            if (reverse)
+                gaits.addAll(gaitRepository.findAllByOrderByIdDesc());
+            else
+                gaits.addAll(gaitRepository.findAll());
             if (gaits.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }

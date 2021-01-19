@@ -32,10 +32,13 @@ public class BasicInfoController {
     }
 
     @GetMapping("/basicInfos")
-    public ResponseEntity<List<BasicInfo>> getAllBasicInfos(@RequestParam(required = false) String name) {
+    public ResponseEntity<List<BasicInfo>> getAllBasicInfos(@RequestParam(required = false) boolean reverse) {
         try {
             List<BasicInfo> basicInfos = new ArrayList<>();
-            basicInfoRepository.findAll().forEach(basicInfos::add);
+            if (reverse)
+                basicInfos.addAll(basicInfoRepository.findAllByOrderByIdDesc());
+            else
+                basicInfos.addAll(basicInfoRepository.findAll());
 
             if (basicInfos.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
@@ -50,7 +53,6 @@ public class BasicInfoController {
     @GetMapping("/basicInfos/{id}")
     public ResponseEntity<BasicInfo> getBasicInfoById(@PathVariable("id") long id) {
         Optional<BasicInfo> basicInfoData = basicInfoRepository.findById(id);
-
         return basicInfoData.map(basicInfo -> new ResponseEntity<>(basicInfo, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
     }
 
@@ -196,6 +198,215 @@ public class BasicInfoController {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
 
+    }
+
+    @GetMapping("/basicInfos/boston")
+    public ResponseEntity<List<BasicInfo>> getBasicInfoByBostonBasicInfoId() {
+        try {
+            List<BasicInfo> BasicInfos = basicInfoRepository.findAllByBostonBasicInfoId();
+            if (BasicInfos.isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+            return new ResponseEntity<>(BasicInfos, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/basicInfos/cdr")
+    public ResponseEntity<List<BasicInfo>> getBasicInfoByCDRBasicInfoId() {
+        try {
+            List<BasicInfo> BasicInfos = basicInfoRepository.findAllByCDRBasicInfoId();
+            if (BasicInfos.isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+            return new ResponseEntity<>(BasicInfos, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/basicInfos/dailyLife")
+    public ResponseEntity<List<BasicInfo>> getBasicInfoByDailyLifeBasicInfoId() {
+        try {
+            List<BasicInfo> BasicInfos = basicInfoRepository.findAllByDailyLifeBasicInfoId();
+            if (BasicInfos.isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+            return new ResponseEntity<>(BasicInfos, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+
+    @GetMapping("/basicInfos/execution")
+    public ResponseEntity<List<BasicInfo>> getBasicInfoByExecutionBasicInfoId() {
+        try {
+            List<BasicInfo> BasicInfos = basicInfoRepository.findAllByExecutionBasicInfoId();
+            if (BasicInfos.isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+            return new ResponseEntity<>(BasicInfos, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/basicInfos/gait")
+    public ResponseEntity<List<BasicInfo>> getBasicInfoByGaitBasicInfoId() {
+        try {
+            List<BasicInfo> BasicInfos = basicInfoRepository.findAllByGaitBasicInfoId();
+            if (BasicInfos.isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+            return new ResponseEntity<>(BasicInfos, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/basicInfos/hama")
+    public ResponseEntity<List<BasicInfo>> getBasicInfoByHAMABasicInfoId() {
+        try {
+            List<BasicInfo> BasicInfos = basicInfoRepository.findAllByHAMABasicInfoId();
+            if (BasicInfos.isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+            return new ResponseEntity<>(BasicInfos, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/basicInfos/hamd")
+    public ResponseEntity<List<BasicInfo>> getBasicInfoByHAMDBasicInfoId() {
+        try {
+            List<BasicInfo> BasicInfos = basicInfoRepository.findAllByHAMDBasicInfoId();
+            if (BasicInfos.isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+            return new ResponseEntity<>(BasicInfos, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/basicInfos/memory")
+    public ResponseEntity<List<BasicInfo>> getBasicInfoByMemoryBasicInfoId() {
+        try {
+            List<BasicInfo> BasicInfos = basicInfoRepository.findAllByMemoryBasicInfoId();
+            if (BasicInfos.isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+            return new ResponseEntity<>(BasicInfos, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/basicInfos/mmse")
+    public ResponseEntity<List<BasicInfo>> getBasicInfoByMMSEBasicInfoId() {
+        try {
+            List<BasicInfo> BasicInfos = basicInfoRepository.findAllByMMSEBasicInfoId();
+            if (BasicInfos.isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+            return new ResponseEntity<>(BasicInfos, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/basicInfos/moca")
+    public ResponseEntity<List<BasicInfo>> getBasicInfoByMOCABasicInfoId() {
+        try {
+            List<BasicInfo> BasicInfos = basicInfoRepository.findAllByMOCABasicInfoId();
+            if (BasicInfos.isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+            return new ResponseEntity<>(BasicInfos, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/basicInfos/nihss")
+    public ResponseEntity<List<BasicInfo>> getBasicInfoByNIHSSBasicInfoId() {
+        try {
+            List<BasicInfo> BasicInfos = basicInfoRepository.findAllByNIHSSBasicInfoId();
+            if (BasicInfos.isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+            return new ResponseEntity<>(BasicInfos, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/basicInfos/SilhouetteQuiz")
+    public ResponseEntity<List<BasicInfo>> getBasicInfoBySilhouetteQuizBasicInfoId() {
+        try {
+            List<BasicInfo> BasicInfos = basicInfoRepository.findAllBySilhouetteQuizBasicInfoId();
+            if (BasicInfos.isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+            return new ResponseEntity<>(BasicInfos, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/basicInfos/visualReproduction")
+    public ResponseEntity<List<BasicInfo>> getBasicInfoByVisualReproductionBasicInfoId() {
+        try {
+            List<BasicInfo> BasicInfos = basicInfoRepository.findAllByVisualReproductionBasicInfoId();
+            if (BasicInfos.isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+            return new ResponseEntity<>(BasicInfos, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/basicInfos/other")
+    public ResponseEntity<List<BasicInfo>> getBasicInfoByOtherBasicInfoId() {
+        try {
+            List<BasicInfo> BasicInfos = basicInfoRepository.findAllByOtherBasicInfoId();
+            if (BasicInfos.isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+            return new ResponseEntity<>(BasicInfos, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/basicInfos/testing")
+    public ResponseEntity<List<BasicInfo>> getBasicInfoByTestingBasicInfoId() {
+        try {
+            List<BasicInfo> BasicInfos = basicInfoRepository.findAllByTestingBasicInfoId();
+            if (BasicInfos.isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+            return new ResponseEntity<>(BasicInfos, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/basicInfos/image")
+    public ResponseEntity<List<BasicInfo>> getBasicInfoByImageBasicInfoId() {
+        try {
+            List<BasicInfo> BasicInfos = basicInfoRepository.findAllByImageBasicInfoId();
+            if (BasicInfos.isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+            return new ResponseEntity<>(BasicInfos, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
 }

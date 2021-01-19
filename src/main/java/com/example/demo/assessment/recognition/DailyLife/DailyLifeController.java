@@ -26,10 +26,13 @@ public class DailyLifeController {
     @Autowired
     DailyLifeRepository dailylifeRepository;
     @GetMapping("/dailylifes")
-    public ResponseEntity<List<DailyLife>> getAllDailyLifes(@RequestParam(required = false) long basicInfoId) {
+    public ResponseEntity<List<DailyLife>> getAllDailyLifes(@RequestParam(required = false) boolean reverse) {
         try {
             List<DailyLife> dailylifes = new ArrayList<>();
-            dailylifes.addAll(dailylifeRepository.findAll());
+            if (reverse)
+                dailylifes.addAll(dailylifeRepository.findAllByOrderByIdDesc());
+            else
+                dailylifes.addAll(dailylifeRepository.findAll());
             if (dailylifes.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }

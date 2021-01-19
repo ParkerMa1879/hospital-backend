@@ -26,10 +26,13 @@ public class MSEEController {
     @Autowired
     MMSERepository mmseRepository;
     @GetMapping("/mmses")
-    public ResponseEntity<List<MMSE>> getAllMMSEs(@RequestParam(required = false) String name) {
+    public ResponseEntity<List<MMSE>> getAllMMSEs(@RequestParam(required = false) boolean reverse) {
         try {
             List<MMSE> mmses = new ArrayList<>();
-            mmses.addAll(mmseRepository.findAll());
+            if (reverse)
+                mmses.addAll(mmseRepository.findAllByOrderByIdDesc());
+            else
+                mmses.addAll(mmseRepository.findAll());
             if (mmses.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }

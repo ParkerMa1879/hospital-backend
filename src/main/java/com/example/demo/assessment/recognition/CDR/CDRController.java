@@ -26,10 +26,13 @@ public class CDRController {
     @Autowired
     CDRRepository cdrRepository;
     @GetMapping("/cdrs")
-    public ResponseEntity<List<CDR>> getAllCDRs() {
+    public ResponseEntity<List<CDR>> getAllCDRs(boolean reverse) {
         try {
             List<CDR> cdrs = new ArrayList<>();
-            cdrs.addAll(cdrRepository.findAll());
+            if (reverse)
+                cdrs.addAll(cdrRepository.findAllByOrderByIdDesc());
+            else
+                cdrs.addAll(cdrRepository.findAll());
             if (cdrs.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }

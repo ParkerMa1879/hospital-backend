@@ -5,5 +5,5 @@ import java.util.List;
 
 public interface GaitRepository  extends JpaRepository<Gait, Long> {
     public List<Gait> findAllByOrderByIdDesc();
-    public List<Gait> findByBasicInfoId(long basicInfoId);
+    public List<Gait> findByBasicInfoIdOrderByIdDesc(long basicInfoId);
 }

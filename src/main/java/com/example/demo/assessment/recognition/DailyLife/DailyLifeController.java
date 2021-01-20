@@ -123,7 +123,7 @@ public class DailyLifeController {
     @GetMapping("/dailyLifes/basicInfoId")
     public ResponseEntity<List<DailyLife>> findByBasicInfoId(@RequestParam() long basicInfoId) {
         try {
-            List<DailyLife> dailyLifes = dailylifeRepository.findByBasicInfoId(basicInfoId);
+            List<DailyLife> dailyLifes = dailylifeRepository.findByBasicInfoIdOrderByIdDesc(basicInfoId);
             if (dailyLifes.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }

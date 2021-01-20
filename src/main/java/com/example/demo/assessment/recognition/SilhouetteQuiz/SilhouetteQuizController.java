@@ -118,7 +118,7 @@ public class SilhouetteQuizController {
     @GetMapping("/silhouetteQuizs/basicInfoId")
     public ResponseEntity<List<SilhouetteQuiz>> findByBasicInfoId(@RequestParam() long basicInfoId) {
         try {
-            List<SilhouetteQuiz> silhouetteQuizs = silhouetteQuizRepository.findByBasicInfoId(basicInfoId);
+            List<SilhouetteQuiz> silhouetteQuizs = silhouetteQuizRepository.findByBasicInfoIdOrderByIdDesc(basicInfoId);
             if (silhouetteQuizs.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }

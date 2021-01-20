@@ -135,7 +135,7 @@ public class ExecutionController {
     @GetMapping("/executions/basicInfoId")
     public ResponseEntity<List<Execution>> findByBasicInfoId(@RequestParam() long basicInfoId) {
         try {
-            List<Execution> executions = executionRepository.findByBasicInfoId(basicInfoId);
+            List<Execution> executions = executionRepository.findByBasicInfoIdOrderByIdDesc(basicInfoId);
             if (executions.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }

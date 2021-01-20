@@ -103,7 +103,7 @@ public class CDRController {
     @GetMapping("/cdrs/basicInfoId")
     public ResponseEntity<List<CDR>> findByBasicInfoId(@RequestParam() long basicInfoId) {
         try {
-            List<CDR> cdrs = cdrRepository.findByBasicInfoId(basicInfoId);
+            List<CDR> cdrs = cdrRepository.findByBasicInfoIdOrderByIdDesc(basicInfoId);
             if (cdrs.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }

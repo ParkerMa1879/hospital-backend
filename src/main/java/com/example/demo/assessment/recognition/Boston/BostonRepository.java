@@ -5,5 +5,5 @@ import java.util.List;
 
 public interface BostonRepository extends JpaRepository<Boston, Long> {
     List<Boston> findAllByOrderByIdDesc();
-    List<Boston> findByBasicInfoId(long basicInfoId);
+    List<Boston> findByBasicInfoIdOrderByIdDesc(long basicInfoId);
 }

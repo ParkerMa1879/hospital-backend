@@ -5,5 +5,5 @@ import java.util.List;
 
 public interface ExecutionRepository extends JpaRepository<Execution, Long> {
     public List<Execution> findAllByOrderByIdDesc();
-    public List<Execution> findByBasicInfoId(long basicInfoId);
+    public List<Execution> findByBasicInfoIdOrderByIdDesc(long basicInfoId);
 }

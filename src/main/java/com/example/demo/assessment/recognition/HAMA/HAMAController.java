@@ -113,7 +113,7 @@ public class HAMAController {
     @GetMapping("/hamas/basicInfoId")
     public ResponseEntity<List<HAMA>> findByBasicInfoId(@RequestParam() long basicInfoId) {
         try {
-            List<HAMA> hamas = hamaRepository.findByBasicInfoId(basicInfoId);
+            List<HAMA> hamas = hamaRepository.findByBasicInfoIdOrderByIdDesc(basicInfoId);
             if (hamas.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }

@@ -5,6 +5,6 @@ import java.util.List;
 
 public interface DailyLifeRepository extends JpaRepository<DailyLife, Long> {
     public List<DailyLife> findAllByOrderByIdDesc();
-    public List<DailyLife> findByBasicInfoId(long basicInfoId);
+    public List<DailyLife> findByBasicInfoIdOrderByIdDesc(long basicInfoId);
 }
 

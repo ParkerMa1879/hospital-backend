@@ -115,7 +115,7 @@ public class HAMDController {
     @GetMapping("/hamds/basicInfoId")
     public ResponseEntity<List<HAMD>> findByBasicInfoId(@RequestParam() long basicInfoId) {
         try {
-            List<HAMD> hamds = hamdRepository.findByBasicInfoId(basicInfoId);
+            List<HAMD> hamds = hamdRepository.findByBasicInfoIdOrderByIdDesc(basicInfoId);
             if (hamds.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }

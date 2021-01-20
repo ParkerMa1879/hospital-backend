@@ -134,7 +134,7 @@ public class MemoryController {
     @GetMapping("/memorys/basicInfoId")
     public ResponseEntity<List<Memory>> findByBasicInfoId(@RequestParam() long basicInfoId) {
         try {
-            List<Memory> memorys = memoryRepository.findByBasicInfoId(basicInfoId);
+            List<Memory> memorys = memoryRepository.findByBasicInfoIdOrderByIdDesc(basicInfoId);
             if (memorys.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }

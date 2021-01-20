@@ -112,7 +112,7 @@ public class MSEEController {
     @GetMapping("/mmses/basicInfoId")
     public ResponseEntity<List<MMSE>> findByBasicInfoId(@RequestParam() long basicInfoId) {
         try {
-            List<MMSE> mmses = mmseRepository.findByBasicInfoId(basicInfoId);
+            List<MMSE> mmses = mmseRepository.findByBasicInfoIdOrderByIdDesc(basicInfoId);
             if (mmses.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }

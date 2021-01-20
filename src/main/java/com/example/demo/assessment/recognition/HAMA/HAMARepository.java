@@ -5,5 +5,5 @@ import java.util.List;
 
 public interface HAMARepository extends JpaRepository<HAMA, Long> {
     public List<HAMA> findAllByOrderByIdDesc();
-    public List<HAMA> findByBasicInfoId(long basicInfoId);
+    public List<HAMA> findByBasicInfoIdOrderByIdDesc(long basicInfoId);
 }

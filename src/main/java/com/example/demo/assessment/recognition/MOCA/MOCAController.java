@@ -135,7 +135,7 @@ public class MOCAController {
     @GetMapping("/mocas/basicInfoId")
     public ResponseEntity<List<MOCA>> findByBasicInfoId(@RequestParam() long basicInfoId) {
         try {
-            List<MOCA> mocas = mocaRepository.findByBasicInfoId(basicInfoId);
+            List<MOCA> mocas = mocaRepository.findByBasicInfoIdOrderByIdDesc(basicInfoId);
             if (mocas.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }

@@ -5,5 +5,5 @@ import java.util.List;
 
 public interface VisualReproductionRepository extends JpaRepository<VisualReproduction, Long> {
     public List<VisualReproduction> findAllByOrderByIdDesc();
-    public List<VisualReproduction> findByBasicInfoId(long basicInfoId);
+    public List<VisualReproduction> findByBasicInfoIdOrderByIdDesc(long basicInfoId);
 }

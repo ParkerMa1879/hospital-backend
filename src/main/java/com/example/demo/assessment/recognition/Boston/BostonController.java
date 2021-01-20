@@ -101,7 +101,7 @@ public class BostonController {
     @GetMapping("/bostons/basicInfoId")
     public ResponseEntity<List<Boston>> findByBasicInfoId(@RequestParam() long basicInfoId) {
         try {
-            List<Boston> bostons = bostonRepository.findByBasicInfoId(basicInfoId);
+            List<Boston> bostons = bostonRepository.findByBasicInfoIdOrderByIdDesc(basicInfoId);
             if (bostons.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }

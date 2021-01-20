@@ -138,7 +138,7 @@ public class GaitController {
     @GetMapping("/gaits/basicInfoId")
     public ResponseEntity<List<Gait>> findByBasicInfoId(@RequestParam() long basicInfoId) {
         try {
-            List<Gait> gaits = gaitRepository.findByBasicInfoId(basicInfoId);
+            List<Gait> gaits = gaitRepository.findByBasicInfoIdOrderByIdDesc(basicInfoId);
             if (gaits.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }

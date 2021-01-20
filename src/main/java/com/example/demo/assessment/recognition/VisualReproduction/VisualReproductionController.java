@@ -133,7 +133,7 @@ public class VisualReproductionController {
     @GetMapping("/visualReproductions/basicInfoId")
     public ResponseEntity<List<VisualReproduction>> findByBasicInfoId(@RequestParam() long basicInfoId) {
         try {
-            List<VisualReproduction> visualReproductions = visualReproductionRepository.findByBasicInfoId(basicInfoId);
+            List<VisualReproduction> visualReproductions = visualReproductionRepository.findByBasicInfoIdOrderByIdDesc(basicInfoId);
             if (visualReproductions.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }

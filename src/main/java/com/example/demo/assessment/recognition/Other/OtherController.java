@@ -100,7 +100,7 @@ public class OtherController {
     @GetMapping("/others/basicInfoId")
     public ResponseEntity<List<Other>> findByBasicInfoId(@RequestParam() long basicInfoId) {
         try {
-            List<Other> others = otherRepository.findByBasicInfoId(basicInfoId);
+            List<Other> others = otherRepository.findByBasicInfoIdOrderByIdDesc(basicInfoId);
             if (others.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }

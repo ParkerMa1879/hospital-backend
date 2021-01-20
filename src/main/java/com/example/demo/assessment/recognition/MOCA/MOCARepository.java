@@ -5,5 +5,5 @@ import java.util.List;
 
 public interface MOCARepository extends JpaRepository<MOCA, Long> {
     public List<MOCA> findAllByOrderByIdDesc();
-    public List<MOCA> findByBasicInfoId(long basicInfoId);
+    public List<MOCA> findByBasicInfoIdOrderByIdDesc(long basicInfoId);
 }

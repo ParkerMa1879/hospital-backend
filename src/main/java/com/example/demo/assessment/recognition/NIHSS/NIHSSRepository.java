@@ -5,5 +5,5 @@ import java.util.List;
 
 public interface NIHSSRepository  extends JpaRepository<NIHSS, Long> {
     public List<NIHSS> findAllByOrderByIdDesc();
-    public List<NIHSS> findByBasicInfoId(long basicInfoId);
+    public List<NIHSS> findByBasicInfoIdOrderByIdDesc(long basicInfoId);
 }

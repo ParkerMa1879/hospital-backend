@@ -5,5 +5,5 @@ import java.util.List;
 
 public interface HAMDRepository extends JpaRepository<HAMD, Long> {
     public List<HAMD> findAllByOrderByIdDesc();
-    public List<HAMD> findByBasicInfoId(long basicInfoId);
+    public List<HAMD> findByBasicInfoIdOrderByIdDesc(long basicInfoId);
 }

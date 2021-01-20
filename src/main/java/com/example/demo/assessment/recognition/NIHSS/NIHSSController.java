@@ -123,7 +123,7 @@ public class NIHSSController {
     @GetMapping("/nihsss/basicInfoId")
     public ResponseEntity<List<NIHSS>> findByBasicInfoId(@RequestParam() long basicInfoId) {
         try {
-            List<NIHSS> nihsss = nihssRepository.findByBasicInfoId(basicInfoId);
+            List<NIHSS> nihsss = nihssRepository.findByBasicInfoIdOrderByIdDesc(basicInfoId);
             if (nihsss.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }

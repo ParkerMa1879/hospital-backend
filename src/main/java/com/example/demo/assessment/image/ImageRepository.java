@@ -1,9 +1,10 @@
 package com.example.demo.assessment.image;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 
-public interface ImageRepository extends JpaRepository<Image, Long>{
-    public List<Image> findAllByOrderByIdDesc();
-    public List<Image> findByBasicInfoId(long basicInfoId);
+@Repository
+public interface ImageRepository extends JpaRepository<Image, String> {
+    List<Image> findByBasicInfoIdOrderByIdDesc(long basicInfoId);
 }

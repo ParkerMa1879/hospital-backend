@@ -14,14 +14,16 @@ public class ImageStorageService {
   @Autowired
   private ImageRepository imageRepository;
 
-  public Image store(long basicInfo, Date entryTime, String mrNum, int imageType, MultipartFile file) throws IOException {
+  public void store(long basicInfo, Date entryTime, String mrNum, int imageType, MultipartFile file) throws IOException {
     Image image = new Image(basicInfo, entryTime, mrNum, imageType, file.getBytes());
-
-    return imageRepository.save(image);
+    imageRepository.save(image);
   }
 
   public Image getFile(String id) {
-    return imageRepository.findById(id).get();
+    if (imageRepository.findById(id).isPresent()){
+      return imageRepository.findById(id).get();
+    }
+    return new Image();
   }
 
   public Stream<Image> getFileByBaicInfoId(long basicInfoId) {

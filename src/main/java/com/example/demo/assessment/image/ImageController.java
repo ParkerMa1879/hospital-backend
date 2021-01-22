@@ -21,10 +21,10 @@ public class ImageController {
   private ImageStorageService storageService;
 
   @PostMapping("/images/upload")
-  public ResponseEntity<ResponseMessage> uploadFile(@RequestParam("basicInfoId") long basicInfoId, @RequestParam("entryTime") Date entryTime,
-                                                    @RequestParam("mrNum") String mrNum,@RequestParam("imageType") int imageType,
-                                                    @RequestParam("file") MultipartFile file) {
-    String message = "";
+  public ResponseEntity<ResponseMessage> uploadFile(@RequestParam(required = false) long basicInfoId, @RequestParam(required = false) Date entryTime,
+                                                    @RequestParam(required = false) String mrNum,@RequestParam(required = false) int imageType,
+                                                    @RequestParam(required = false) MultipartFile file) {
+    String message;
     try {
       storageService.store(basicInfoId, entryTime, mrNum, imageType, file);
 
@@ -66,7 +66,7 @@ public class ImageController {
 
   @GetMapping("/files/basicInfoId")
   public ResponseEntity<List<byte[]>> getFileByBasicInfoId(@RequestParam() long basicInfoId) {
-    List<byte[]> fileDB = storageService.getFileByBaicInfoId(basicInfoId).map(Image::getData).collect(Collectors.toList());;
+    List<byte[]> fileDB = storageService.getFileByBaicInfoId(basicInfoId).map(Image::getData).collect(Collectors.toList());
 
     return ResponseEntity.ok().body(fileDB);
   }

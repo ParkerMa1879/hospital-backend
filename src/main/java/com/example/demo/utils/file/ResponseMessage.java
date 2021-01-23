@@ -1,4 +1,4 @@
-package com.example.demo.assessment.image;
+package com.example.demo.utils.file;
 
 public class ResponseMessage {
   private String message;

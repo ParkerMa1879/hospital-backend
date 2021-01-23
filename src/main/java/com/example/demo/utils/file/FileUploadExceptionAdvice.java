@@ -1,4 +1,4 @@
-package com.example.demo.assessment.image;
+package com.example.demo.utils.file;
 
 import org.springframework.web.multipart.MaxUploadSizeExceededException;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;

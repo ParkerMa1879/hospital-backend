@@ -1,61 +1,121 @@
 package com.example.demo.assessment.image;
 
+import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Optional;
 
+import com.example.demo.assessment.testing.Testing;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.Resource;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.mvc.method.annotation.MvcUriComponentsBuilder;
 
-@Controller
-@CrossOrigin("http://localhost:8081")
+@CrossOrigin(origins = "http://localhost:8081")
+@RestController
 @RequestMapping("/api")
 public class ImageController {
 
-  @Autowired
-  ImageStorageService storageService;
-  ImageRepository imageRepository;
+    @Autowired
+    ImageRepository imageRepository;
 
-  @PostMapping("/images/upload")
-  public ResponseEntity<ResponseMessage> uploadFile(@RequestParam("file") MultipartFile file) {
-    String message;
-    try {
-      storageService.save(file);
-
-      String filename = file.getOriginalFilename();
-      imageRepository.save(new Image(filename, "tmp"));
-
-      message = "Uploaded the file successfully: " + file.getOriginalFilename();
-      return ResponseEntity.status(HttpStatus.OK).body(new ResponseMessage(message));
-    } catch (Exception e) {
-      message = "Could not upload the file: " + file.getOriginalFilename() + "!";
-      return ResponseEntity.status(HttpStatus.EXPECTATION_FAILED).body(new ResponseMessage(message));
+    @RequestMapping("/welcome-4")
+    public String welcomepage() {
+        return "Welcome to Demo";
     }
-  }
 
-  @GetMapping("/images/files")
-  public ResponseEntity<List<Image>> getListFiles() {
-    List<Image> images = storageService.loadAll().map(path -> {
-      String filename = path.getFileName().toString();
-      String url = MvcUriComponentsBuilder
-          .fromMethodName(ImageController.class, "getFile", path.getFileName().toString()).build().toString();
+    @GetMapping("/images")
+    public ResponseEntity<List<Image>> getAllImages() {
+        try {
+            List<Image> images = new ArrayList<>();
 
-      return new Image(filename, url);
-    }).collect(Collectors.toList());
+            images.addAll(imageRepository.findAll());
 
-    return ResponseEntity.status(HttpStatus.OK).body(images);
-  }
+            if (images.isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
 
-  @GetMapping("/images/files/{filename:.+}")
-  public ResponseEntity<Resource> getFile(@PathVariable String filename) {
-    Resource file = storageService.load(filename);
-    return ResponseEntity.ok()
-        .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + file.getFilename() + "\"").body(file);
-  }
+            return new ResponseEntity<>(images, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/images/{id}")
+    public ResponseEntity<Image> getImageById(@PathVariable("id") long id) {
+        Optional<Image> imageData = imageRepository.findById(id);
+
+        return imageData.map(image -> new ResponseEntity<>(image, HttpStatus.OK)).orElseGet(() -> new ResponseEntity<>(HttpStatus.NOT_FOUND));
+    }
+
+    @PostMapping("/images")
+    public ResponseEntity<Image> createImage(@RequestBody Image image) {
+        try {
+            Image _image = imageRepository
+                    .save(new Image(image.getBasicInfoId(),image.getImageNum(),image.getEntryTime(),image.getMrNum(),
+                            image.getHeadVesselMriMra(),image.getHeadVesselMriMraFolder(),image.getCranialSpectroscopy(),
+                            image.getCtcta(),image.getVascularUltrasound(),image.getTcd()));
+            return new ResponseEntity<>(_image, HttpStatus.CREATED);
+        } catch (Exception e) {
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @PutMapping("/images/{id}")
+    public ResponseEntity<Image> updateImage(@PathVariable("id") long id, @RequestBody Image image) {
+        Optional<Image> imageData = imageRepository.findById(id);
+
+        if (imageData.isPresent()) {
+            Image _image = imageData.get();
+            _image.setBasicInfoId(image.getBasicInfoId());
+            _image.setImageNum(image.getImageNum());
+            _image.setEntryTime(image.getEntryTime());
+            _image.setMrNum(image.getMrNum());
+            _image.setHeadVesselMriMra(image.getHeadVesselMriMra());
+            _image.setHeadVesselMriMraFolder(image.getHeadVesselMriMraFolder());
+            _image.setCranialSpectroscopy(image.getCranialSpectroscopy());
+            _image.setCtcta(image.getCtcta());
+            _image.setVascularUltrasound(image.getVascularUltrasound());
+            _image.setTcd(image.getTcd());
+
+            return new ResponseEntity<>(imageRepository.save(_image), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+    }
+
+    @DeleteMapping("/images/{id}")
+    public ResponseEntity<HttpStatus> deleteImage(@PathVariable("id") long id) {
+        try {
+            imageRepository.deleteById(id);
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @DeleteMapping("/images")
+    public ResponseEntity<HttpStatus> deleteAllImages() {
+        try {
+            imageRepository.deleteAll();
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+    }
+
+    @GetMapping("/images/basicInfoId")
+    public ResponseEntity<List<Image>> findByBasicInfoId(@RequestParam() long basicInfoId) {
+        try {
+            List<Image> images = imageRepository.findByBasicInfoId(basicInfoId);
+            if (images.isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+            return new ResponseEntity<>(images, HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
 }
+

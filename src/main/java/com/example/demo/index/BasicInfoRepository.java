@@ -36,6 +36,4 @@ public interface BasicInfoRepository extends JpaRepository<BasicInfo, Long> {
     List<BasicInfo> findAllByOtherBasicInfoId();
     @Query("Select distinct x from BasicInfo x  left join Testing y on y.basicInfoId = x.id order by x.id DESC")
     List<BasicInfo> findAllByTestingBasicInfoId();
-    @Query("Select distinct x from BasicInfo x  left join Image y on y.basicInfoId = x.id order by x.id DESC")
-    List<BasicInfo> findAllByImageBasicInfoId();
 }

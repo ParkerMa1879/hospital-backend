@@ -1,36 +1,19 @@
 package com.example.demo.assessment.image;
 
-import java.io.IOException;
-import java.util.Date;
+import java.nio.file.Path;
 import java.util.stream.Stream;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.core.io.Resource;
 import org.springframework.web.multipart.MultipartFile;
 
-@Service
-public class ImageStorageService {
+public interface ImageStorageService {
+  void init();
 
-  @Autowired
-  private ImageRepository imageRepository;
+  void save(MultipartFile file);
 
-  public void store(long basicInfo, Date entryTime, String mrNum, int imageType, MultipartFile file) throws IOException {
-    Image image = new Image(basicInfo, entryTime, mrNum, imageType, file.getBytes());
-    imageRepository.save(image);
-  }
+  Resource load(String filename);
 
-  public Image getFile(String id) {
-    if (imageRepository.findById(id).isPresent()){
-      return imageRepository.findById(id).get();
-    }
-    return new Image();
-  }
+  void deleteAll();
 
-  public Stream<Image> getFileByBaicInfoId(long basicInfoId) {
-    return imageRepository.findByBasicInfoIdOrderByIdDesc(basicInfoId).stream();
-  }
-  
-  public Stream<Image> getAllFiles() {
-    return imageRepository.findAll().stream();
-  }
+  Stream<Path> loadAll();
 }

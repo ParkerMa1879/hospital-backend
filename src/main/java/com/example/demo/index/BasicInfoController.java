@@ -396,17 +396,4 @@ public class BasicInfoController {
         }
     }
 
-    @GetMapping("/basicInfos/image")
-    public ResponseEntity<List<BasicInfo>> getBasicInfoByImageBasicInfoId() {
-        try {
-            List<BasicInfo> BasicInfos = basicInfoRepository.findAllByImageBasicInfoId();
-            if (BasicInfos.isEmpty()) {
-                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-            }
-            return new ResponseEntity<>(BasicInfos, HttpStatus.OK);
-        } catch (Exception e) {
-            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
-
 }

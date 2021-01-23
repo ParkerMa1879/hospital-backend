@@ -1,88 +1,38 @@
 package com.example.demo.assessment.image;
-
 import javax.persistence.*;
-
-import org.hibernate.annotations.GenericGenerator;
-
-import java.util.Date;
 
 @Entity
 @Table(name = "images")
 public class Image {
-  @Id
-  @GeneratedValue(generator = "uuid")
-  @GenericGenerator(name = "uuid", strategy = "uuid2")
-  private String id;
+      @Id
+      @GeneratedValue(strategy = GenerationType.AUTO)
+      private long id;
 
-  @Column(name = "basicInfoId")
-  private long basicInfoId;
+      private String name;
+      private String url;
 
-  @Temporal(TemporalType.DATE)
-  @Column(name = "录入时间")
-  private Date entryTime;
+      public Image() {
+      }
 
-  @Column(name = "MR号")
-  private String mrNum;
+      public Image(String name, String url) {
+        this.name = name;
+        this.url = url;
 
-  @Column(name = "图像种类")
-  private int imageType;
+      }
 
-  @Lob
-  private byte[] data;
+      public String getName() {
+        return this.name;
+      }
 
-  public Image() {
-  }
+      public void setName(String name) {
+        this.name = name;
+      }
 
-  public Image(long basicInfoId, Date entryTime, String mrNum, int imageType, byte[] data) {
-    this.basicInfoId = basicInfoId;
-    this.entryTime = entryTime;
-    this.mrNum =mrNum;
-    this.imageType = imageType;
-    this.data = data;
-  }
+      public String getUrl() {
+        return this.url;
+      }
 
-  public String getId() {
-    return id;
-  }
-
-  public long getBasicInfoId(){
-    return basicInfoId;
-  }
-
-  public void setBasicInfoId(long basicInfoId){
-    this.basicInfoId = basicInfoId;
-  }
-
-  public Date getEntryTime() {
-    return entryTime;
-  }
-
-  public void setEntryTime(Date entryTime) {
-    this.entryTime = entryTime;
-  }
-
-  public String getMrNum() {
-    return mrNum;
-  }
-
-  public void setMrNum(String mrNum) {
-    this.mrNum = mrNum;
-  }
-
-  public int getImageType() {
-    return imageType;
-  }
-
-  public void setImageType(int imageType) {
-    this.imageType = imageType;
-  }
-
-  public byte[] getData() {
-    return data;
-  }
-
-  public void setData(byte[] data) {
-    this.data = data;
-  }
-
+      public void setUrl(String url) {
+        this.url = url;
+      }
 }

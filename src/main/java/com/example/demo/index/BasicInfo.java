@@ -255,7 +255,7 @@ public class BasicInfo {
 
 
     public BasicInfo(String name, int age, long identification, String gender, Date date, String namePinyin, int mrRaw,
-                     int mrSort, int mrDate, String remarkForFollowupVisit, String primDiag, int followupYear,
+                     int mrSort, int mrDate, String remarkForFollowupVisit, int csvdNum, String primDiag, int followupYear,
                      int dropOut,long hospitalNum,long bedNum,long clinicNum, Date birthDate, String ethnic,
                      String eduLevel, int eduYear, String profession,String work, String address, long contact,
                      String specimenRemark, String blood, int bloodBox, int bloodSampleNum, int cerebrospinalFluidNum,
@@ -281,6 +281,7 @@ public class BasicInfo {
         this. mrSort = mrSort;
         this. mrDate = mrDate;
         this. remarkForFollowupVisit = remarkForFollowupVisit;
+        this. csvdNum = csvdNum;
         this. primDiag = primDiag;
         this. followupYear = followupYear;
         this. dropOut = dropOut;
@@ -406,6 +407,14 @@ public class BasicInfo {
         return remarkForFollowupVisit;
     }
     public void setRemarkForFollowupVisit(String remarkForFollowupVisit) { this.remarkForFollowupVisit = remarkForFollowupVisit; }
+
+    public int getCsvdNum() {
+        return csvdNum;
+    }
+
+    public void setCsvdNum(int csvdNum) {
+        this.csvdNum = csvdNum;
+    }
 
     public String getPrimDiag() { return primDiag; }
     public void setPrimDiag(String primDiag) { this.primDiag = primDiag; }

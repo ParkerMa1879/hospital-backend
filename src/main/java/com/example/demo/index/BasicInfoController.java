@@ -62,7 +62,7 @@ public class BasicInfoController {
             BasicInfo _basicInfo = basicInfoRepository
                     .save(new BasicInfo(basicInfo.getName(),basicInfo.getAge(),basicInfo.getIdentification(),basicInfo.getGender(),
                             basicInfo.getDate(),basicInfo.getNamePinyin(),basicInfo.getMrRaw(),basicInfo.getMrSort(),
-                            basicInfo.getMrDate(),basicInfo.getRemarkForFollowupVisit(),basicInfo.getPrimDiag(),
+                            basicInfo.getMrDate(),basicInfo.getRemarkForFollowupVisit(), basicInfo.getCsvdNum(), basicInfo.getPrimDiag(),
                             basicInfo.getFollowupYear(),basicInfo.getDropOut(),basicInfo.getHospitalNum(),
                             basicInfo.getBedNum(),basicInfo.getClinicNum(),basicInfo.getBirthDate(), basicInfo.geteThnic(),
                             basicInfo.getEduLevel(),basicInfo.getEduYear(),basicInfo.getProfession(),
@@ -108,6 +108,7 @@ public class BasicInfoController {
             _basicInfo.setMrSort(basicInfo.getMrSort());
             _basicInfo.setMrDate(basicInfo.getMrDate());
             _basicInfo.setRemarkForFollowupVisit(basicInfo.getRemarkForFollowupVisit());
+            _basicInfo.setCsvdNum(basicInfo.getCsvdNum());
             _basicInfo.setPrimDiag(basicInfo.getPrimDiag());
             _basicInfo.setFollowupYear(basicInfo.getFollowupYear());
             _basicInfo.setDropOut(basicInfo.getDropOut());

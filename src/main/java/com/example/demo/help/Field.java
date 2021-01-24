@@ -6,6 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import java.util.Date;
 import java.util.List;
 
 public class Field {
@@ -83,6 +84,29 @@ public class Field {
             "hyperlipidemiaMedication",  "medicalRemark",  "otherMedicine",  "smoke",  "smokeYear",  "smokeNumPerDay",
             "quitSmoking",  "quitSmokingYear",  "drink",  "historyOfAlcoholism",  "alcoholGPerDay",  "quitDrinking",
             "quitDrinkingYear",  "familyHistory",  "familyHistoryDiscription"
+    };
+
+    static String[] basicInfoFields = {
+             "name",  "age",  "identification",  "gender", "date",  "namePinyin",
+     "mrRaw",  "mrSort",  "mrDate",  "remarkForFollowupVisit",  "csvdNum",
+     "primDiag",  "followupYear",  "dropOut",  "hospitalNum",  "bedNum",
+     "clinicNum",  "birthDate",  "ethnic",  "eduLevel",  "eduYear",
+     "profession",  "work",  "address",  "contact",  "specimenRemark",
+     "blood",  "bloodBox",  "bloodSampleNum",  "cerebrospinalFluidNum",
+     "urineNum",  "medicalHistory",  "memoryDeclineCourse",
+     "increasedMemoryImpairment",  "maritalStatus",  "height",  "weight",
+     "cerebrovascularDisease",  "cerebrovascularDiseaseYear",
+     "stableCerebrovascularDisease",  "cerebrovascularDiseaseMedication",
+     "cnsDiseaseDescription",  "hypertension",  "hypertensionYear",
+     "highestHypertension",  "averageHypertension",  "stableHypertension",
+     "hypertensionMedication",  "diabetes",  "diabetesYear",
+     "stableDiabetes",  "diabetesMedication",  "coronaryDisease",
+     "coronaryDiseaseYear",  "stableCoronaryDisease",  "atrialFibrillation",
+     "atrialFibrillationYear",  "atrialFibrillationControl",  "hyperlipidemia",
+     "hyperlipidemiaYear",  "stableHyperlipidemia",  "hyperlipidemiaMedication",
+     "medicalRemark",  "otherMedicine",  "smoke",  "smokeYear",  "smokeNumPerDay",  "quitSmoking",
+     "quitSmokingYear",  "drink",  "historyOfAlcoholism",  "alcoholGPerDay",  "quitDrinking",
+     "quitDrinkingYear",  "familyHistory",  "familyHistoryDiscription"
     };
 
     static String[] mmseFields = {

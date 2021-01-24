@@ -1,18 +1,18 @@
-package com.example.demo.utils.file;
-
-public class ResponseMessage {
-  private String message;
-
-  public ResponseMessage(String message) {
-    this.message = message;
-  }
-
-  public String getMessage() {
-    return message;
-  }
-
-  public void setMessage(String message) {
-    this.message = message;
-  }
-
-}
+//package com.example.demo.utils.file;
+//
+//public class ResponseMessage {
+//  private String message;
+//
+//  public ResponseMessage(String message) {
+//    this.message = message;
+//  }
+//
+//  public String getMessage() {
+//    return message;
+//  }
+//
+//  public void setMessage(String message) {
+//    this.message = message;
+//  }
+//
+//}

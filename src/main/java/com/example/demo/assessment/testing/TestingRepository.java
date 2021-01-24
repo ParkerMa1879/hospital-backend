@@ -4,6 +4,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 public interface TestingRepository extends JpaRepository<Testing, Long> {
-    public List<Testing> findAllByOrderByIdDesc();
-    public List<Testing> findByBasicInfoId(long basicInfoId);
+    List<Testing> findAllByOrderByIdDesc();
+    List<Testing> findByBasicInfoId(long basicInfoId);
 }

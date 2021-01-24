@@ -14,7 +14,7 @@ public class DailyLife {
     private long basicInfoId;
 
     @Temporal(TemporalType.DATE)
-    @Column (name = "测试日期")
+    @Column(name = "测试日期")
     private Date date;
 
     @Column(name = "ADL1")
@@ -77,10 +77,7 @@ public class DailyLife {
     @Column(name = "IADLA总")
     private String sum_score_2;
 
-    public DailyLife(long basicInfoId, Date date, String answer1, String answer2, String answer3, String answer4, String answer5,
-                     String answer6, String answer7, String answer8, String answer9, String answer10, String sum_score_1,
-                     String answer11, String answer12, String answer13, String answer14, String answer15, String answer16,
-                     String answer17, String answer18, String sum_score_2) {
+    public DailyLife(long basicInfoId, Date date, String answer1, String answer2, String answer3, String answer4, String answer5, String answer6, String answer7, String answer8, String answer9, String answer10, String sum_score_1, String answer11, String answer12, String answer13, String answer14, String answer15, String answer16, String answer17, String answer18, String sum_score_2) {
         this.basicInfoId = basicInfoId;
         this.date = date;
         this.answer1 = answer1;
@@ -105,9 +102,6 @@ public class DailyLife {
         this.sum_score_2 = sum_score_2;
     }
 
-    public DailyLife(){
-
-    }
 
     public long getId() {
         return id;
@@ -121,9 +115,13 @@ public class DailyLife {
         this.basicInfoId = basicInfoId;
     }
 
-    public Date getDate() {return date; }
+    public Date getDate() {
+        return date;
+    }
 
-    public void setDate(Date date){this.date = date;}
+    public void setDate(Date date) {
+        this.date = date;
+    }
 
     public String getAnswer1() {
         return answer1;
@@ -283,33 +281,5 @@ public class DailyLife {
 
     public void setSum_score_2(String sum_score_2) {
         this.sum_score_2 = sum_score_2;
-    }
-
-    @Override
-    public String toString() {
-        return "DailyLife{" +
-                "id='" + id + '\'' +
-                ", basicInfoId='" + basicInfoId + '\'' +
-                ", answer1='" + answer1 + '\'' +
-                ", answer2='" + answer2 + '\'' +
-                ", answer3='" + answer3 + '\'' +
-                ", answer4='" + answer4 + '\'' +
-                ", answer5='" + answer5 + '\'' +
-                ", answer6='" + answer6 + '\'' +
-                ", answer7='" + answer7 + '\'' +
-                ", answer8='" + answer8 + '\'' +
-                ", answer9='" + answer9 + '\'' +
-                ", answer10='" + answer10 + '\'' +
-                ", sum_score_1='" + sum_score_1 + '\'' +
-                ", answer11='" + answer11 + '\'' +
-                ", answer12='" + answer12 + '\'' +
-                ", answer13='" + answer13 + '\'' +
-                ", answer14='" + answer14 + '\'' +
-                ", answer15='" + answer15 + '\'' +
-                ", answer16='" + answer16 + '\'' +
-                ", answer17='" + answer17 + '\'' +
-                ", answer18='" + answer18 + '\'' +
-                ", sum_score_2='" + sum_score_2 + '\'' +
-                '}';
     }
 }

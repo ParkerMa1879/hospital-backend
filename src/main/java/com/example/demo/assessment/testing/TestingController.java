@@ -3,6 +3,7 @@ package com.example.demo.assessment.testing;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,18 +16,19 @@ public class TestingController {
     @Autowired
     TestingRepository testingRepository;
 
-    @RequestMapping("/welcome-3")
+    @RequestMapping("/welcome-testing")
     public String welcomepage() {
         return "Welcome to Demo";
     }
 
     @GetMapping("/testings")
-    public ResponseEntity<List<Testing>> getAllTestings() {
+    public ResponseEntity<List<Testing>> getAllTestings(@RequestParam(required = false) boolean reverse) {
         try {
             List<Testing> testings = new ArrayList<>();
-
-            testings.addAll(testingRepository.findAll());
-
+            if (reverse)
+                testings.addAll(testingRepository.findAllByOrderByIdDesc());
+            else
+                testings.addAll(testingRepository.findAll());
             if (testings.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }

@@ -77,7 +77,11 @@ public class DailyLife {
     @Column(name = "IADLA总")
     private String sum_score_2;
 
-    public DailyLife(long basicInfoId, Date date, String answer1, String answer2, String answer3, String answer4, String answer5, String answer6, String answer7, String answer8, String answer9, String answer10, String sum_score_1, String answer11, String answer12, String answer13, String answer14, String answer15, String answer16, String answer17, String answer18, String sum_score_2) {
+    public DailyLife(long basicInfoId, Date date, String answer1, String answer2, String answer3,
+                     String answer4, String answer5, String answer6, String answer7, String answer8,
+                     String answer9, String answer10, String sum_score_1, String answer11,
+                     String answer12, String answer13, String answer14, String answer15, String answer16,
+                     String answer17, String answer18, String sum_score_2) {
         this.basicInfoId = basicInfoId;
         this.date = date;
         this.answer1 = answer1;
@@ -101,7 +105,6 @@ public class DailyLife {
         this.answer18 = answer18;
         this.sum_score_2 = sum_score_2;
     }
-
 
     public long getId() {
         return id;

@@ -141,10 +141,11 @@ public class Field {
     };
 
     static String[] dailylifeFields = {
-            "id", "basicInfoId",  "answer1",  "answer2",  "answer3",  "answer4",  "answer5",
-             "answer6",  "answer7",  "answer8",  "answer9",  "answer10",  "sum_score_1",
-             "answer11",  "answer12",  "answer13",  "answer14",  "answer15",  "answer16",
-             "answer17",  "answer18",  "sum_score_2"
+     "basicInfoId",  "date",  "answer1",  "answer2",  "answer3",
+     "answer4",  "answer5",  "answer6",  "answer7",  "answer8",
+     "answer9",  "answer10",  "sum_score_1",  "answer11",
+     "answer12",  "answer13",  "answer14",  "answer15",  "answer16",
+     "answer17",  "answer18",  "sum_score_2"
     };
 
     static String[] executionFields = {

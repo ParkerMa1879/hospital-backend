@@ -69,7 +69,7 @@ public class Generater {
 //        System.out.println(generator.getConstructingCode(Field.otherFields, "other"));
 //        System.out.println(generator.getMappingCode(Field.otherFields, "other"));
 
-        System.out.println(generator.getMappingCode(Field.basicInfoFields, "basicInfo"));
+        System.out.println(generator.getMappingCode(Field.dailylifeFields, "dailylife"));
 
     }
 

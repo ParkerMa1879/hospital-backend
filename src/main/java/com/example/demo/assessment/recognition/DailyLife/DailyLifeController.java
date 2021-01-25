@@ -3,7 +3,6 @@ package com.example.demo.assessment.recognition.DailyLife;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
-
 import com.example.demo.utils.calculation.CalculationUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -47,15 +46,18 @@ public class DailyLifeController {
     @PostMapping("/dailyLifes")
     public ResponseEntity<DailyLife> createDailyLife(@RequestBody DailyLife dailyLife) {
         try {
+            String sum_score_1 = Integer.toString(CalculationUtils.getSumScore(dailyLife, 1, 10));
+            String sum_score_2 = Integer.toString(CalculationUtils.getSumScore(dailyLife, 11, 18));
+
             DailyLife _dailyLife = dailyLifeRepository
                     .save(new DailyLife(dailyLife.getBasicInfoId(),dailyLife.getDate(),dailyLife.getAnswer1(),
                             dailyLife.getAnswer2(),dailyLife.getAnswer3(),dailyLife.getAnswer4(),
                             dailyLife.getAnswer5(),dailyLife.getAnswer6(),dailyLife.getAnswer7(),
                             dailyLife.getAnswer8(),dailyLife.getAnswer9(),dailyLife.getAnswer10(),
-                            dailyLife.getSum_score_1(),dailyLife.getAnswer11(),dailyLife.getAnswer12(),
+                            sum_score_1,dailyLife.getAnswer11(),dailyLife.getAnswer12(),
                             dailyLife.getAnswer13(),dailyLife.getAnswer14(),dailyLife.getAnswer15(),
                             dailyLife.getAnswer16(),dailyLife.getAnswer17(),dailyLife.getAnswer18(),
-                            dailyLife.getSum_score_2()));
+                            sum_score_2));
             return new ResponseEntity<>(_dailyLife, HttpStatus.CREATED);
         } catch (Exception e) {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
@@ -66,6 +68,9 @@ public class DailyLifeController {
             DailyLife dailyLife) {
         Optional<DailyLife> dailyLifeData = dailyLifeRepository.findById(id);
         if (dailyLifeData.isPresent()) {
+            String sum_score_1 = Integer.toString(CalculationUtils.getSumScore(dailyLife, 1, 10));
+            String sum_score_2 = Integer.toString(CalculationUtils.getSumScore(dailyLife, 11, 18));
+
             DailyLife _dailyLife = dailyLifeData.get();
 
             _dailyLife.setBasicInfoId(dailyLife.getBasicInfoId());
@@ -80,7 +85,7 @@ public class DailyLifeController {
             _dailyLife.setAnswer8(dailyLife.getAnswer8());
             _dailyLife.setAnswer9(dailyLife.getAnswer9());
             _dailyLife.setAnswer10(dailyLife.getAnswer10());
-            _dailyLife.setSum_score_1(dailyLife.getSum_score_1());
+            _dailyLife.setSum_score_1(sum_score_1);
             _dailyLife.setAnswer11(dailyLife.getAnswer11());
             _dailyLife.setAnswer12(dailyLife.getAnswer12());
             _dailyLife.setAnswer13(dailyLife.getAnswer13());
@@ -89,7 +94,7 @@ public class DailyLifeController {
             _dailyLife.setAnswer16(dailyLife.getAnswer16());
             _dailyLife.setAnswer17(dailyLife.getAnswer17());
             _dailyLife.setAnswer18(dailyLife.getAnswer18());
-            _dailyLife.setSum_score_2(dailyLife.getSum_score_2());
+            _dailyLife.setSum_score_2(sum_score_2);
 
             return new ResponseEntity<>(dailyLifeRepository.save(_dailyLife), HttpStatus.OK);
         } else {
@@ -109,6 +114,19 @@ public class DailyLifeController {
         try {
             dailyLifeRepository.deleteAll();
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        } catch (Exception e) {
+            return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @GetMapping("/DailyLife/basicInfoId")
+    public ResponseEntity<List<DailyLife>> findByBasicInfoId(@RequestParam() long basicInfoId) {
+        try {
+            List<DailyLife> dailyLifes = dailyLifeRepository.findByBasicInfoIdOrderByIdDesc(basicInfoId);
+            if (dailyLifes.isEmpty()) {
+                return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+            }
+            return new ResponseEntity<>(dailyLifes, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }

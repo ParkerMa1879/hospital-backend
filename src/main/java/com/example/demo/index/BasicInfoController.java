@@ -39,7 +39,6 @@ public class BasicInfoController {
                 basicInfos.addAll(basicInfoRepository.findAllByOrderByIdDesc());
             else
                 basicInfos.addAll(basicInfoRepository.findAll());
-
             if (basicInfos.isEmpty()) {
                 return new ResponseEntity<>(HttpStatus.NO_CONTENT);
             }

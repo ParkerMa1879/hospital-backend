@@ -63,13 +63,13 @@ public class Generater {
 
     public static  void main(String[] argv) throws Exception{
 
-//        System.out.println(getFindByCode(Field.originalFindByCode(), "Other", "other"));
+//        System.out.println(getControllerCode(Field.originalControllerCode(), "DailyLife", "dailyLife"));
 
         Generater generator = new Generater();
 //        System.out.println(generator.getConstructingCode(Field.otherFields, "other"));
 //        System.out.println(generator.getMappingCode(Field.otherFields, "other"));
 
-        System.out.println(generator.getMappingCode(Field.dailylifeFields, "dailylife"));
+        System.out.println(generator.getConstructingCode(Field.dailylifeFields, "dailyLife"));
 
     }
 

@@ -77,6 +77,9 @@ public class DailyLife {
     @Column(name = "IADLA总")
     private String sum_score_2;
 
+    public DailyLife(){
+    }
+
     public DailyLife(long basicInfoId, Date date, String answer1, String answer2, String answer3,
                      String answer4, String answer5, String answer6, String answer7, String answer8,
                      String answer9, String answer10, String sum_score_1, String answer11,

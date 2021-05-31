@@ -1,1 +1,1 @@
-# please use intellij IDEA for developing
+# a hospital platform back-end based on Spring-JPA and Vue.
